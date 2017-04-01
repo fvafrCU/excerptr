@@ -1,14 +1,18 @@
 construct_path <- function(temporary = FALSE) {
     base <- c("inst", "excerpts")
-    root <- tryCatch(rprojroot::find_root(rprojroot::is_r_package), 
-                     error = function(e) return(FALSE)
-                     )
-    if (root == FALSE) {
-        excerptr_excerpts <- system.file(base, package = "excerptr")
-        if (excerptr_excerpts == "" || isTRUE(temporary)) {
-            root <- tempdir()
-        } else {
-            root <- excerptr_excerpts
+    if (isTRUE(temporary)) {
+        root <- tempdir()
+    } else {
+        root <- tryCatch(rprojroot::find_root(rprojroot::is_r_package), 
+                         error = function(e) return(FALSE)
+                         )
+        if (root == FALSE) {
+            excerptr_excerpts <- system.file(base, package = "excerptr")
+            if (excerptr_excerpts == "" || isTRUE(temporary)) {
+                root <- tempdir()
+            } else {
+                root <- excerptr_excerpts
+            }
         }
     }
     path <- file.path(root, paste(base, collapse = .Platform$file.sep))
