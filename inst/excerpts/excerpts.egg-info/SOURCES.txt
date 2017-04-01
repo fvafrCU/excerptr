@@ -1,0 +1,13 @@
+README.rst
+setup.py
+excerpts/__init__.py
+excerpts/command_line.py
+excerpts/main.py
+excerpts/op.py
+excerpts/ui.py
+excerpts.egg-info/PKG-INFO
+excerpts.egg-info/SOURCES.txt
+excerpts.egg-info/dependency_links.txt
+excerpts.egg-info/entry_points.txt
+excerpts.egg-info/requires.txt
+excerpts.egg-info/top_level.txt
