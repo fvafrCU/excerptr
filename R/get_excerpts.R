@@ -1,4 +1,4 @@
-excerpts_path <- function(temporary = FALSE) {
+construct_path <- function(temporary = FALSE) {
     base <- c("inst", "excerpts")
     root <- tryCatch(rprojroot::find_root(rprojroot::is_r_package), 
                      error = function(e) return(FALSE)
@@ -11,24 +11,22 @@ excerpts_path <- function(temporary = FALSE) {
             root <- excerptr_excerpts
         }
     }
-    excerpts_path <- file.path(root, paste(base, collapse = .Platform$file.sep))
-    return(excerpts_path)
+    path <- file.path(root, paste(base, collapse = .Platform$file.sep))
+    return(path)
 }
-set_excerpts_path <- function(...) {
-    options(excerpts_path = excerpts_path(...))
+set_path <- function(...) {
+    options(excerpts_path = construct_path(...))
     return(invisible(NULL))
 }
-get_excerpts_path <- function() {
+get_path <- function() {
     path <- getOption("excerpts_path")
     if (is.null(path)) {
-        excerpts_path <- excerpts_path()
-    } else {
-        excerpts_path  <- path
-    }
-
+        path <- construct_path()
+    } 
+    return(path)
 }
-get_excerpts <- function(force = FALSE, remove_dot_git = TRUE) {
-    python_code <- get_excerpts_path()
+get_excerpts <- function(force = FALSE, remove_dot_git = TRUE, ...) {
+    python_code <- construct_path(...)
     if (isTRUE(force)) unlink(python_code, recursive = TRUE)
     status <- git2r::clone("https://github.com/fvafrCU/excerpts/", 
                            python_code)
@@ -36,6 +34,7 @@ get_excerpts <- function(force = FALSE, remove_dot_git = TRUE) {
         status <- capture.output(status)
         unlink(file.path(python_code, ".git/"), recursive = TRUE, force = TRUE)
     }
+    set_path(...)
     return(status)
 }
 concatenate_python_codes <- function(codes) {
@@ -55,8 +54,8 @@ concatenate_python_codes <- function(codes) {
     code <- code[- future_index]
     return(code)
 }
-load_excerpts <- function(...) {
-    python_directory <- get_excerpts_path(...)
+load_excerpts <- function() {
+    python_directory <- get_path()
     python_codes <- file.path(python_directory, "excerpts")
     codes <- list.files(python_codes, pattern = "^[^_].*\\.py", full.names = TRUE)
     code <- concatenate_python_codes(codes)
