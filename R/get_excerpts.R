@@ -18,8 +18,8 @@ construct_path <- function(temporary = FALSE) {
     path <- file.path(root, paste(base, collapse = .Platform$file.sep))
     return(path)
 }
-set_path <- function(...) {
-    options(excerpts_path = construct_path(...))
+set_path <- function(temporary = FALSE) {
+    options(excerpts_path = construct_path(temporary = temporary))
     return(invisible(NULL))
 }
 get_path <- function() {
