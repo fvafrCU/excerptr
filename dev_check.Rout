@@ -1,0 +1,209 @@
+Updating excerptr documentation
+Loading excerptr
+Writing excerptr.Rd
+Setting env vars ---------------------------------------------------------------
+CFLAGS  : -Wall -pedantic
+CXXFLAGS: -Wall -pedantic
+Building excerptr --------------------------------------------------------------
+  --no-resave-data --no-manual 
+
+* preparing ‘excerptr’:
+* checking DESCRIPTION meta-information ... OK
+* checking for LF line-endings in source and make files
+* checking for empty or unneeded directories
+* building ‘excerptr_0.0.0.9000.tar.gz’
+
+Setting env vars ---------------------------------------------------------------
+_R_CHECK_CRAN_INCOMING_USE_ASPELL_: TRUE
+_R_CHECK_CRAN_INCOMING_           : TRUE
+_R_CHECK_FORCE_SUGGESTS_          : FALSE
+Checking excerptr --------------------------------------------------------------
+  --as-cran --timings --no-manual 
+
+* using R Under development (unstable) (2016-12-20 r71827)
+* using platform: x86_64-pc-linux-gnu (64-bit)
+* using session charset: UTF-8
+* using options ‘--no-manual --as-cran’
+* checking for file ‘excerptr/DESCRIPTION’ ... OK
+* this is package ‘excerptr’ version ‘0.0.0.9000’
+* package encoding: UTF-8
+* checking CRAN incoming feasibility ... NOTE
+Maintainer: ‘First Last <first.last@example.com>’
+
+New submission
+
+Version contains large components (0.0.0.9000)
+
+Non-FOSS package license (What license is it under?)
+
+The Title field should be in title case, current version then in title case:
+‘What the Package Does (one line, title case)’
+‘What the Package Does (One Line, Title Case)’
+* checking package namespace information ... OK
+* checking package dependencies ... OK
+* checking if this is a source package ... OK
+* checking if there is a namespace ... OK
+* checking for executable files ... OK
+* checking for hidden files and directories ... NOTE
+Found the following hidden files and directories:
+  inst/excerpts/.doxygen.conf
+  inst/excerpts/.travis.yml
+These were most likely included in error. See section ‘Package
+structure’ in the ‘Writing R Extensions’ manual.
+
+CRAN-pack does not know about
+  inst/excerpts/.doxygen.conf
+  inst/excerpts/.travis.yml
+* checking for portable file names ... OK
+* checking for sufficient/correct file permissions ... OK
+* checking whether package ‘excerptr’ can be installed ... OK
+* checking installed package size ... OK
+* checking package directory ... OK
+* checking DESCRIPTION meta-information ... WARNING
+Non-standard license specification:
+  What license is it under?
+Standardizable: FALSE
+* checking top-level files ... OK
+* checking for left-over files ... OK
+* checking index information ... OK
+* checking package subdirectories ... OK
+* checking R files for non-ASCII characters ... OK
+* checking R files for syntax errors ... OK
+* checking whether the package can be loaded ... OK
+* checking whether the package can be loaded with stated dependencies ... OK
+* checking whether the package can be unloaded cleanly ... OK
+* checking whether the namespace can be loaded with stated dependencies ... OK
+* checking whether the namespace can be unloaded cleanly ... OK
+* checking use of S3 registration ... OK
+* checking dependencies in R code ... OK
+* checking S3 generic/method consistency ... OK
+* checking replacement functions ... OK
+* checking foreign function calls ... OK
+* checking R code for possible problems ... OK
+* checking Rd files ... OK
+* checking Rd metadata ... OK
+* checking Rd line widths ... OK
+* checking Rd cross-references ... OK
+* checking for missing documentation entries ... OK
+* checking for code/documentation mismatches ... OK
+* checking Rd \usage sections ... OK
+* checking Rd contents ... OK
+* checking for unstated dependencies in examples ... OK
+* checking examples ... ERROR
+Running examples in ‘excerptr-Ex.R’ failed
+The error most likely occurred in:
+
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: excerptr
+> ### Title: Excerpt Structuring Comments and Set a Table of Contents.
+> ### Aliases: excerptr
+> 
+> ### ** Examples
+> 
+> root <- system.file(package = "excerptr")
+> test_files <- file.path(root, "excerpts", "tests", "files")
+> excerptr(file_name = file.path(test_files, "some_file.txt"),
++          output_path = dirname(tempdir()), run_pandoc = TRUE,
++          pandoc_formats = c("pdf"))
+Error in strsplit(code[local_import_index], split = "import") : 
+  non-character argument
+Calls: excerptr ... mysub -> sub -> unique -> sapply -> lapply -> strsplit
+Execution halted
+* checking for unstated dependencies in ‘tests’ ... OK
+* checking tests ...
+  Running ‘testthat.R’
+ ERROR
+Running the tests in ‘tests/testthat.R’ failed.
+Last 13 lines of output:
+         "inst/excerpts")) at testthat/test_basic.R:6
+  2: compare(object, expected, ...)
+  3: compare.character(object, expected, ...)
+  4: identical(x, y)
+  5: file.path(rprojroot::find_root(rprojroot::is_r_package), "inst/excerpts")
+  6: rprojroot::find_root(rprojroot::is_r_package)
+  7: stop("No root directory found in ", start_path, " or its parent directories. ", paste(format(criterion), 
+         collapse = "\n"), call. = FALSE)
+  
+  testthat results ================================================================
+  OK: 1 SKIPPED: 0 FAILED: 1
+  1. Error: paths (@test_basic.R#6) 
+  
+  Error: testthat unit tests failed
+  Execution halted
+* DONE
+
+Status: 2 ERRORs, 1 WARNING, 2 NOTEs
+See
+for details.
+
+R CMD check results
+2 errors | 1 warning  | 2 notes
+checking examples ... ERROR
+Running examples in ‘excerptr-Ex.R’ failed
+The error most likely occurred in:
+
+> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
+> ### Name: excerptr
+> ### Title: Excerpt Structuring Comments and Set a Table of Contents.
+> ### Aliases: excerptr
+> 
+> ### ** Examples
+> 
+> root <- system.file(package = "excerptr")
+> test_files <- file.path(root, "excerpts", "tests", "files")
+> excerptr(file_name = file.path(test_files, "some_file.txt"),
++          output_path = dirname(tempdir()), run_pandoc = TRUE,
++          pandoc_formats = c("pdf"))
+Error in strsplit(code[local_import_index], split = "import") : 
+  non-character argument
+Calls: excerptr ... mysub -> sub -> unique -> sapply -> lapply -> strsplit
+Execution halted
+
+checking tests ... ERROR
+  Running ‘testthat.R’
+Running the tests in ‘tests/testthat.R’ failed.
+Last 13 lines of output:
+         "inst/excerpts")) at testthat/test_basic.R:6
+  2: compare(object, expected, ...)
+  3: compare.character(object, expected, ...)
+  4: identical(x, y)
+  5: file.path(rprojroot::find_root(rprojroot::is_r_package), "inst/excerpts")
+  6: rprojroot::find_root(rprojroot::is_r_package)
+  7: stop("No root directory found in ", start_path, " or its parent directories. ", paste(format(criterion), 
+         collapse = "\n"), call. = FALSE)
+  
+  testthat results ================================================================
+  OK: 1 SKIPPED: 0 FAILED: 1
+  1. Error: paths (@test_basic.R#6) 
+  
+  Error: testthat unit tests failed
+  Execution halted
+
+checking DESCRIPTION meta-information ... WARNING
+Non-standard license specification:
+  What license is it under?
+Standardizable: FALSE
+
+checking CRAN incoming feasibility ... NOTE
+Maintainer: ‘First Last <first.last@example.com>’
+
+New submission
+
+Version contains large components (0.0.0.9000)
+
+Non-FOSS package license (What license is it under?)
+
+The Title field should be in title case, current version then in title case:
+‘What the Package Does (one line, title case)’
+‘What the Package Does (One Line, Title Case)’
+
+checking for hidden files and directories ... NOTE
+Found the following hidden files and directories:
+  inst/excerpts/.doxygen.conf
+  inst/excerpts/.travis.yml
+These were most likely included in error. See section ‘Package
+structure’ in the ‘Writing R Extensions’ manual.
+
+CRAN-pack does not know about
+  inst/excerpts/.doxygen.conf
+  inst/excerpts/.travis.yml
