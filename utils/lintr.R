@@ -4,8 +4,7 @@ options(warn = 1) # make warnings appear immediately
 
 
 #% lintr
-lints <- lintr::lint_package(path = ".",
-                             exclusions = list("excerpts/tests/files/glm.R"))
+lints <- lintr::lint_package(path = ".")
 if(interactive()) {
     print(lints)
 } else {

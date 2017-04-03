@@ -1,14 +1,1 @@
-inst/excerpts/tests/files/glm.R 2 2 style Commented code should be removed. #######%> help("glm") list(c(2, 21)) commented_code_linter
-inst/excerpts/tests/files/glm.R 4 16 style Commas should always have a space after. counts <- c(18,17,15,20,10,20,25,13,12) NULL commas_linter
-inst/excerpts/tests/files/glm.R 4 19 style Commas should always have a space after. counts <- c(18,17,15,20,10,20,25,13,12) NULL commas_linter
-inst/excerpts/tests/files/glm.R 4 22 style Commas should always have a space after. counts <- c(18,17,15,20,10,20,25,13,12) NULL commas_linter
-inst/excerpts/tests/files/glm.R 4 25 style Commas should always have a space after. counts <- c(18,17,15,20,10,20,25,13,12) NULL commas_linter
-inst/excerpts/tests/files/glm.R 4 28 style Commas should always have a space after. counts <- c(18,17,15,20,10,20,25,13,12) NULL commas_linter
-inst/excerpts/tests/files/glm.R 4 31 style Commas should always have a space after. counts <- c(18,17,15,20,10,20,25,13,12) NULL commas_linter
-inst/excerpts/tests/files/glm.R 4 34 style Commas should always have a space after. counts <- c(18,17,15,20,10,20,25,13,12) NULL commas_linter
-inst/excerpts/tests/files/glm.R 4 37 style Commas should always have a space after. counts <- c(18,17,15,20,10,20,25,13,12) NULL commas_linter
-inst/excerpts/tests/files/glm.R 5 17 style Commas should always have a space after. outcome <- gl(3,1,9) NULL commas_linter
-inst/excerpts/tests/files/glm.R 5 19 style Commas should always have a space after. outcome <- gl(3,1,9) NULL commas_linter
-inst/excerpts/tests/files/glm.R 6 19 style Commas should always have a space after. treatment <- gl(3,3) NULL commas_linter
-inst/excerpts/tests/files/glm.R 12 2 style Commented code should be removed. ##% an example with offsets from Venables & Ripley (2002, p.189) list(c(2, 64)) commented_code_linter
-inst/excerpts/tests/files/glm.R 18 1 style Trailing blank lines are superfluous.  NULL trailing_blank_lines_linter
+Congratulations: no lints found.
