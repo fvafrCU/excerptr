@@ -30,7 +30,7 @@ get_excerpts <- function(force = FALSE, remove_dot_git = TRUE, ...) {
     status <- git2r::clone("https://github.com/fvafrCU/excerpts/",
                            python_code)
     if (remove_dot_git) {
-        status <- capture.output(status)
+        status <- utils::capture.output(status)
         unlink(file.path(python_code, ".git/"), recursive = TRUE, force = TRUE)
     }
     set_path(...)

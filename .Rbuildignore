@@ -21,3 +21,4 @@ formatR_output
 ^cran-comments\.md$
 ^revdep$
 ^git_hooks$
+inst/excerpts/Makefile

@@ -1,6 +1,22 @@
-#' root <- system.file(package = "excerptr")
-#' test_files <- file.path(root, "inst", "excerpts", "tests", "files")
+#' Excerpt Structuring Comments and Set a Table of Contents.
+#' 
+#' See somewhere on the web.
 #'
+#' @param file_name XXX
+#' @param comment_character XXX
+#' @param magic_character XXX
+#' @param output_path XXX
+#' @param allow_pep8 XXX
+#' @param prefix XXX
+#' @param postfix XXX
+#' @param run_pandoc XXX
+#' @param compile_latex XXX
+#' @param pandoc_formats XXX
+#' @return The status of the rPython::python.call() call to excerpts.
+#' @export
+#' @examples
+#' root <- system.file(package = "excerptr")
+#' test_files <- file.path(root, "excerpts", "tests", "files")
 #' excerptr(file_name = file.path(test_files, "some_file.txt"),
 #'          output_path = dirname(tempdir()), run_pandoc = TRUE,
 #'          pandoc_formats = c("pdf"))
