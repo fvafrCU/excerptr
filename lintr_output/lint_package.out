@@ -12,17 +12,3 @@ inst/excerpts/tests/files/glm.R 5 19 style Commas should always have a space aft
 inst/excerpts/tests/files/glm.R 6 19 style Commas should always have a space after. treatment <- gl(3,3) NULL commas_linter
 inst/excerpts/tests/files/glm.R 12 2 style Commented code should be removed. ##% an example with offsets from Venables & Ripley (2002, p.189) list(c(2, 64)) commented_code_linter
 inst/excerpts/tests/files/glm.R 18 1 style Trailing blank lines are superfluous.  NULL trailing_blank_lines_linter
-R/excerptr.R 12 70 style Trailing whitespace is superfluous.     status <- rPython::python.call("excerpts", file_name = file_name,  list(c(70, 70)) trailing_whitespace_linter
-R/excerptr.R 13 74 style Trailing whitespace is superfluous.                                    comment_character = comment_character,  list(c(74, 74)) trailing_whitespace_linter
-R/excerptr.R 15 62 style Trailing whitespace is superfluous.                                    output_path = output_path,  list(c(62, 62)) trailing_whitespace_linter
-R/excerptr.R 17 71 style Trailing whitespace is superfluous.                                    prefix = prefix, postfix = postfix,  list(c(71, 71)) trailing_whitespace_linter
-R/excerptr.R 18 60 style Trailing whitespace is superfluous.                                    run_pandoc = run_pandoc,  list(c(60, 60)) trailing_whitespace_linter
-R/get_excerpts.R 6 72 style Trailing whitespace is superfluous.         root <- tryCatch(rprojroot::find_root(rprojroot::is_r_package),  list(c(72, 72)) trailing_whitespace_linter
-R/get_excerpts.R 24 6 style Trailing whitespace is superfluous.     }  list(c(6, 6)) trailing_whitespace_linter
-R/get_excerpts.R 30 67 style Trailing whitespace is superfluous.     status <- git2r::clone("https://github.com/fvafrCU/excerpts/",  list(c(67, 67)) trailing_whitespace_linter
-R/get_excerpts.R 45 77 style Trailing whitespace is superfluous.     local_imports <- trimws(unique(sapply(strsplit(code[local_import_index],  list(c(77, 77)) trailing_whitespace_linter
-R/get_excerpts.R 59 64 style Trailing whitespace is superfluous.     codes <- list.files(python_codes, pattern = "^[^_].*\\.py",  list(c(64, 64)) trailing_whitespace_linter
-tests/testthat/test_basic.R 5 1 style lines should not be more than 80 characters.   expect_equal(construct_path(), "/home/nik/git/cs/fvafrcu/excerptr/inst/excerpts") list(c(1, 83)) line_length_linter
-tests/testthat/test_basic.R 5 35 warning Do not use absolute paths.   expect_equal(construct_path(), "/home/nik/git/cs/fvafrcu/excerptr/inst/excerpts") list(c(35, 39)) absolute_paths_linter
-tests/testthat/test_basic.R 9 1 style lines should not be more than 80 characters.               expect_equal(construct_path(temporary = TRUE), file.path(tempdir(),  list(c(1, 82)) line_length_linter
-tests/testthat/test_basic.R 9 82 style Trailing whitespace is superfluous.               expect_equal(construct_path(temporary = TRUE), file.path(tempdir(),  list(c(82, 82)) trailing_whitespace_linter

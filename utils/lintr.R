@@ -1,19 +1,24 @@
 if (interactive()) setwd(dirname(getwd()))
 options(warn = 1) # make warnings appear immediately
 
-output_directory <- "lintr_output"
-unlink(output_directory, recursive = TRUE)
-dir.create(output_directory)
 
 
 #% lintr
-lints <- lintr::lint_package(path = ".", exclusions = list.files("inst", recursive = TRUE))
-lint_file <- file.path(output_directory, "lint_package.out")
-if (length(lints) > 0) {
-    warning("found lints, see ", lint_file)
-    writeLines(unlist(lapply(lints, paste, collapse = " ")), con = lint_file)
+lints <- lintr::lint_package(path = ".",
+                             exclusions = list("excerpts/tests/files/glm.R"))
+if(interactive()) {
+    print(lints)
 } else {
-    m <- "Congratulations: no lints found."
-    message(m)
-    writeLines(m, con = lint_file)
+    output_directory <- "lintr_output"
+    unlink(output_directory, recursive = TRUE)
+    dir.create(output_directory)
+    lint_file <- file.path(output_directory, "lint_package.out")
+    if (length(lints) > 0) {
+        warning("found lints, see ", lint_file)
+        writeLines(unlist(lapply(lints, paste, collapse = " ")), con = lint_file)
+    } else {
+        m <- "Congratulations: no lints found."
+        message(m)
+        writeLines(m, con = lint_file)
+    }
 }
