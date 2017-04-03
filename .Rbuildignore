@@ -22,3 +22,5 @@ formatR_output
 ^revdep$
 ^git_hooks$
 inst/excerpts/Makefile
+inst/excerpts/.doxygen.conf
+inst/excerpts/.travis.yml

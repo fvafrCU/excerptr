@@ -1,6 +1,5 @@
 Updating excerptr documentation
 Loading excerptr
-Writing excerptr.Rd
 Setting env vars ---------------------------------------------------------------
 CFLAGS  : -Wall -pedantic
 CXXFLAGS: -Wall -pedantic
@@ -44,16 +43,7 @@ The Title field should be in title case, current version then in title case:
 * checking if this is a source package ... OK
 * checking if there is a namespace ... OK
 * checking for executable files ... OK
-* checking for hidden files and directories ... NOTE
-Found the following hidden files and directories:
-  inst/excerpts/.doxygen.conf
-  inst/excerpts/.travis.yml
-These were most likely included in error. See section ‘Package
-structure’ in the ‘Writing R Extensions’ manual.
-
-CRAN-pack does not know about
-  inst/excerpts/.doxygen.conf
-  inst/excerpts/.travis.yml
+* checking for hidden files and directories ... OK
 * checking for portable file names ... OK
 * checking for sufficient/correct file permissions ... OK
 * checking whether package ‘excerptr’ can be installed ... OK
@@ -132,12 +122,12 @@ Last 13 lines of output:
   Execution halted
 * DONE
 
-Status: 2 ERRORs, 1 WARNING, 2 NOTEs
+Status: 2 ERRORs, 1 WARNING, 1 NOTE
 See
 for details.
 
 R CMD check results
-2 errors | 1 warning  | 2 notes
+2 errors | 1 warning  | 1 note 
 checking examples ... ERROR
 Running examples in ‘excerptr-Ex.R’ failed
 The error most likely occurred in:
@@ -196,14 +186,3 @@ Non-FOSS package license (What license is it under?)
 The Title field should be in title case, current version then in title case:
 ‘What the Package Does (one line, title case)’
 ‘What the Package Does (One Line, Title Case)’
-
-checking for hidden files and directories ... NOTE
-Found the following hidden files and directories:
-  inst/excerpts/.doxygen.conf
-  inst/excerpts/.travis.yml
-These were most likely included in error. See section ‘Package
-structure’ in the ‘Writing R Extensions’ manual.
-
-CRAN-pack does not know about
-  inst/excerpts/.doxygen.conf
-  inst/excerpts/.travis.yml
