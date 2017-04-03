@@ -7,12 +7,7 @@ construct_path <- function(temporary = FALSE) {
                          error = function(e) return(FALSE)
                          )
         if (root == FALSE) {
-            excerptr_excerpts <- system.file(base, package = "excerptr")
-            if (excerptr_excerpts == "" || isTRUE(temporary)) {
-                root <- tempdir()
-            } else {
-                root <- excerptr_excerpts
-            }
+            root <- base::system.file(base, package = "excerptr")
         }
     }
     path <- file.path(root, paste(base, collapse = .Platform$file.sep))
@@ -61,7 +56,8 @@ concatenate_python_codes <- function(codes) {
 load_excerpts <- function() {
     python_directory <- get_path()
     python_codes <- file.path(python_directory, "excerpts")
-    codes <- list.files(python_codes, pattern = "^[^_].*\\.py", full.names = TRUE)
+    codes <- list.files(python_codes, pattern = "^[^_].*\\.py", 
+                        full.names = TRUE)
     code <- concatenate_python_codes(codes)
     status <- rPython::python.exec(code)
     return(status)
