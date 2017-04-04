@@ -20,7 +20,7 @@ _R_CHECK_FORCE_SUGGESTS_          : FALSE
 Checking excerptr --------------------------------------------------------------
   --as-cran --timings --no-manual 
 
-* using R Under development (unstable) (2016-12-20 r71827)
+* using R Under development (unstable) (2017-01-13 r71966)
 * using platform: x86_64-pc-linux-gnu (64-bit)
 * using session charset: UTF-8
 * using options ‘--no-manual --as-cran’
@@ -56,6 +56,7 @@ Version contains large components (0.0.0.9000)
 * checking whether the package can be unloaded cleanly ... OK
 * checking whether the namespace can be loaded with stated dependencies ... OK
 * checking whether the namespace can be unloaded cleanly ... OK
+* checking loading without being on the library search path ... OK
 * checking use of S3 registration ... OK
 * checking dependencies in R code ... OK
 * checking S3 generic/method consistency ... OK
@@ -87,9 +88,10 @@ The error most likely occurred in:
 > excerptr(file_name = file.path(test_files, "some_file.txt"),
 +          output_path = dirname(tempdir()), run_pandoc = TRUE,
 +          pandoc_formats = c("pdf"))
-Error in strsplit(code[local_import_index], split = "import") : 
-  non-character argument
-Calls: excerptr ... mysub -> sub -> unique -> sapply -> lapply -> strsplit
+character(0)
+[1] 0
+Error in git2r::clone("https://github.com/fvafrCU/excerpts/", python_code) : 
+Calls: excerptr ... get_excerpts -> <Anonymous> -> <Anonymous> -> .Call
 Execution halted
 * checking for unstated dependencies in ‘tests’ ... OK
 * checking tests ...
@@ -97,14 +99,14 @@ Execution halted
  ERROR
 Running the tests in ‘tests/testthat.R’ failed.
 Last 13 lines of output:
+  1: expect_equal(construct_path(), file.path(rprojroot::find_root(rprojroot::is_r_package), 
          "inst/excerpts")) at testthat/test_basic.R:6
   2: compare(object, expected, ...)
   3: compare.character(object, expected, ...)
   4: identical(x, y)
   5: file.path(rprojroot::find_root(rprojroot::is_r_package), "inst/excerpts")
   6: rprojroot::find_root(rprojroot::is_r_package)
-  7: stop("No root directory found in ", start_path, " or its parent directories. ", paste(format(criterion), 
-         collapse = "\n"), call. = FALSE)
+  7: stop("No root directory found. Test criterion:\n", criterion$desc, call. = FALSE)
   
   testthat results ================================================================
   OK: 1 SKIPPED: 0 FAILED: 1
@@ -136,23 +138,24 @@ The error most likely occurred in:
 > excerptr(file_name = file.path(test_files, "some_file.txt"),
 +          output_path = dirname(tempdir()), run_pandoc = TRUE,
 +          pandoc_formats = c("pdf"))
-Error in strsplit(code[local_import_index], split = "import") : 
-  non-character argument
-Calls: excerptr ... mysub -> sub -> unique -> sapply -> lapply -> strsplit
+character(0)
+[1] 0
+Error in git2r::clone("https://github.com/fvafrCU/excerpts/", python_code) : 
+Calls: excerptr ... get_excerpts -> <Anonymous> -> <Anonymous> -> .Call
 Execution halted
 
 checking tests ... ERROR
   Running ‘testthat.R’
 Running the tests in ‘tests/testthat.R’ failed.
 Last 13 lines of output:
+  1: expect_equal(construct_path(), file.path(rprojroot::find_root(rprojroot::is_r_package), 
          "inst/excerpts")) at testthat/test_basic.R:6
   2: compare(object, expected, ...)
   3: compare.character(object, expected, ...)
   4: identical(x, y)
   5: file.path(rprojroot::find_root(rprojroot::is_r_package), "inst/excerpts")
   6: rprojroot::find_root(rprojroot::is_r_package)
-  7: stop("No root directory found in ", start_path, " or its parent directories. ", paste(format(criterion), 
-         collapse = "\n"), call. = FALSE)
+  7: stop("No root directory found. Test criterion:\n", criterion$desc, call. = FALSE)
   
   testthat results ================================================================
   OK: 1 SKIPPED: 0 FAILED: 1

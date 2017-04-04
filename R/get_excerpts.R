@@ -13,8 +13,9 @@ construct_path <- function(temporary = FALSE) {
     path <- file.path(root, paste(base, collapse = .Platform$file.sep))
     return(path)
 }
-set_path <- function(temporary = FALSE) {
-    options(excerpts_path = construct_path(temporary = temporary))
+set_path <- function(path = NULL, temporary = FALSE) {
+    if (is.null(path)) path <- construct_path(temporary = temporary)
+    options(excerpts_path = path)
     return(invisible(NULL))
 }
 get_path <- function() {
@@ -24,8 +25,8 @@ get_path <- function() {
     }
     return(path)
 }
-get_excerpts <- function(force = FALSE, remove_dot_git = TRUE, ...) {
-    python_code <- construct_path(...)
+get_excerpts <- function(force = FALSE, remove_dot_git = TRUE) {
+    python_code <- get_path()
     if (isTRUE(force)) unlink(python_code, recursive = TRUE)
     status <- git2r::clone("https://github.com/fvafrCU/excerpts/",
                            python_code)
@@ -33,7 +34,6 @@ get_excerpts <- function(force = FALSE, remove_dot_git = TRUE, ...) {
         status <- utils::capture.output(status)
         unlink(file.path(python_code, ".git/"), recursive = TRUE, force = TRUE)
     }
-    set_path(...)
     return(status)
 }
 concatenate_python_codes <- function(codes) {
@@ -58,6 +58,14 @@ load_excerpts <- function() {
     python_codes <- file.path(python_directory, "excerpts")
     codes <- list.files(python_codes, pattern = "^[^_].*\\.py",
                         full.names = TRUE)
+    print(codes)
+    print(length(codes))
+    if (length(codes) == 0) {
+        # devtools::test() creates it's own testing environment
+        set_path(path = dirname(tempdir()))
+        get_excerpts()
+        set_path(path = file.path(dirname(tempdir()), "inst", "excerpts"))
+    }
     code <- concatenate_python_codes(codes)
     status <- rPython::python.exec(code)
     return(status)
