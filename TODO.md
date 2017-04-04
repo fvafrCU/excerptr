@@ -1,0 +1,1 @@
+- devtools::check() does not copy inst? Well, it looks for it in /tmp/XXX/excerpts.Rcheck 
