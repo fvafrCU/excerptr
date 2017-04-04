@@ -8,9 +8,9 @@ lints <- lintr::lint_package(path = ".")
 if(interactive()) {
     print(lints)
 } else {
-    output_directory <- "lintr_output"
+    output_directory <- "log/lintr_output"
     unlink(output_directory, recursive = TRUE)
-    dir.create(output_directory)
+    dir.create(output_directory, recursive = TRUE)
     lint_file <- file.path(output_directory, "lint_package.out")
     if (length(lints) > 0) {
         warning("found lints, see ", lint_file)

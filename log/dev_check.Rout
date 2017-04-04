@@ -10,6 +10,7 @@ Building excerptr --------------------------------------------------------------
 * checking DESCRIPTION meta-information ... OK
 * checking for LF line-endings in source and make files
 * checking for empty or unneeded directories
+Removed empty directory ‘excerptr/log’
 * building ‘excerptr_0.0.0.9000.tar.gz’
 
 Setting env vars ---------------------------------------------------------------
@@ -27,17 +28,15 @@ Checking excerptr --------------------------------------------------------------
 * this is package ‘excerptr’ version ‘0.0.0.9000’
 * package encoding: UTF-8
 * checking CRAN incoming feasibility ... NOTE
-Maintainer: ‘First Last <first.last@example.com>’
+Maintainer: ‘Andreas Dominik Cullmann <adc-r@arcor.de>’
 
 New submission
 
 Version contains large components (0.0.0.9000)
 
-Non-FOSS package license (What license is it under?)
-
 The Title field should be in title case, current version then in title case:
-‘What the Package Does (one line, title case)’
-‘What the Package Does (One Line, Title Case)’
+‘Excerpt Structuring Comments From Your Code File and Set a Table of Contents’
+‘Excerpt Structuring Comments from Your Code File and Set a Table of Contents’
 * checking package namespace information ... OK
 * checking package dependencies ... OK
 * checking if this is a source package ... OK
@@ -49,10 +48,7 @@ The Title field should be in title case, current version then in title case:
 * checking whether package ‘excerptr’ can be installed ... OK
 * checking installed package size ... OK
 * checking package directory ... OK
-* checking DESCRIPTION meta-information ... WARNING
-Non-standard license specification:
-  What license is it under?
-Standardizable: FALSE
+* checking DESCRIPTION meta-information ... OK
 * checking top-level files ... OK
 * checking for left-over files ... OK
 * checking index information ... OK
@@ -122,12 +118,12 @@ Last 13 lines of output:
   Execution halted
 * DONE
 
-Status: 2 ERRORs, 1 WARNING, 1 NOTE
+Status: 2 ERRORs, 1 NOTE
 See
 for details.
 
 R CMD check results
-2 errors | 1 warning  | 1 note 
+2 errors | 0 warnings | 1 note 
 checking examples ... ERROR
 Running examples in ‘excerptr-Ex.R’ failed
 The error most likely occurred in:
@@ -169,20 +165,13 @@ Last 13 lines of output:
   Error: testthat unit tests failed
   Execution halted
 
-checking DESCRIPTION meta-information ... WARNING
-Non-standard license specification:
-  What license is it under?
-Standardizable: FALSE
-
 checking CRAN incoming feasibility ... NOTE
-Maintainer: ‘First Last <first.last@example.com>’
+Maintainer: ‘Andreas Dominik Cullmann <adc-r@arcor.de>’
 
 New submission
 
 Version contains large components (0.0.0.9000)
 
-Non-FOSS package license (What license is it under?)
-
 The Title field should be in title case, current version then in title case:
-‘What the Package Does (one line, title case)’
-‘What the Package Does (One Line, Title Case)’
+‘Excerpt Structuring Comments From Your Code File and Set a Table of Contents’
+‘Excerpt Structuring Comments from Your Code File and Set a Table of Contents’

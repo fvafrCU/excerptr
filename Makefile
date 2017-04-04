@@ -5,6 +5,7 @@ PKGSRC  := $(shell basename `pwd`)
 
 temp_file := $(shell tempfile)
 lintr_script := utils/lintr.R
+LOG_DIR := log
 
 R := R-devel
 Rscript := Rscript-devel
@@ -24,12 +25,12 @@ dev_test:
 	rm ${temp_file} || TRUE; \
 	${Rscript} --vanilla -e 'devtools::test()' >  ${temp_file} 2>&1; \
 	sed -n -e '/^DONE.*/q;p' < ${temp_file} | \
-	sed -e "s# /.*\(${PKGNAME}\)# \1#" > dev_test.Rout 
+	sed -e "s# /.*\(${PKGNAME}\)# \1#" > ${LOG_DIR}/dev_test.Rout 
 
 dev_check: 
 	rm ${temp_file} || TRUE; \
 	${Rscript} --vanilla -e 'devtools::check(cran = TRUE, check_version = TRUE)' > ${temp_file} 2>&1; \
-	grep -v ".*'/" ${temp_file} | grep -v ".*‘/" > dev_check.Rout 
+	grep -v ".*'/" ${temp_file} | grep -v ".*‘/" > ${LOG_DIR}/dev_check.Rout 
 
 dev_vignettes:
 	${Rscript} --vanilla -e 'devtools::build_vignettes()'
@@ -87,7 +88,7 @@ utils: cleanr lintr coverage
 
 .PHONY: coverage
 coverage:
-	${Rscript} --vanilla -e 'co <- covr::package_coverage(path = ".", function_exclusions = "\\.onLoad"); covr::zero_coverage(co); print(co)' > covr.Rout 2>&1 
+	${Rscript} --vanilla -e 'co <- covr::package_coverage(path = ".", function_exclusions = "\\.onLoad"); covr::zero_coverage(co); print(co)' > ${LOG_DIR}/covr.Rout 2>&1 
 
 
 .PHONY: cleanr
@@ -97,7 +98,7 @@ cleanr:
 .PHONY: lintr
 lintr:
 	rm inst/doc/*.R || true
-	${Rscript} --vanilla ${lintr_script} > lintr.Rout 2>&1 
+	${Rscript} --vanilla ${lintr_script} > ${LOG_DIR}/lintr.Rout 2>&1 
 
 .PHONY: clean
 clean:
