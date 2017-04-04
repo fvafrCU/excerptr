@@ -33,10 +33,6 @@ Maintainer: ‘Andreas Dominik Cullmann <adc-r@arcor.de>’
 New submission
 
 Version contains large components (0.0.0.9000)
-
-The Title field should be in title case, current version then in title case:
-‘Excerpt Structuring Comments From Your Code File and Set a Table of Contents’
-‘Excerpt Structuring Comments from Your Code File and Set a Table of Contents’
 * checking package namespace information ... OK
 * checking package dependencies ... OK
 * checking if this is a source package ... OK
@@ -171,7 +167,3 @@ Maintainer: ‘Andreas Dominik Cullmann <adc-r@arcor.de>’
 New submission
 
 Version contains large components (0.0.0.9000)
-
-The Title field should be in title case, current version then in title case:
-‘Excerpt Structuring Comments From Your Code File and Set a Table of Contents’
-‘Excerpt Structuring Comments from Your Code File and Set a Table of Contents’
