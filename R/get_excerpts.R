@@ -9,6 +9,10 @@ construct_path <- function(temporary = FALSE) {
         if (root == FALSE) {
             root <- base::system.file(base, package = "excerptr")
         }
+        if (root == "") {
+            warning("Don't know where you are, using a temporary directory.")
+            root <- dirname(tempdir())
+        }
     }
     path <- file.path(root, paste(base, collapse = .Platform$file.sep))
     return(path)
@@ -16,23 +20,23 @@ construct_path <- function(temporary = FALSE) {
 set_path <- function(path = NULL, temporary = FALSE) {
     if (is.null(path)) path <- construct_path(temporary = temporary)
     options(excerpts_path = path)
-    return(invisible(NULL))
+    return(invisible(path))
 }
-get_path <- function() {
+get_path <- function(...) {
     path <- getOption("excerpts_path")
     if (is.null(path)) {
-        path <- construct_path()
+        path <- set_path(...)
     }
     return(path)
 }
-get_excerpts <- function(force = FALSE, remove_dot_git = TRUE) {
-    python_code <- get_path()
-    if (isTRUE(force)) unlink(python_code, recursive = TRUE)
+get_excerpts <- function(directory = get_path(), 
+                         force = FALSE, remove_dot_git = TRUE) {
+    if (isTRUE(force)) unlink(directory, recursive = TRUE)
     status <- git2r::clone("https://github.com/fvafrCU/excerpts/",
-                           python_code)
+                           directory)
     if (remove_dot_git) {
         status <- utils::capture.output(status)
-        unlink(file.path(python_code, ".git/"), recursive = TRUE, force = TRUE)
+        unlink(file.path(directory, ".git/"), recursive = TRUE, force = TRUE)
     }
     return(status)
 }
@@ -58,13 +62,11 @@ load_excerpts <- function() {
     python_codes <- file.path(python_directory, "excerpts")
     codes <- list.files(python_codes, pattern = "^[^_].*\\.py",
                         full.names = TRUE)
-    print(codes)
-    print(length(codes))
     if (length(codes) == 0) {
         # devtools::test() creates it's own testing environment
-        set_path(path = dirname(tempdir()))
-        get_excerpts()
-        set_path(path = file.path(dirname(tempdir()), "inst", "excerpts"))
+        get_excerpts(directory = python_directory)
+        codes <- list.files(python_codes, pattern = "^[^_].*\\.py",
+                            full.names = TRUE)
     }
     code <- concatenate_python_codes(codes)
     status <- rPython::python.exec(code)

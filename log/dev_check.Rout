@@ -20,7 +20,7 @@ _R_CHECK_FORCE_SUGGESTS_          : FALSE
 Checking excerptr --------------------------------------------------------------
   --as-cran --timings --no-manual 
 
-* using R Under development (unstable) (2017-01-13 r71966)
+* using R Under development (unstable) (2016-12-20 r71827)
 * using platform: x86_64-pc-linux-gnu (64-bit)
 * using session charset: UTF-8
 * using options ‘--no-manual --as-cran’
@@ -56,7 +56,6 @@ Version contains large components (0.0.0.9000)
 * checking whether the package can be unloaded cleanly ... OK
 * checking whether the namespace can be loaded with stated dependencies ... OK
 * checking whether the namespace can be unloaded cleanly ... OK
-* checking loading without being on the library search path ... OK
 * checking use of S3 registration ... OK
 * checking dependencies in R code ... OK
 * checking S3 generic/method consistency ... OK
@@ -72,101 +71,31 @@ Version contains large components (0.0.0.9000)
 * checking Rd \usage sections ... OK
 * checking Rd contents ... OK
 * checking for unstated dependencies in examples ... OK
-* checking examples ... ERROR
-Running examples in ‘excerptr-Ex.R’ failed
-The error most likely occurred in:
-
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: excerptr
-> ### Title: Excerpt Structuring Comments and Set a Table of Contents.
-> ### Aliases: excerptr
-> 
-> ### ** Examples
-> 
-> root <- system.file(package = "excerptr")
-> test_files <- file.path(root, "excerpts", "tests", "files")
-> excerptr(file_name = file.path(test_files, "some_file.txt"),
-+          output_path = dirname(tempdir()), run_pandoc = TRUE,
-+          pandoc_formats = c("pdf"))
-character(0)
-[1] 0
-Error in git2r::clone("https://github.com/fvafrCU/excerpts/", python_code) : 
-Calls: excerptr ... get_excerpts -> <Anonymous> -> <Anonymous> -> .Call
-Execution halted
+* checking examples ... NOTE
+Examples with CPU or elapsed time > 5s
+          user system elapsed
+excerptr 0.828  0.096  13.234
 * checking for unstated dependencies in ‘tests’ ... OK
 * checking tests ...
   Running ‘testthat.R’
- ERROR
-Running the tests in ‘tests/testthat.R’ failed.
-Last 13 lines of output:
-  1: expect_equal(construct_path(), file.path(rprojroot::find_root(rprojroot::is_r_package), 
-         "inst/excerpts")) at testthat/test_basic.R:6
-  2: compare(object, expected, ...)
-  3: compare.character(object, expected, ...)
-  4: identical(x, y)
-  5: file.path(rprojroot::find_root(rprojroot::is_r_package), "inst/excerpts")
-  6: rprojroot::find_root(rprojroot::is_r_package)
-  7: stop("No root directory found. Test criterion:\n", criterion$desc, call. = FALSE)
-  
-  testthat results ================================================================
-  OK: 1 SKIPPED: 0 FAILED: 1
-  1. Error: paths (@test_basic.R#6) 
-  
-  Error: testthat unit tests failed
-  Execution halted
+ OK
 * DONE
 
-Status: 2 ERRORs, 1 NOTE
+Status: 2 NOTEs
 See
 for details.
 
+
 R CMD check results
-2 errors | 0 warnings | 1 note 
-checking examples ... ERROR
-Running examples in ‘excerptr-Ex.R’ failed
-The error most likely occurred in:
-
-> base::assign(".ptime", proc.time(), pos = "CheckExEnv")
-> ### Name: excerptr
-> ### Title: Excerpt Structuring Comments and Set a Table of Contents.
-> ### Aliases: excerptr
-> 
-> ### ** Examples
-> 
-> root <- system.file(package = "excerptr")
-> test_files <- file.path(root, "excerpts", "tests", "files")
-> excerptr(file_name = file.path(test_files, "some_file.txt"),
-+          output_path = dirname(tempdir()), run_pandoc = TRUE,
-+          pandoc_formats = c("pdf"))
-character(0)
-[1] 0
-Error in git2r::clone("https://github.com/fvafrCU/excerpts/", python_code) : 
-Calls: excerptr ... get_excerpts -> <Anonymous> -> <Anonymous> -> .Call
-Execution halted
-
-checking tests ... ERROR
-  Running ‘testthat.R’
-Running the tests in ‘tests/testthat.R’ failed.
-Last 13 lines of output:
-  1: expect_equal(construct_path(), file.path(rprojroot::find_root(rprojroot::is_r_package), 
-         "inst/excerpts")) at testthat/test_basic.R:6
-  2: compare(object, expected, ...)
-  3: compare.character(object, expected, ...)
-  4: identical(x, y)
-  5: file.path(rprojroot::find_root(rprojroot::is_r_package), "inst/excerpts")
-  6: rprojroot::find_root(rprojroot::is_r_package)
-  7: stop("No root directory found. Test criterion:\n", criterion$desc, call. = FALSE)
-  
-  testthat results ================================================================
-  OK: 1 SKIPPED: 0 FAILED: 1
-  1. Error: paths (@test_basic.R#6) 
-  
-  Error: testthat unit tests failed
-  Execution halted
-
+0 errors | 0 warnings | 2 notes
 checking CRAN incoming feasibility ... NOTE
 Maintainer: ‘Andreas Dominik Cullmann <adc-r@arcor.de>’
 
 New submission
 
 Version contains large components (0.0.0.9000)
+
+checking examples ... NOTE
+Examples with CPU or elapsed time > 5s
+          user system elapsed
+excerptr 0.828  0.096  13.234
