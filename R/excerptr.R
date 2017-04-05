@@ -1,17 +1,23 @@
+#' @include options.R
+NULL
+
 #' Excerpt Structuring Comments and Set a Table of Contents.
 #' 
-#' See somewhere on the web.
+#' Just a wrapper to the python function excerpts.excerpts.
+#' See \url{https://github.com/fvafrCU/excerpts/} for details.
 #'
-#' @param file_name XXX
-#' @param comment_character XXX
-#' @param magic_character XXX
-#' @param output_path XXX
-#' @param allow_pep8 XXX
-#' @param prefix XXX
-#' @param postfix XXX
-#' @param run_pandoc XXX
-#' @param compile_latex XXX
-#' @param pandoc_formats XXX
+#' @param file_name Name the file from which to excerpt.
+#' @param comment_character Should be "#" for R.
+#' @param magic_character The magic character marking the structuring comments
+#' in \code{file_name}.
+#' @param output_path Name the path where to output to.
+#' @param allow_pep8 Don't bother. See excerpts.excerpts for details.
+#' @param prefix Give a prefix to use for output files.
+#' @param postfix Give a postfix to use for output files.
+#' @param run_pandoc Try to run pandoc on the output file?
+#' @param compile_latex Try to compile LaTeX if pandoc outputed LaTeX?
+#' @param pandoc_formats A character vector naming the output formats for
+#' pandoc.
 #' @return The status of the rPython::python.call() call to excerpts.
 #' @export
 #' @examples
@@ -19,7 +25,8 @@
 #' test_files <- file.path(root, "excerpts", "tests", "files")
 #' excerptr(file_name = file.path(test_files, "some_file.txt"),
 #'          output_path = dirname(tempdir()), run_pandoc = TRUE,
-#'          pandoc_formats = c("pdf"))
+#'          compile_latex = TRUE,
+#'          pandoc_formats = c("tex", "html"))
 excerptr <- function(file_name, comment_character = "#", magic_character = "%",
              output_path = "", allow_pep8 = TRUE,
              prefix = "", postfix = "", run_pandoc = TRUE,
@@ -33,6 +40,7 @@ excerptr <- function(file_name, comment_character = "#", magic_character = "%",
                                    prefix = prefix, postfix = postfix,
                                    run_pandoc = run_pandoc,
                                    compile_latex = compile_latex,
-                                   pandoc_formats = pandoc_formats)
+                                   pandoc_formats = paste(pandoc_formats, 
+                                                          collapse=","))
     return(status)
 }

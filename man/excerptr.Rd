@@ -9,37 +9,41 @@ excerptr(file_name, comment_character = "#", magic_character = "\%",
   run_pandoc = TRUE, compile_latex = FALSE, pandoc_formats = "tex")
 }
 \arguments{
-\item{file_name}{XXX}
+\item{file_name}{Name the file from which to excerpt.}
 
-\item{comment_character}{XXX}
+\item{comment_character}{Should be "#" for R.}
 
-\item{magic_character}{XXX}
+\item{magic_character}{The magic character marking the structuring comments
+in \code{file_name}.}
 
-\item{output_path}{XXX}
+\item{output_path}{Name the path where to output to.}
 
-\item{allow_pep8}{XXX}
+\item{allow_pep8}{Don't bother. See excerpts.excerpts for details.}
 
-\item{prefix}{XXX}
+\item{prefix}{Give a prefix to use for output files.}
 
-\item{postfix}{XXX}
+\item{postfix}{Give a postfix to use for output files.}
 
-\item{run_pandoc}{XXX}
+\item{run_pandoc}{Try to run pandoc on the output file?}
 
-\item{compile_latex}{XXX}
+\item{compile_latex}{Try to compile LaTeX if pandoc outputed LaTeX?}
 
-\item{pandoc_formats}{XXX}
+\item{pandoc_formats}{A character vector naming the output formats for
+pandoc.}
 }
 \value{
 The status of the rPython::python.call() call to excerpts.
 }
 \description{
-See somewhere on the web.
+Just a wrapper to the python function excerpts.excerpts.
+See \url{https://github.com/fvafrCU/excerpts/} for details.
 }
 \examples{
 root <- system.file(package = "excerptr")
 test_files <- file.path(root, "excerpts", "tests", "files")
 excerptr(file_name = file.path(test_files, "some_file.txt"),
          output_path = dirname(tempdir()), run_pandoc = TRUE,
-         pandoc_formats = c("pdf"))
+         compile_latex = TRUE,
+         pandoc_formats = c("tex", "html"))
 }
 

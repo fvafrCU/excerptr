@@ -1,9 +1,11 @@
 Package: excerptr
-Title: Excerpt Structuring Comments from Your Code File and Set a Table of Contents
+Title: Excerpt Structuring Comments from Your Code File and 
+    Set a Table of Contents
 Version: 0.0.0.9000
 Authors@R: person(given = c("Andreas", "Dominik"), family = "Cullmann",
     email = "adc-r@arcor.de", role = c("aut","cre"))
-Description: This is an R interface to the Python package excerpts (https://github.com/fvafrCU/excerpts).
+Description: This is an R interface to the 
+    Python package excerpts (https://github.com/fvafrCU/excerpts).
 URL: https://github.com/fvafrCU/excerpts
 Depends:
     R (>= 3.3.2)
@@ -16,4 +18,12 @@ License: BSD_2_clause + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 5.0.1
-Suggests: testthat
+Suggests:
+    testthat
+Collate:
+    'internals.R'
+    'get_excerpts.R'
+    'utils.R'
+    'options.R'
+    'excerptr.R'
+    'zzz.R'
