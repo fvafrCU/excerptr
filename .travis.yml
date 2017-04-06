@@ -3,10 +3,12 @@
 language: R
 sudo: false
 cache: packages
+before_install:
+- sudo apt-get update
+- sudo apt-get install python3
 r_packages:
     - testthat
 r_github_packages:
     - jimhester/covr
-
 after_success:
     - Rscript -e 'covr::codecov(path = ".", function_exclusions = "\\.onLoad")'
