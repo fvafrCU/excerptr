@@ -42,6 +42,7 @@ load_excerpts <- function() {
                             full.names = TRUE)
     }
     code <- concatenate_python_codes(codes)
+    print(code)
     status <- rPython::python.exec(code)
     return(status)
 }
