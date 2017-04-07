@@ -19,7 +19,8 @@ concatenate_python_codes <- function(codes) {
     for (local_import in local_imports) {
         code <- gsub(paste0(local_import, "\\."), "", code)
     }
-    # get rid of imports from __future__ as I use them only to soothe pylint:
+    # get rid of imports from __future__ as excertps uses them only to soothe 
+    # pylint:
     future_index <- grep("from __future__ import ", code)
     code <- code[- future_index]
     return(code)
@@ -41,8 +42,11 @@ load_excerpts <- function() {
         codes <- list.files(python_codes, pattern = "^[^_].*\\.py",
                             full.names = TRUE)
     }
+    # we don't need command_line.py and it imports excerpts. This is not
+    # intended, especially as on systems where excerpts is not installed
+    # (travis, for example) this will cause an error.
+    codes <- codes[! grepl("command_line.py", codes)]
     code <- concatenate_python_codes(codes)
-    print(code)
     status <- rPython::python.exec(code)
     return(status)
 }

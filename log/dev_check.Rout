@@ -35,7 +35,7 @@ New submission
 Version contains large components (0.0.0.9000)
 
 Unknown, possibly mis-spelled, fields in DESCRIPTION:
-  ‘ystemRequirements’
+  ‘systemRequirements’
 * checking package namespace information ... OK
 * checking package dependencies ... OK
 * checking if this is a source package ... OK
@@ -75,23 +75,20 @@ Unknown, possibly mis-spelled, fields in DESCRIPTION:
 * checking Rd \usage sections ... OK
 * checking Rd contents ... OK
 * checking for unstated dependencies in examples ... OK
-* checking examples ... NOTE
-Examples with CPU or elapsed time > 5s
-          user system elapsed
-excerptr 1.952   0.34    6.81
+* checking examples ... OK
 * checking for unstated dependencies in ‘tests’ ... OK
 * checking tests ...
   Running ‘testthat.R’
  OK
 * DONE
 
-Status: 2 NOTEs
+Status: 1 NOTE
 See
 for details.
 
 
 R CMD check results
-0 errors | 0 warnings | 2 notes
+0 errors | 0 warnings | 1 note 
 checking CRAN incoming feasibility ... NOTE
 Maintainer: ‘Andreas Dominik Cullmann <adc-r@arcor.de>’
 
@@ -100,9 +97,4 @@ New submission
 Version contains large components (0.0.0.9000)
 
 Unknown, possibly mis-spelled, fields in DESCRIPTION:
-  ‘ystemRequirements’
-
-checking examples ... NOTE
-Examples with CPU or elapsed time > 5s
-          user system elapsed
-excerptr 1.952   0.34    6.81
+  ‘systemRequirements’

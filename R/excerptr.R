@@ -31,7 +31,7 @@ excerptr <- function(file_name, comment_character = "#", magic_character = "%",
              output_path = "", allow_pep8 = TRUE,
              prefix = "", postfix = "", run_pandoc = TRUE,
              compile_latex = FALSE, pandoc_formats = "tex") {
-    print(load_excerpts())
+    load_excerpts()
     status <- rPython::python.call("excerpts", file_name = file_name,
                                    comment_character = comment_character,
                                    magic_character = magic_character,
