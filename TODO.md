@@ -1,1 +1,3 @@
-- roxygen comments
+- improve coverage
+- improve README
+- add vignette
