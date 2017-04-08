@@ -1,2 +1,1 @@
-tests/testthat/test_basic.R 6 33 style Trailing whitespace is superfluous.   expect_equal(construct_path(),  list(c(33, 33)) trailing_whitespace_linter
-tests/testthat/test_basic.R 7 72 style Trailing whitespace is superfluous.                file.path(rprojroot::find_root(rprojroot::is_r_package),  list(c(72, 72)) trailing_whitespace_linter
+Congratulations: no lints found.

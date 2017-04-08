@@ -2,7 +2,7 @@
 NULL
 
 #' Excerpt Structuring Comments and Set a Table of Contents.
-#' 
+#'
 #' Just a wrapper to the python function excerpts.excerpts.
 #' See \url{https://github.com/fvafrCU/excerpts/} for details.
 #'
@@ -40,7 +40,7 @@ excerptr <- function(file_name, comment_character = "#", magic_character = "%",
                                    prefix = prefix, postfix = postfix,
                                    run_pandoc = run_pandoc,
                                    compile_latex = compile_latex,
-                                   pandoc_formats = paste(pandoc_formats, 
-                                                          collapse=","))
+                                   pandoc_formats = paste(pandoc_formats,
+                                                          collapse = ","))
     return(status)
 }

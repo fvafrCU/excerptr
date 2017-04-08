@@ -1,9 +1,9 @@
 #' @include get_excerpts.R
 NULL
 
-#' Concatenate Code Files into one File 
-#' 
-#' To easily remove local imports and imports from __future__.  
+#' Concatenate Code Files into one File
+#'
+#' To easily remove local imports and imports from __future__.
 #'
 #' @param codes a character vector of file names.
 #' @return The concatenated code.
@@ -19,7 +19,7 @@ concatenate_python_codes <- function(codes) {
     for (local_import in local_imports) {
         code <- gsub(paste0(local_import, "\\."), "", code)
     }
-    # get rid of imports from __future__ as excertps uses them only to soothe 
+    # get rid of imports from __future__ as excertps uses them only to soothe
     # pylint:
     future_index <- grep("from __future__ import ", code)
     code <- code[- future_index]
@@ -27,7 +27,7 @@ concatenate_python_codes <- function(codes) {
 }
 
 #' Load Excerpts
-#' 
+#'
 #' Just a wrapper.
 #'
 #' @return The status of the rPython::python.exec().
@@ -50,4 +50,3 @@ load_excerpts <- function() {
     status <- rPython::python.exec(code)
     return(status)
 }
-

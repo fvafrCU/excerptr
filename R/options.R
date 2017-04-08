@@ -3,7 +3,7 @@
 NULL
 
 #' Set the Excerpts Path Option
-#' 
+#'
 #' \pkg{excerptr} uses the option ("excerpts_path") to get the python code of
 #' excerpts. This wrapper sets this option depending on whether you give a fixed
 #' path, are developing the package or using the standard installation's code.
@@ -19,16 +19,16 @@ set_excertps_path <- function(path = NULL, temporary = FALSE) {
 }
 
 #' Get the Excerpts Path Option
-#' 
+#'
 #' Get the "excerpts_path", and set it, if unset.
 #'
 #' @param ... arguments passed to \code{\link{set_excertps_path}()}.
 #' @return The status of the rPython::python.call() call to excerpts.
 #' @examples
 #' options("excerpts_path" = NULL)
-#' getOption("excertps_path") 
+#' getOption("excertps_path")
 #' excerptr:::get_excerpts_path() # internally calls set_excertps_path()
-#' getOption("excertps_path") 
+#' getOption("excertps_path")
 get_excerpts_path <- function(...) {
     path <- getOption("excerpts_path")
     if (is.null(path)) {
@@ -36,4 +36,3 @@ get_excerpts_path <- function(...) {
     }
     return(path)
 }
-

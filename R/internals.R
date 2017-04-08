@@ -21,5 +21,3 @@ construct_path <- function(temporary = FALSE) {
     path <- file.path(root, paste(base, collapse = .Platform$file.sep))
     return(path)
 }
-
-

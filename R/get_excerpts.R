@@ -1,5 +1,5 @@
 #' Clone the Excerpts Code from Github
-#' 
+#'
 #' @param directory Where to clone to.
 #' @param force Overwrite the directory?
 #' @param remove_dot_git Remove the .git/ from the clone?
@@ -10,7 +10,7 @@
 #' path <- file.path(dirname(tempdir()), "excerpts")
 #' get_excerpts(directory = path, force = TRUE)
 #' \dontrun{print(set_excertps_path(path = path))}
-get_excerpts <- function(directory = get_excerpts_path(), 
+get_excerpts <- function(directory = get_excerpts_path(),
                          force = FALSE, remove_dot_git = TRUE) {
     if (isTRUE(force)) unlink(directory, recursive = TRUE)
     status <- git2r::clone(url = "https://github.com/fvafrCU/excerpts/",
@@ -21,4 +21,3 @@ get_excerpts <- function(directory = get_excerpts_path(),
     }
     return(status)
 }
-
