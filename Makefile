@@ -8,7 +8,7 @@ lintr_script := utils/lintr.R
 LOG_DIR := log
 
 R := R-devel
-Rscript := Rscript-devel
+Rscript := Rscript
 
 all: install_bare dev_check dev_test dev_vignettes crancheck utils
 

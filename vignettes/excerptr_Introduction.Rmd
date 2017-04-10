@@ -1,0 +1,15 @@
+---
+title: "An Introduction to excerptr"
+author: "Andreas Dominik Cullmann"
+date: 2017-04-10, 21:29:58
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{An Introduction to excerptr}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+#FIXME: This is just a stump.
+```{r}
+path <- system.file("tests", "files", "some_file.R", package = "excerptr")
+readLines(path)
+```
