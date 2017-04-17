@@ -1,1 +1,10 @@
-Congratulations: no lints found.
+inst/tests/files/some_file.R 1 2 style Commented code should be removed. #######% % All About Me list(c(2, 23)) commented_code_linter
+inst/tests/files/some_file.R 1 2 style Commented code should be removed. #######% % All About Me list(c(2, 23)) commented_code_linter
+inst/tests/files/some_file.R 2 2 style Commented code should be removed. #######% % Me list(c(2, 13)) commented_code_linter
+inst/tests/files/some_file.R 2 2 style Commented code should be removed. #######% % Me list(c(2, 13)) commented_code_linter
+inst/tests/files/some_file.R 5 2 style Commented code should be removed. #######% **This** is an example of a markdown paragraph: markdown  list(c(2, 66)) commented_code_linter
+inst/tests/files/some_file.R 5 2 style Commented code should be removed. #######% **This** is an example of a markdown paragraph: markdown  list(c(2, 66)) commented_code_linter
+inst/tests/files/some_file.R 9 2 style Commented code should be removed. #######% [syntax](http://daringfireball.net/projects/markdown/syntax). list(c(2, 70)) commented_code_linter
+inst/tests/files/some_file.R 9 2 style Commented code should be removed. #######% [syntax](http://daringfireball.net/projects/markdown/syntax). list(c(2, 70)) commented_code_linter
+inst/tests/files/some_file.R 10 2 style Commented code should be removed. #######% *Note* the trailing line: markdown needs an empty line to end list(c(2, 70)) commented_code_linter
+inst/tests/files/some_file.R 10 2 style Commented code should be removed. #######% *Note* the trailing line: markdown needs an empty line to end list(c(2, 70)) commented_code_linter

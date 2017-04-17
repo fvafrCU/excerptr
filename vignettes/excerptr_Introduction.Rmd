@@ -1,7 +1,7 @@
 ---
 title: "An Introduction to excerptr"
 author: "Andreas Dominik Cullmann"
-date: 2017-04-10, 21:29:58
+date: 2017-04-17, 21:27:25
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{An Introduction to excerptr}

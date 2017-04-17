@@ -1,5 +1,5 @@
 Loading excerptr
-Error in check_dep_version(pkg, version, compare) : 
-  Dependency package roxygen2 not available.
-Calls: <Anonymous> -> load_all -> check_suggested -> check_dep_version
-Execution halted
+Loading required package: testthat
+Testing excerptr
+Basic tests: .
+
