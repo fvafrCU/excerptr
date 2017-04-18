@@ -1,7 +1,7 @@
 ---
 title: "An Introduction to excerptr"
 author: "Andreas Dominik Cullmann"
-date: 2017-04-18, 19:23:43
+date: 2017-04-18, 19:25:27
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{An Introduction to excerptr}
@@ -13,7 +13,7 @@ See there for more on the Why.
 
 Suppose you have a script
 
-```{r}
+```{r, comment = ""}
 path <- system.file("tests", "files", "some_file.R", package = "excerptr")
 cat(readLines(path), sep = "\n")
 ```
