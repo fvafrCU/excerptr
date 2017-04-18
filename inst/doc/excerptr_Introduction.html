@@ -69,34 +69,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">An Introduction to excerptr</h1>
 <h4 class="author"><em>Andreas Dominik Cullmann</em></h4>
-<h4 class="date"><em>2017-04-17, 21:27:25</em></h4>
+<h4 class="date"><em>2017-04-18, 19:02:47</em></h4>
 
 
 
-<div id="fixme-this-is-just-a-stump." class="section level1">
-<h1>FIXME: This is just a stump.</h1>
+<p>excerptr is an R interface to the python package <a href="https://pypi.python.org/pypi/excerpts">excerpts</a>. See there for more on the Why?</p>
+<p>Suppose you have a script</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">path &lt;-<span class="st"> </span><span class="kw">system.file</span>(<span class="st">&quot;tests&quot;</span>, <span class="st">&quot;files&quot;</span>, <span class="st">&quot;some_file.R&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;excerptr&quot;</span>)
-<span class="kw">readLines</span>(path)</code></pre></div>
-<pre><code>##  [1] &quot;#######% % All About Me&quot;                                               
-##  [2] &quot;#######% % Me&quot;                                                         
-##  [3] &quot;####### The above defines a pandoc markdown header.&quot;                   
-##  [4] &quot;####### This is more text that will not be extracted.&quot;                 
-##  [5] &quot;#######% **This** is an example of a markdown paragraph: markdown &quot;    
-##  [6] &quot;#######% recognizes only six levels of heading, so we use seven or&quot;    
-##  [7] &quot;#######% more levels to mark \&quot;normal\&quot; text.&quot;                         
-##  [8] &quot;#######% Here you can use the full markdown &quot;                          
-##  [9] &quot;#######% [syntax](http://daringfireball.net/projects/markdown/syntax).&quot;
-## [10] &quot;#######% *Note* the trailing line: markdown needs an empty line to end&quot;
-## [11] &quot;#######% a paragraph.&quot;                                                 
-## [12] &quot;#######%&quot;                                                              
-## [13] &quot;&quot;                                                                      
-## [14] &quot;#% A section&quot;                                                          
-## [15] &quot;##% A subsection&quot;                                                      
-## [16] &quot;### Not a subsubsection but a plain comment.&quot;                          
-## [17] &quot;############% Another markdown paragraph.&quot;                             
-## [18] &quot;############%&quot;                                                         
-## [19] &quot;####### More text that will not be extracted.&quot;</code></pre>
-</div>
+<span class="kw">file.show</span>(path, <span class="dt">pager =</span> <span class="st">&quot;cat&quot;</span>)</code></pre></div>
+<p>and you would want to excerpt the comments marked by ‘%’ into a file giving you the table of contents of your script. Then</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">excerptr::<span class="kw">excerptr</span>(<span class="dt">file_name =</span> path, <span class="dt">pandoc_formats=</span> <span class="st">&quot;md&quot;</span>, <span class="dt">output_path =</span> <span class="kw">tempdir</span>())</code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<p>gives you</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">file.show</span>(<span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="kw">sub</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">.R$&quot;</span>, <span class="st">&quot;.md&quot;</span>, <span class="kw">basename</span>(path))), <span class="dt">pager =</span> <span class="st">&quot;cat&quot;</span>)</code></pre></div>
+<p>If you have pandoc installed, you can convert the markdown output into html:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">excerptr::<span class="kw">excerptr</span>(<span class="dt">file_name =</span> path, <span class="dt">pandoc_formats=</span> <span class="st">&quot;html&quot;</span>, <span class="dt">output_path =</span> <span class="kw">tempdir</span>())</code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">file.show</span>(<span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="kw">sub</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">.R$&quot;</span>, <span class="st">&quot;.html&quot;</span>, <span class="kw">basename</span>(path))), <span class="dt">pager =</span> <span class="st">&quot;cat&quot;</span>)</code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<p>This will give you <a href="http://htmlpreview.github.io/?https://github.com/fvafrCU/excerptr/blob/master/inst/tests/files/some_file.html">this output</a></p>
 
 
 

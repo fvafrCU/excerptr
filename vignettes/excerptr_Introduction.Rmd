@@ -1,15 +1,43 @@
 ---
 title: "An Introduction to excerptr"
 author: "Andreas Dominik Cullmann"
-date: 2017-04-17, 21:27:25
+date: 2017-04-18, 19:02:47
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{An Introduction to excerptr}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
-#FIXME: This is just a stump.
+excerptr is an R interface to the python package [excerpts](https://pypi.python.org/pypi/excerpts).
+See there for more on the Why?
+
+Suppose you have a script
+
 ```{r}
 path <- system.file("tests", "files", "some_file.R", package = "excerptr")
-readLines(path)
+file.show(path, pager = "cat")
 ```
+and you would want to excerpt the comments marked by '%' into a file giving you the table of contents of your script.
+Then 
+```{r}
+excerptr::excerptr(file_name = path, pandoc_formats= "md", output_path = tempdir())
+```
+gives you
+
+```{r}
+file.show(file.path(tempdir(), sub("\\.R$", ".md", basename(path))), pager = "cat")
+```
+
+If you have pandoc installed, you can convert the markdown output into html:
+
+```{r}
+excerptr::excerptr(file_name = path, pandoc_formats= "html", output_path = tempdir())
+file.show(file.path(tempdir(), sub("\\.R$", ".html", basename(path))), pager = "cat")
+```
+```{r, echo = FALSE}
+excerptr::excerptr(file_name = path, pandoc_formats= "html", 
+                   output_path = file.path(rprojroot::find_root(rprojroot::is_r_package), 
+                                           "inst", "tests", "files")
+                   )
+```
+This will give you [this output](http://htmlpreview.github.io/?https://github.com/fvafrCU/excerptr/blob/master/inst/tests/files/some_file.html)
