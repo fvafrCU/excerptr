@@ -26,7 +26,7 @@ in \code{file_name}.}
 
 \item{run_pandoc}{Try to run pandoc on the output file?}
 
-\item{compile_latex}{Try to compile LaTeX if pandoc outputed LaTeX?}
+\item{compile_latex}{Try to compile LaTeX if pandoc has output LaTeX?}
 
 \item{pandoc_formats}{A character vector naming the output formats for
 pandoc.}

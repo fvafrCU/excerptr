@@ -13,9 +13,16 @@ Please read the [vignette.](http://htmlpreview.github.io/?https://github.com/fva
 or [the one released on cran](https://cran.r-project.org/web/packages/excerptr/vignettes/excerptr_Introduction.html). -->
 
 Or, after installation, the help page:
-```{r, results = "hide"}
-options(pager = "/bin/cat")
-help("excerptr-package", package = "excerptr")
+```{r, results='asis', echo = FALSE, comment = ""}
+options(pager = "cat")
+print_help <- function(topic, package = NULL) {  
+  help_file = utils:::.getHelpFile(help(topic, package = (package)))
+  captured <- capture.output(html=tools:::Rd2HTML(help_file))
+  captured <- c("<quote>", captured, "</quote>")
+  cat(captured, sep="\n")
+  return(invisible(captured))
+}
+print_help(topic = "cleanr-package", package = "cleanr")
 ```
 
 ## Installation
