@@ -13,7 +13,7 @@ Please read the [vignette.](http://htmlpreview.github.io/?https://github.com/fva
 or [the one released on cran](https://cran.r-project.org/web/packages/excerptr/vignettes/excerptr_Introduction.html). -->
 
 Or, after installation, the help page:
-<quote>
+<blockquote>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Excerpt Structuring Comments from Your Code File and Set a...</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="R.css" />
@@ -37,7 +37,7 @@ Python package excerpts (<a href="https://pypi.python.org/pypi/excerpts">https:/
 
 
 </body></html>
-</quote>
+</blockquote>
 
 ## Installation
 You can install excerptr from github with:
