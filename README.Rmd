@@ -20,9 +20,10 @@ help("excerptr-package", package = "excerptr")
 
 ## Installation
 You can install excerptr from github with:
-```{r, eval = FALSE}
+```{r, eval = TRUE, results = "hide"}
 if (! require("devtools")) install.packages("devtools")
 devtools::install_github("fvafrCU/excerptr")
+```
 
 
 ## System Requirements

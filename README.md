@@ -24,11 +24,23 @@ You can install excerptr from github with:
 
 ```r
 if (! require("devtools")) install.packages("devtools")
+```
+
+```
+## Loading required package: devtools
+```
+
+```r
 devtools::install_github("fvafrCU/excerptr")
+```
+
+```
+## Skipping install of 'excerptr' from a github remote, the SHA1 (bab2cbca) has not changed since last install.
+##   Use `force = TRUE` to force installation
+```
 
 
 ## System Requirements
 You need
   - python3
   - the rPython package
-```
