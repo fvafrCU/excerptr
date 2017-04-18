@@ -11,7 +11,7 @@ construct_path <- function(temporary = FALSE) {
                          error = function(e) return(FALSE)
                          )
         if (root == FALSE) {
-            root <- base::system.file(base, package = "excerptr")
+            root <- base::system.file(package = "excerptr")
         }
         if (root == "") {
             warning("Don't know where you are, using a temporary directory.")
