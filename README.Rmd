@@ -21,3 +21,7 @@ You can install cleanr from github with:
 ```{r, eval = FALSE}
 if (! require("devtools")) install.packages("devtools")
 devtools::install_github("fvafrCU/excerptr")
+
+
+## System Requirements
+You need to have XXX
