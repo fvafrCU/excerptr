@@ -1,3 +1,2 @@
-- improve coverage
-- improve README
+- improve README, add rPython section
 - add vignette

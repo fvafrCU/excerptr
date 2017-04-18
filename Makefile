@@ -10,7 +10,7 @@ LOG_DIR := log
 R := R-devel
 Rscript := Rscript-devel
 
-all: install_bare dev_check dev_test dev_vignettes crancheck utils
+all: install_bare dev_check dev_test dev_vignettes crancheck utils README.md
 
 # devtools
 dev_all: dev_test dev dev_vignettes
@@ -27,10 +27,11 @@ dev_test:
 	sed -n -e '/^DONE.*/q;p' < ${temp_file} | \
 	sed -e "s# /.*\(${PKGNAME}\)# \1#" > ${LOG_DIR}/dev_test.Rout 
 
-dev_check: 
+dev_check: dev_test 
 	rm ${temp_file} || TRUE; \
-	${Rscript} --vanilla -e 'devtools::check(cran = TRUE, check_version = TRUE)' > ${temp_file} 2>&1; \
-	grep -v ".*'/" ${temp_file} | grep -v ".*‘/" > ${LOG_DIR}/dev_check.Rout 
+	${Rscript} --vanilla -e 'devtools::check(cran = TRUE, check_version = TRUE, args = "--no-tests")' > ${temp_file} 2>&1; \
+	grep -v ".*'/" ${temp_file} | grep -v ".*‘/" > ${LOG_DIR}/dev_check.Rout ;\
+	grep "checking tests ... SKIPPED" ${LOG_DIR}/dev_check.Rout
 
 dev_vignettes:
 	${Rscript} --vanilla -e 'devtools::build_vignettes()'
@@ -115,12 +116,10 @@ remove:
 README.md: README.Rmd
 	${Rscript} --vanilla -e 'knitr::knit("README.Rmd")'
 
-.PHONY: demo
-demo:
-	# R CMD BATCH  demo/${rpackage}.r ## Rscript doesn't load
-	# methods, but we fixed that.
-	demo/${PKGNAME}.R
-
+##% git tag
+.PHONY: tag
+make tag: setup.py
+	./utils/tag.cl
 
 .PHONY: dependencies
 dependencies:
