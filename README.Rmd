@@ -22,7 +22,7 @@ print_help <- function(topic, package = NULL) {
   cat(captured, sep="\n")
   return(invisible(captured))
 }
-print_help(topic = "cleanr-package", package = "cleanr")
+print_help(topic = "excerptr-package", package = "excerptr")
 ```
 
 ## Installation
