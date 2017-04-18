@@ -10,7 +10,7 @@ LOG_DIR := log
 R := R-devel
 Rscript := Rscript-devel
 
-all: install_bare dev_check dev_test dev_vignettes crancheck utils
+all: install_bare dev_check dev_test dev_vignettes crancheck utils README.md
 
 # devtools
 dev_all: dev_test dev dev_vignettes
@@ -116,12 +116,10 @@ remove:
 README.md: README.Rmd
 	${Rscript} --vanilla -e 'knitr::knit("README.Rmd")'
 
-.PHONY: demo
-demo:
-	# R CMD BATCH  demo/${rpackage}.r ## Rscript doesn't load
-	# methods, but we fixed that.
-	demo/${PKGNAME}.R
-
+##% git tag
+.PHONY: tag
+make tag: setup.py
+	./utils/tag.cl
 
 .PHONY: dependencies
 dependencies:
