@@ -1,7 +1,7 @@
 ---
 title: "An Introduction to excerptr"
 author: "Andreas Dominik Cullmann"
-date: 2017-04-18, 19:02:47
+date: 2017-04-18, 19:11:55
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{An Introduction to excerptr}
@@ -24,20 +24,23 @@ excerptr::excerptr(file_name = path, pandoc_formats= "md", output_path = tempdir
 ```
 gives you
 
-```{r}
-file.show(file.path(tempdir(), sub("\\.R$", ".md", basename(path))), pager = "cat")
+```{r, comment = ""}
+cat(readLines(file.path(tempdir(), sub("\\.R$", ".md", basename(path)))), sep = "\n")
 ```
 
 If you have pandoc installed, you can convert the markdown output into html:
 
 ```{r}
 excerptr::excerptr(file_name = path, pandoc_formats= "html", output_path = tempdir())
-file.show(file.path(tempdir(), sub("\\.R$", ".html", basename(path))), pager = "cat")
 ```
-```{r, echo = FALSE}
+This gives you
+```{r, comment = ""}
+cat(readLines(file.path(tempdir(), sub("\\.R$", ".html", basename(path)))), sep = "\n")
+```
+```{r, echo = FALSE, results = "hide"}
 excerptr::excerptr(file_name = path, pandoc_formats= "html", 
                    output_path = file.path(rprojroot::find_root(rprojroot::is_r_package), 
                                            "inst", "tests", "files")
                    )
 ```
-This will give you [this output](http://htmlpreview.github.io/?https://github.com/fvafrCU/excerptr/blob/master/inst/tests/files/some_file.html)
+You can see this html file [here](http://htmlpreview.github.io/?https://github.com/fvafrCU/excerptr/blob/master/inst/tests/files/some_file.html).
