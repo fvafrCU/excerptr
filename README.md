@@ -4,6 +4,7 @@ output: github_document
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 [![Build Status](https://travis-ci.org/fvafrCU/excerptr.svg?branch=master)](https://travis-ci.org/fvafrCU/excerptr)
 [![Coverage Status](https://codecov.io/github/fvafrCU/excerptr/coverage.svg?branch=master)](https://codecov.io/github/fvafrCU/excerptr?branch=master)
+
 # excerptr
 This is an R interface to [excerpts](https://pypi.python.org/pypi/excerpts).
 
@@ -24,23 +25,14 @@ You can install excerptr from github with:
 
 ```r
 if (! require("devtools")) install.packages("devtools")
-```
-
-```
-## Loading required package: devtools
-```
-
-```r
-devtools::install_github("fvafrCU/excerptr")
-```
-
-```
-## Skipping install of 'excerptr' from a github remote, the SHA1 (bab2cbca) has not changed since last install.
-##   Use `force = TRUE` to force installation
+devtools::install_github("fvafrCU/excerptr", quiet = TRUE)
 ```
 
 
 ## System Requirements
 You need
-  - python3
-  - the rPython package
+
+  - [python3](https://www.python.org/download/releases/3.0/)
+  - [the rPython package](https://cran.r-project.org/package=rPython), for windows see [here](https://github.com/cjgb/rPython-win)
+
+And you might want to install [pandoc](https://www.pandoc.org/).
