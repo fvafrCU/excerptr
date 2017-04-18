@@ -1,2 +1,1 @@
-- improve README, add rPython section
-- add vignette
+- cran-comments
