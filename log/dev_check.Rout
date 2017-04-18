@@ -11,7 +11,7 @@ Building excerptr --------------------------------------------------------------
 * installing the package to build vignettes
 * creating vignettes ... OK
 Warning: ‘inst/doc’ files
-    ‘excerptr_Introduction.Rmd’, ‘excerptr_Introduction.html’,  ‘excerptr_Introduction.R’
+    ‘excerptr_Introduction.Rmd’, ‘excerptr_Introduction.html’
   ignored as vignettes have been rebuilt.
   Run R CMD build with --no-build-vignettes to prevent rebuilding.
 * checking for LF line-endings in source and make files
@@ -82,19 +82,55 @@ New submission
 * checking for unstated dependencies in ‘tests’ ... OK
 * checking tests ...
   Running ‘testthat.R’
- OK
+ ERROR
+Running the tests in ‘tests/testthat.R’ failed.
+Last 13 lines of output:
+  1: excerptr(file = file.path(root, "tests/files/some_file.R"), output_path = out_file, 
+         pandoc_formats = "md") at testthat/test_basic.R:17
+  2: rPython::python.call("excerpts", file_name = file_name, comment_character = comment_character, 
+         magic_character = magic_character, output_path = output_path, allow_pep8 = allow_pep8, 
+         prefix = prefix, postfix = postfix, run_pandoc = run_pandoc, compile_latex = compile_latex, 
+         pandoc_formats = paste(pandoc_formats, collapse = ","))
+  3: python.exec(python.command)
+  4: stop(ret$error.desc)
+  
+  testthat results ================================================================
+  OK: 1 SKIPPED: 0 FAILED: 1
+  1. Error: md (@test_basic.R#17) 
+  
+  Error: testthat unit tests failed
+  Execution halted
 * checking for unstated dependencies in vignettes ... OK
 * checking package vignettes in ‘inst/doc’ ... OK
 * checking re-building of vignette outputs ... OK
 * DONE
 
-Status: 1 NOTE
+Status: 1 ERROR, 1 NOTE
 See
 for details.
 
-
 R CMD check results
-0 errors | 0 warnings | 1 note 
+1 error  | 0 warnings | 1 note 
+checking tests ... ERROR
+  Running ‘testthat.R’
+Running the tests in ‘tests/testthat.R’ failed.
+Last 13 lines of output:
+  1: excerptr(file = file.path(root, "tests/files/some_file.R"), output_path = out_file, 
+         pandoc_formats = "md") at testthat/test_basic.R:17
+  2: rPython::python.call("excerpts", file_name = file_name, comment_character = comment_character, 
+         magic_character = magic_character, output_path = output_path, allow_pep8 = allow_pep8, 
+         prefix = prefix, postfix = postfix, run_pandoc = run_pandoc, compile_latex = compile_latex, 
+         pandoc_formats = paste(pandoc_formats, collapse = ","))
+  3: python.exec(python.command)
+  4: stop(ret$error.desc)
+  
+  testthat results ================================================================
+  OK: 1 SKIPPED: 0 FAILED: 1
+  1. Error: md (@test_basic.R#17) 
+  
+  Error: testthat unit tests failed
+  Execution halted
+
 checking CRAN incoming feasibility ... NOTE
 Maintainer: ‘Andreas Dominik Cullmann <adc-r@arcor.de>’
 

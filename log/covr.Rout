@@ -1,73 +1,21 @@
-           filename                functions line value
-44     R/excerptr.R                 excerptr   34     0
-46     R/excerptr.R                 excerptr   35     0
-49     R/excerptr.R                 excerptr   36     0
-52     R/excerptr.R                 excerptr   37     0
-55     R/excerptr.R                 excerptr   38     0
-57     R/excerptr.R                 excerptr   39     0
-59     R/excerptr.R                 excerptr   40     0
-61     R/excerptr.R                 excerptr   41     0
-63     R/excerptr.R                 excerptr   42     0
-65     R/excerptr.R                 excerptr   43     0
-67     R/excerptr.R                 excerptr   44     0
-69     R/excerptr.R                 excerptr   45     0
-16 R/get_excerpts.R             get_excerpts   15     0
-19 R/get_excerpts.R             get_excerpts   16     0
-23 R/get_excerpts.R             get_excerpts   17     0
-27 R/get_excerpts.R             get_excerpts   18     0
-31 R/get_excerpts.R             get_excerpts   19     0
-34 R/get_excerpts.R             get_excerpts   20     0
-37 R/get_excerpts.R             get_excerpts   21     0
-39 R/get_excerpts.R             get_excerpts   22     0
-5     R/internals.R           construct_path   10     0
-7     R/internals.R           construct_path   11     0
-9     R/internals.R           construct_path   12     0
-11    R/internals.R           construct_path   13     0
-13    R/internals.R           construct_path   14     0
-15    R/internals.R           construct_path   15     0
-18    R/internals.R           construct_path   16     0
-22    R/internals.R           construct_path   17     0
-26    R/internals.R           construct_path   18     0
-30    R/internals.R           construct_path   19     0
-20      R/options.R        set_excertps_path   16     0
-24      R/options.R        set_excertps_path   17     0
-28      R/options.R        set_excertps_path   18     0
-43      R/options.R        get_excerpts_path   33     0
-45      R/options.R        get_excerpts_path   34     0
-47      R/options.R        get_excerpts_path   35     0
-50      R/options.R        get_excerpts_path   36     0
-53      R/options.R        get_excerpts_path   37     0
-6         R/utils.R concatenate_python_codes   11     0
-8         R/utils.R concatenate_python_codes   12     0
-10        R/utils.R concatenate_python_codes   13     0
-12        R/utils.R concatenate_python_codes   14     0
-14        R/utils.R concatenate_python_codes   15     0
-17        R/utils.R concatenate_python_codes   16     0
-21        R/utils.R concatenate_python_codes   17     0
-25        R/utils.R concatenate_python_codes   18     0
-29        R/utils.R concatenate_python_codes   19     0
-32        R/utils.R concatenate_python_codes   20     0
-35        R/utils.R concatenate_python_codes   21     0
-40        R/utils.R concatenate_python_codes   24     0
-41        R/utils.R concatenate_python_codes   25     0
-42        R/utils.R concatenate_python_codes   26     0
-48        R/utils.R            load_excerpts   35     0
-51        R/utils.R            load_excerpts   36     0
-54        R/utils.R            load_excerpts   37     0
-56        R/utils.R            load_excerpts   38     0
-58        R/utils.R            load_excerpts   39     0
-60        R/utils.R            load_excerpts   40     0
-62        R/utils.R            load_excerpts   41     0
-64        R/utils.R            load_excerpts   42     0
-66        R/utils.R            load_excerpts   43     0
-68        R/utils.R            load_excerpts   44     0
-70        R/utils.R            load_excerpts   48     0
-71        R/utils.R            load_excerpts   49     0
-72        R/utils.R            load_excerpts   50     0
-73        R/utils.R            load_excerpts   51     0
-excerptr Coverage: 9.59%
-R/excerptr.R: 0.00%
-R/get_excerpts.R: 0.00%
-R/options.R: 0.00%
-R/utils.R: 0.00%
+        filename         functions line value
+5  R/internals.R    construct_path   10     0
+7  R/internals.R    construct_path   11     0
+9  R/internals.R    construct_path   12     0
+11 R/internals.R    construct_path   13     0
+13 R/internals.R    construct_path   14     0
+15 R/internals.R    construct_path   15     0
+18 R/internals.R    construct_path   16     0
+22 R/internals.R    construct_path   17     0
+26 R/internals.R    construct_path   18     0
+30 R/internals.R    construct_path   19     0
+20   R/options.R set_excertps_path   16     0
+24   R/options.R set_excertps_path   17     0
+28   R/options.R set_excertps_path   18     0
+47   R/options.R get_excerpts_path   35     0
+excerptr Coverage: 80.82%
 R/internals.R: 41.18%
+R/options.R: 50.00%
+R/excerptr.R: 100.00%
+R/get_excerpts.R: 100.00%
+R/utils.R: 100.00%

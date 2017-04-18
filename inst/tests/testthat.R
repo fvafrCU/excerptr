@@ -1,4 +1,4 @@
-library(testthat)
-library(excerptr)
+library("testthat")
+library("excerptr")
 
 test_check("excerptr")
