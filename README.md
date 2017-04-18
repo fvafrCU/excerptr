@@ -16,11 +16,11 @@ Or, after installation, the help page:
 
 ```r
 options(pager = "/bin/cat")
-help("excerptr-package", package = "cleanr")
+help("excerptr-package", package = "excerptr")
 ```
 
 ## Installation
-You can install cleanr from github with:
+You can install excerptr from github with:
 
 ```r
 if (! require("devtools")) install.packages("devtools")

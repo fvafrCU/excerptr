@@ -15,11 +15,11 @@ or [the one released on cran](https://cran.r-project.org/web/packages/excerptr/v
 Or, after installation, the help page:
 ```{r, results = "hide"}
 options(pager = "/bin/cat")
-help("excerptr-package", package = "cleanr")
+help("excerptr-package", package = "excerptr")
 ```
 
 ## Installation
-You can install cleanr from github with:
+You can install excerptr from github with:
 ```{r, eval = FALSE}
 if (! require("devtools")) install.packages("devtools")
 devtools::install_github("fvafrCU/excerptr")
