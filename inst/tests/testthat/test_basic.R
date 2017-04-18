@@ -5,7 +5,7 @@ library("testthat")
 library("excerptr")
 context("Basic tests")
 root <- tryCatch(rprojroot::find_root(rprojroot::is_r_package),
-                 error = function(e) return(".")
+                 error = function(e) return("../..")
                  )
 
 test_that("paths", {

@@ -27,10 +27,11 @@ dev_test:
 	sed -n -e '/^DONE.*/q;p' < ${temp_file} | \
 	sed -e "s# /.*\(${PKGNAME}\)# \1#" > ${LOG_DIR}/dev_test.Rout 
 
-dev_check: 
+dev_check: dev_test 
 	rm ${temp_file} || TRUE; \
-	${Rscript} --vanilla -e 'devtools::check(cran = TRUE, check_version = TRUE)' > ${temp_file} 2>&1; \
-	grep -v ".*'/" ${temp_file} | grep -v ".*‘/" > ${LOG_DIR}/dev_check.Rout 
+	${Rscript} --vanilla -e 'devtools::check(cran = TRUE, check_version = TRUE, args = "--no-tests")' > ${temp_file} 2>&1; \
+	grep -v ".*'/" ${temp_file} | grep -v ".*‘/" > ${LOG_DIR}/dev_check.Rout ;\
+	grep "checking tests ... SKIPPED" ${LOG_DIR}/dev_check.Rout
 
 dev_vignettes:
 	${Rscript} --vanilla -e 'devtools::build_vignettes()'
