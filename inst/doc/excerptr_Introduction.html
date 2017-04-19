@@ -69,7 +69,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">An Introduction to excerptr</h1>
 <h4 class="author"><em>Andreas Dominik Cullmann</em></h4>
-<h4 class="date"><em>2017-04-18, 19:25:27</em></h4>
+<h4 class="date"><em>2017-04-19, 19:18:50</em></h4>
 
 
 
@@ -97,28 +97,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ############%
 ####### More text that will not be extracted.</code></pre>
 <p>and you would want to excerpt the comments marked by ‘%’ into a file giving you the table of contents of your script. Then</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">excerptr::<span class="kw">excerptr</span>(<span class="dt">file_name =</span> path, <span class="dt">pandoc_formats=</span> <span class="st">&quot;md&quot;</span>, <span class="dt">output_path =</span> <span class="kw">tempdir</span>())</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">excerptr::<span class="kw">excerptr</span>(<span class="dt">file_name =</span> path, <span class="dt">run_pandoc =</span> <span class="ot">FALSE</span>, <span class="dt">output_path =</span> <span class="kw">tempdir</span>())</code></pre></div>
 <pre><code>## [1] 0</code></pre>
 <p>gives you</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cat</span>(<span class="kw">readLines</span>(<span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="kw">sub</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">.R$&quot;</span>, <span class="st">&quot;.md&quot;</span>, <span class="kw">basename</span>(path)))), <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</code></pre></div>
-<pre><code>---
-author:
-- Me
-title: All About Me
-...
+<pre><code>% All About Me
+% Me
+**This** is an example of a markdown paragraph: markdown 
+recognizes only six levels of heading, so we use seven or
+more levels to mark &quot;normal&quot; text.
+Here you can use the full markdown 
+[syntax](http://daringfireball.net/projects/markdown/syntax).
+*Note* the trailing line: markdown needs an empty line to end
+a paragraph.
 
-**This** is an example of a markdown paragraph: markdown recognizes only
-six levels of heading, so we use seven or more levels to mark &quot;normal&quot;
-text. Here you can use the full markdown
-[syntax](http://daringfireball.net/projects/markdown/syntax). *Note* the
-trailing line: markdown needs an empty line to end a paragraph.
-
-A section
-=========
-
-A subsection
-------------
-
+# A section
+## A subsection
 Another markdown paragraph.</code></pre>
 <p>If you have pandoc installed, you can convert the markdown output into html:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">excerptr::<span class="kw">excerptr</span>(<span class="dt">file_name =</span> path, <span class="dt">pandoc_formats=</span> <span class="st">&quot;html&quot;</span>, <span class="dt">output_path =</span> <span class="kw">tempdir</span>())</code></pre></div>
