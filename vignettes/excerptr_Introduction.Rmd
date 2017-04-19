@@ -1,7 +1,7 @@
 ---
 title: "An Introduction to excerptr"
 author: "Andreas Dominik Cullmann"
-date: 2017-04-18, 19:25:27
+date: 2017-04-19, 19:18:50
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{An Introduction to excerptr}
@@ -20,7 +20,7 @@ cat(readLines(path), sep = "\n")
 and you would want to excerpt the comments marked by '%' into a file giving you the table of contents of your script.
 Then 
 ```{r}
-excerptr::excerptr(file_name = path, pandoc_formats= "md", output_path = tempdir())
+excerptr::excerptr(file_name = path, run_pandoc = FALSE, output_path = tempdir())
 ```
 gives you
 
