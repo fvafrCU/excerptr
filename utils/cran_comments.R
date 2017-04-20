@@ -1,12 +1,13 @@
 #!/usr/bin/Rscript --vanilla
+# search for  $ Rscript -e 'sessionInfo()' in the raw log of the travis build
 travis_copy <- c("
-R version 3.3.2 (2016-10-31)
+R version 3.3.3 (2017-03-06)
 Platform: x86_64-pc-linux-gnu (64-bit)
 Running under: Ubuntu precise (12.04.5 LTS)
 ")
 
 provide_cran_comments <- function(comments_file = "cran-comments.md",
-                                  check_log = "dev_check.Rout",
+                                  check_log = "log/dev_check.Rout",
                                   travis_raw_log = travis_copy) {
     pkg <- devtools::as.package(".")
     cat("\n# Package ", pkg$package, pkg$version, file = comments_file, "\n", 

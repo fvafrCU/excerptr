@@ -109,9 +109,9 @@ clean:
 remove:
 	 ${R} --vanilla CMD REMOVE  ${PKGNAME}
 
-# specifics
-## cran-comments.md: dev_check.Rout
-## 	${Rscript} --vanilla -e 'source("./utils/cran_comments.R"); provide_cran_comments()' > cran_comments.Rout 2>&1 
+#specifics
+cran-comments.md: log/dev_check.Rout
+	${Rscript} --vanilla -e 'source("./utils/cran_comments.R"); provide_cran_comments()' > cran_comments.Rout 2>&1 
 
 README.md: README.Rmd install_bare
 	${Rscript} --vanilla -e 'knitr::knit("README.Rmd")'
