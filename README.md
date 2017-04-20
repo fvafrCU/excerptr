@@ -25,8 +25,15 @@ Or, after installation, the help page:
 
 <h3>Description</h3>
 
-<p>This is an R interface to the 
-Python package excerpts (<a href="https://pypi.python.org/pypi/excerpts">https://pypi.python.org/pypi/excerpts</a>).
+<p>This is just an R interface to the 
+python package excerpts (<a href="https://pypi.python.org/pypi/excerpts">https://pypi.python.org/pypi/excerpts</a>).
+</p>
+
+
+<h3>Details</h3>
+
+<p>You will probably only want to use <code>excerptr</code>, see there for a
+usage example.
 </p>
 
 

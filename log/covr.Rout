@@ -1,9 +1,10 @@
         filename      functions line value
+69  R/excerptr.R       excerptr   45     0
 22 R/internals.R construct_path   17     0
 26 R/internals.R construct_path   18     0
-excerptr Coverage: 97.26%
+excerptr Coverage: 95.89%
 R/internals.R: 88.24%
-R/excerptr.R: 100.00%
+R/excerptr.R: 91.67%
 R/get_excerpts.R: 100.00%
 R/options.R: 100.00%
 R/utils.R: 100.00%
