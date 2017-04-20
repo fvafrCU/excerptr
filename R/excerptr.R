@@ -25,7 +25,7 @@ NULL
 #' test_files <- file.path(root, "excerpts", "tests", "files")
 #' excerptr(file_name = file.path(test_files, "some_file.txt"),
 #'          output_path = dirname(tempdir()), run_pandoc = TRUE,
-#'          compile_latex = TRUE,
+#'          compile_latex = FALSE,
 #'          pandoc_formats = c("tex", "html"))
 excerptr <- function(file_name, comment_character = "#", magic_character = "%",
              output_path = "", allow_pep8 = TRUE,

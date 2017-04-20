@@ -43,7 +43,7 @@ root <- system.file(package = "excerptr")
 test_files <- file.path(root, "excerpts", "tests", "files")
 excerptr(file_name = file.path(test_files, "some_file.txt"),
          output_path = dirname(tempdir()), run_pandoc = TRUE,
-         compile_latex = TRUE,
+         compile_latex = FALSE,
          pandoc_formats = c("tex", "html"))
 }
 
