@@ -40,7 +40,7 @@ dev_win:
 	${Rscript} --vanilla -e 'devtools::build_win()'
 
 dev_release: dev_win
-	${Rscript} --vanilla -e 'devtools::release()'
+	echo "${Rscript} --vanilla -e 'devtools::release(check = FALSE)'"
 
 dev_devel:
 	${Rscript} --vanilla -e 'devtools::use_dev_version()'
