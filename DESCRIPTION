@@ -1,7 +1,7 @@
 Package: excerptr
 Title: Excerpt Structuring Comments from Your Code File and
     Set a Table of Contents
-Version: 0.1.0.9000
+Version: 0.2.0
 Authors@R: person(given = c("Andreas", "Dominik"), family = "Cullmann",
     email = "adc-r@arcor.de", role = c("aut","cre"))
 Description: This is an R interface to the
