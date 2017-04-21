@@ -74,7 +74,7 @@ check: build
 		cp ${PKGNAME}.Rcheck/00check.log log/check.log && \
         printf '===== run\n\tmake install\n!!\n'
 
-build_bare: README.md
+build_bare:
 	${R} --vanilla CMD build ../${PKGSRC}
 
 build: roxy README.md
