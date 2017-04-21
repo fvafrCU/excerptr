@@ -36,7 +36,10 @@ dev_check: dev_test README.md
 dev_vignettes:
 	${Rscript} --vanilla -e 'devtools::build_vignettes()'
 
-dev_release:
+dev_win:
+	${Rscript} --vanilla -e 'devtools::build_win()'
+
+dev_release: dev_win
 	${Rscript} --vanilla -e 'devtools::release()'
 
 dev_devel:
