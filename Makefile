@@ -120,7 +120,7 @@ README.md: README.Rmd install_bare
 
 ##% git tag
 .PHONY: tag
-make tag: setup.py
+make tag:
 	./utils/tag.cl
 
 .PHONY: dependencies
