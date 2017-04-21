@@ -18,7 +18,6 @@ Dominik
 - R version 3.3.3 (2017-03-06)
   Platform: x86_64-pc-linux-gnu (64-bit)
   Running under: Ubuntu precise (12.04.5 LTS) 
-- win-builder (devel) 
 
 ## R CMD check results
 0 errors | 0 warnings | 1 note 
@@ -27,4 +26,8 @@ Maintainer: ‘Andreas Dominik Cullmann <adc-r@arcor.de>’
 
 New submission
 
-
+## R CMD check results on Winbuilder
+Winbuilder "will not attempt to install this package on Windows". 
+Because this packages depends on rPython which is a unix only package. 
+If you install rPython-win following the instructions given by the rPython 
+package, excerptr should run on windows.
