@@ -13,38 +13,29 @@ Please read the [vignette.](http://htmlpreview.github.io/?https://github.com/fva
 or [the one released on cran](https://cran.r-project.org/web/packages/excerptr/vignettes/excerptr_Introduction.html). -->
 
 Or, after installation, the help page:
-<blockquote>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: Excerpt Structuring Comments from Your Code File and Set a...</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="R.css" />
-</head><body>
 
-<table width="100%" summary="page for excerptr-package"><tr><td>excerptr-package</td><td style="text-align: right;">R Documentation</td></tr></table>
+```r
+help("excerptr-package", package = "excerptr")
+```
 
-<h2>Excerpt Structuring Comments from Your Code File and Set a Table of Contents</h2>
-
-<h3>Description</h3>
-
-<p>This is just an R interface to the 
-python package excerpts (<a href="https://pypi.python.org/pypi/excerpts">https://pypi.python.org/pypi/excerpts</a>).
-</p>
-
-
-<h3>Details</h3>
-
-<p>You will probably only want to use <code>excerptr</code>, see there for a
-usage example.
-</p>
-
-
-<h3>Author(s)</h3>
-
-<p>Andreas Dominik Cullmann, &lt;adc-r@arcor.de&gt;
-</p>
-
-
-</body></html>
-</blockquote>
+```
+## Excerpt Structuring Comments from Your Code File and Set a Table of
+## Contents
+## 
+## Description:
+## 
+##      This is just an R interface to the python package excerpts (<URL:
+##      https://pypi.python.org/pypi/excerpts>).
+## 
+## Details:
+## 
+##      You will probably only want to use 'excerptr', see there for a
+##      usage example.
+## 
+## Author(s):
+## 
+##      Andreas Dominik Cullmann, <adc-r@arcor.de>
+```
 
 ## Installation
 You can install excerptr from github with:

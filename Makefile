@@ -29,9 +29,9 @@ dev_test:
 
 dev_check: dev_test 
 	rm ${temp_file} || TRUE; \
-	${Rscript} --vanilla -e 'devtools::check(cran = TRUE, check_version = TRUE, args = "--no-tests")' > ${temp_file} 2>&1; \
-	grep -v ".*'/" ${temp_file} | grep -v ".*‘/" > ${LOG_DIR}/dev_check.Rout ;\
-	grep "checking tests ... SKIPPED" ${LOG_DIR}/dev_check.Rout
+		${Rscript} --vanilla -e 'devtools::check(cran = TRUE, check_version = TRUE, args = "--no-tests")' > ${temp_file} 2>&1; \
+		grep -v ".*'/" ${temp_file} | grep -v ".*‘/" > ${LOG_DIR}/dev_check.Rout ;\
+		grep "checking tests ... SKIPPED" ${LOG_DIR}/dev_check.Rout
 
 dev_vignettes:
 	${Rscript} --vanilla -e 'devtools::build_vignettes()'
@@ -48,7 +48,8 @@ craninstall: crancheck
 
 crancheck: build  
 	export _R_CHECK_FORCE_SUGGESTS_=TRUE && \
-        ${R} --vanilla CMD check --as-cran ${PKGNAME}_${PKGVERS}.tar.gz 
+		${R} --vanilla CMD check --as-cran ${PKGNAME}_${PKGVERS}.tar.gz && \
+		cp ${PKGNAME}.Rcheck/00check.log log/crancheck.log
 
 install: check 
 	${R} --vanilla CMD INSTALL  ${PKGNAME}_${PKGVERS}.tar.gz && \
@@ -67,6 +68,7 @@ check_bare: build_bare
 check: build 
 	export _R_CHECK_FORCE_SUGGESTS_=TRUE && \
         ${R} --vanilla CMD check ${PKGNAME}_${PKGVERS}.tar.gz && \
+		cp ${PKGNAME}.Rcheck/00check.log log/check.log && \
         printf '===== run\n\tmake install\n!!\n'
 
 build_bare: 
@@ -109,7 +111,7 @@ clean:
 remove:
 	 ${R} --vanilla CMD REMOVE  ${PKGNAME}
 
-#specifics
+# specifics
 cran-comments.md: log/dev_check.Rout
 	${Rscript} --vanilla -e 'source("./utils/cran_comments.R"); provide_cran_comments()' > cran_comments.Rout 2>&1 
 
@@ -124,4 +126,8 @@ make tag: setup.py
 .PHONY: dependencies
 dependencies:
 	${Rscript} --vanilla -e 'deps <-c("rprojroot", "covr", "knitr", "devtools", "rmarkdown", "RUnit", "checkmate", "roxygen2", "lintr", "hunspell"); for (dep in deps) {if (! require(dep, character.only = TRUE)) install.packages(dep, repos = "https://cran.uni-muenster.de/")}'
+
+.PHONY: dependencies_forced
+dependencies_forced:
+	${Rscript} --vanilla -e 'deps <-c("rprojroot", "covr", "knitr", "devtools", "rmarkdown", "RUnit", "checkmate", "roxygen2", "lintr", "hunspell"); for (dep in deps) install.packages(dep, repos = "https://cran.uni-muenster.de/")'
 

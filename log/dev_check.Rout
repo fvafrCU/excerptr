@@ -16,6 +16,7 @@ Warning: ‘inst/doc’ files
   Run R CMD build with --no-build-vignettes to prevent rebuilding.
 * checking for LF line-endings in source and make files
 * checking for empty or unneeded directories
+Removed empty directory ‘excerptr/inst/excerpts/log’
 Removed empty directory ‘excerptr/log’
 * building ‘excerptr_0.1.0.9000.tar.gz’
 
@@ -26,7 +27,7 @@ _R_CHECK_FORCE_SUGGESTS_          : FALSE
 Checking excerptr --------------------------------------------------------------
   --as-cran --timings --no-tests --no-manual 
 
-* using R Under development (unstable) (2016-12-20 r71827)
+* using R Under development (unstable) (2017-04-20 r72572)
 * using platform: x86_64-pc-linux-gnu (64-bit)
 * using session charset: UTF-8
 * using options ‘--no-tests --no-manual --as-cran’
@@ -52,7 +53,9 @@ Version contains large components (0.1.0.9000)
 * checking package directory ... OK
 * checking ‘build’ directory ... OK
 * checking DESCRIPTION meta-information ... OK
-* checking top-level files ... OK
+* checking top-level files ... NOTE
+Non-standard file/directory found at top level:
+  ‘R.css’
 * checking for left-over files ... OK
 * checking index information ... OK
 * checking package subdirectories ... OK
@@ -88,16 +91,20 @@ Version contains large components (0.1.0.9000)
 * checking re-building of vignette outputs ... OK
 * DONE
 
-Status: 1 NOTE
+Status: 2 NOTEs
 See
 for details.
 
 
 R CMD check results
-0 errors | 0 warnings | 1 note 
+0 errors | 0 warnings | 2 notes
 checking CRAN incoming feasibility ... NOTE
 Maintainer: ‘Andreas Dominik Cullmann <adc-r@arcor.de>’
 
 New submission
 
 Version contains large components (0.1.0.9000)
+
+checking top-level files ... NOTE
+Non-standard file/directory found at top level:
+  ‘R.css’
