@@ -15,4 +15,3 @@ The concatenated code.
 \description{
 To easily remove local imports and imports from __future__.
 }
-

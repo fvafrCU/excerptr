@@ -46,4 +46,3 @@ excerptr(file_name = file.path(test_files, "some_file.txt"),
          compile_latex = FALSE,
          pandoc_formats = c("tex", "html"))
 }
-

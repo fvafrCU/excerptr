@@ -16,4 +16,3 @@ usage example.
 Andreas Dominik Cullmann, <adc-r@arcor.de>
 }
 \keyword{package}
-

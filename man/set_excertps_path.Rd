@@ -19,4 +19,3 @@ a character of length one containing the (new) path set.
 excerpts. This wrapper sets this option depending on whether you give a fixed
 path, are developing the package or using the standard installation's code.
 }
-

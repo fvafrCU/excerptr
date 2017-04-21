@@ -26,4 +26,3 @@ path <- file.path(dirname(tempdir()), "excerpts")
 get_excerpts(directory = path, force = TRUE)
 \dontrun{print(set_excertps_path(path = path))}
 }
-

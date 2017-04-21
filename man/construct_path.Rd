@@ -15,4 +15,3 @@ A character of length one naming the path constructed.
 \description{
 Construct a (temporary) Path Where to Look for the Inst Files
 }
-

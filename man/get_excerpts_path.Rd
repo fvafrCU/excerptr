@@ -21,4 +21,3 @@ getOption("excertps_path")
 excerptr:::get_excerpts_path() # internally calls set_excertps_path()
 getOption("excertps_path")
 }
-

@@ -12,4 +12,3 @@ The status of the rPython::python.exec().
 \description{
 Just a wrapper.
 }
-
