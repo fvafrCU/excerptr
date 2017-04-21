@@ -7,7 +7,7 @@ Running under: Ubuntu precise (12.04.5 LTS)
 ")
 
 provide_cran_comments <- function(comments_file = "cran-comments.md",
-                                  check_log = "log/crancheck.log",
+                                  check_log = "log/dev_check.Rout",
                                   travis_raw_log = travis_copy) {
     pkg <- devtools::as.package(".")
     cat("\n# Package ", pkg$package, pkg$version, file = comments_file, "\n", 
