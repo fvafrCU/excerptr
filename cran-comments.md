@@ -1,3 +1,13 @@
+Dear CRAN team,
+I have packaged an R interface to my python package 'excerpts' which extracts 
+comments marked by some magic character and runs pandoc on the resulting files. 
+I use it (well, the python version) quite frequently to set a table of contents
+from a script file's structuring comments when I do not take the time to use
+knitr or sweave or use a language that doesn't care about reproducible research.
+
+Hope it could be of use to others.
+Best,
+Dominik
 
 # Package  excerptr 1.0.0 
 
