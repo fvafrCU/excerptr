@@ -6,7 +6,7 @@ OS_type: unix (but see file README)
 Authors@R: person(given = c("Andreas", "Dominik"), family = "Cullmann",
     email = "adc-r@arcor.de", role = c("aut","cre"))
 Description: This is an R interface to the
-    python package excerpts (https://pypi.python.org/pypi/excerpts).
+    python package 'excerpts' (<https://pypi.python.org/pypi/excerpts>).
 URL: https://github.com/fvafrCU/excerptr
 Depends:
     R (>= 3.3.2)
