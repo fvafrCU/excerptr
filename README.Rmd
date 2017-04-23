@@ -10,7 +10,7 @@ This is an R interface to [excerpts](https://pypi.python.org/pypi/excerpts).
 Please read the [vignette.](http://htmlpreview.github.io/?https://github.com/fvafrCU/excerptr/blob/master/inst/doc/excerptr_Introduction.html)
 
 <!-- vignette. Either [the version on github](http://htmlpreview.github.io/?https://github.com/fvafrCU/excerptr/blob/master/inst/doc/excerptr_Introduction.html)
-or [the one released on cran](https://cran.r-project.org/web/packages/excerptr/vignettes/excerptr_Introduction.html). -->
+or [the one released on cran](https://cran.r-project.org/packages=excerptr/vignettes/excerptr_Introduction.html). -->
 
 Or, after installation, the help page:
 ```{r, eval = FALSE}
@@ -36,17 +36,17 @@ file [INSTALL](https://cran.r-project.org/package=rPython/INSTALL) there.
 ### Windows
 Install [rPython-win](https://github.com/cjgb/rPython-win)
 (follow the instructions at 
-[https://cran.r-project.org/web/packages/rPython/INSTALL](https://cran.r-project.org/package=rPython/INSTALL)
+[https://cran.r-project.org/package=rPython/INSTALL](https://cran.r-project.org/package=rPython/INSTALL)
 ).
 
 ### Both
-Install excerptr from github
+Install excerptr from [github](https://github.com/fvafrCU/excerptr)
 ```{r, eval = TRUE, results = "hide", message = FALSE}
 if (! require("devtools")) install.packages("devtools")
 devtools::install_github("fvafrCU/excerptr", quiet = TRUE)
 ```
 
-or [CRAN](https://cran.r-project.org/package=excerptr)
+or from [CRAN](https://cran.r-project.org/package=excerptr)
 ```{r, eval = FALSE, results = "hide"}
 install.packages("excerptr")
 ```
