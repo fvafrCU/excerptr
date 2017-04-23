@@ -1,6 +1,10 @@
 Dear CRAN team,
-this is a resubmission of package excerptr 1.0.0, accounting for Uwe Ligges'
+this is a resubmission of package excerptr 1.0.0, accounting for Kurt Hornik's
 request for changes in the DESCRPITION file.
+
+I have dropped the `OS_type` field from DESCRPITION, because the package itself
+does not rely on the OS to be unix. 
+
 Best, 
 Dominik Cullmann
 
