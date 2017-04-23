@@ -1,0 +1,26 @@
+Installation
+============
+
+Unix
+----
+Install `the rPython package <https://cran.r-project.org/package=rPython>`_, see 
+file `INSTALL <https://cran.r-project.org/package=rPython/INSTALL>`_ there.
+
+Windows
+-------
+Install `rPython-win <https://github.com/cjgb/rPython-win>`_
+(follow the instructions at 
+`https://cran.r-project.org/web/packages/rPython/INSTALL <https://cran.r-project.org/package=rPython/INSTALL>`_
+).
+
+Both
+----
+Install excerptr from github
+.. code::
+    if (! require("devtools")) install.packages("devtools")
+    devtools::install_github("fvafrCU/excerptr", quiet = TRUE)
+
+or [CRAN](https://cran.r-project.org/package=excerptr)
+.. code::
+    install.packages("excerptr")
+

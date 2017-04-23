@@ -37,23 +37,32 @@ help("excerptr-package", package = "excerptr")
 ##      Andreas Dominik Cullmann, <adc-r@arcor.de>
 ```
 
+## System Requirements
+excerptr needs [python3](https://www.python.org/download/releases/3.0/).
+
 ## Installation
-You can install excerptr from github with:
+
+### Unix
+Install [the rPython package](https://cran.r-project.org/package=rPython), see 
+file [INSTALL](https://cran.r-project.org/package=rPython/INSTALL) there.
+
+### Windows
+Install [rPython-win](https://github.com/cjgb/rPython-win)
+(follow the instructions at 
+[https://cran.r-project.org/web/packages/rPython/INSTALL](https://cran.r-project.org/package=rPython/INSTALL)
+).
+
+### Both
+Install excerptr from github
 
 ```r
 if (! require("devtools")) install.packages("devtools")
 devtools::install_github("fvafrCU/excerptr", quiet = TRUE)
 ```
 
+or [CRAN](https://cran.r-project.org/package=excerptr)
 
-## System Requirements
-You need
+```r
+install.packages("excerptr")
+```
 
-  - [python3](https://www.python.org/download/releases/3.0/)
-  - [the rPython package](https://cran.r-project.org/package=rPython)
-
-To install on Microsoft Windows you need to get the rPython-win (follow the 
-instructions at 
-[https://cran.r-project.org/web/packages/rPython/INSTALL](https://cran.r-project.org/package=rPython/INSTALL)).
-
-And you might want to install [pandoc](https://www.pandoc.org/).
