@@ -44,25 +44,69 @@ excerptr needs [python3](https://www.python.org/download/releases/3.0/).
 
 ### Unix
 Install [the rPython package](https://cran.r-project.org/package=rPython), see 
-file [INSTALL](https://cran.r-project.org/package=rPython/INSTALL) there.
+file [INSTALL](https://cran.r-project.org/package=rPython/INSTALL) there,
+then install excerptr from [CRAN](https://cran.r-project.org/package=excerptr)
+
+```r
+install.packages("excerptr")
+```
 
 ### Windows
 Install [rPython-win](https://github.com/cjgb/rPython-win)
 (follow the instructions at 
 [https://cran.r-project.org/package=rPython/INSTALL](https://cran.r-project.org/package=rPython/INSTALL)
 ).
-
-### Both
-Install excerptr from [github](https://github.com/fvafrCU/excerptr)
+Then get the excerptr source
+from [github](https://github.com/fvafrCU/excerptr), edit the file DESCRIPTION and remove the line reading
+    OS_type: unix
+and install the package manually:
 
 ```r
-if (! require("devtools")) install.packages("devtools")
-devtools::install_github("fvafrCU/excerptr", quiet = TRUE)
+if (! require("git2r")) install.packages("git2r")
+local_path <- tempdir()
+description <- file.path(local_path, "DESCRIPTION")
+git2r::clone("https://github.com/fvafrCU/excerptr", local_path = local_path)
 ```
 
-or from [CRAN](https://cran.r-project.org/package=excerptr)
+```
+## Error in git2r::clone("https://github.com/fvafrCU/excerptr", local_path = local_path): Error in 'git2r_clone': '/tmp/Rtmpl7p0P1' exists and is not an empty directory
+```
 
 ```r
-install.packages("excerptr")
+d <- readLines(description)
+```
+
+```
+## Warning in file(con, "r"): cannot open file '/tmp/Rtmpl7p0P1/DESCRIPTION':
+## No such file or directory
+```
+
+```
+## Error in file(con, "r"): cannot open the connection
+```
+
+```r
+d1 <- d[TRUE, grep("^OS_type:", d)]
+```
+
+```
+## Error in eval(expr, envir, enclos): object 'd' not found
+```
+
+```r
+writeLines(d1, description)
+```
+
+```
+## Error in writeLines(d1, description): object 'd1' not found
+```
+
+```r
+install.packages(local_path, repos = NULL, type = "source")
+```
+
+```
+## Warning in install.packages(local_path, repos = NULL, type = "source"):
+## installation of package '/tmp/Rtmpl7p0P1' had non-zero exit status
 ```
 

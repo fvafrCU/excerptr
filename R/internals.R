@@ -15,7 +15,7 @@ construct_path <- function(temporary = FALSE) {
         }
         if (root == "") {
             warning("Don't know where you are, using a temporary directory.")
-            root <- dirname(tempdir())
+            root <- tempdir()
         }
     }
     path <- file.path(root, paste(base, collapse = .Platform$file.sep))

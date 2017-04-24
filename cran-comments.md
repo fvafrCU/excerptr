@@ -1,9 +1,9 @@
 Dear CRAN team,
-this is a resubmission of package excerptr 1.0.0, accounting for Kurt Hornik's
-request for changes in the DESCRPITION file.
+this is a resubmission of package excerptr 1.0.0, accounting for the failure to
+build on win-builder and the creation of files in /tmp on unix.
 
-I have dropped the `OS_type` field from DESCRPITION, because the package itself
-does not rely on the OS to be unix. 
+I have set the OS_type in file DESCRITION to unix and replace any examples
+writing to the system's tempdir with ones writing to the R processes tempdir.
 
 Best, 
 Dominik Cullmann

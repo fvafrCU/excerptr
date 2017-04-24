@@ -7,7 +7,7 @@
 #' TRUE, the \code{\link{capture.output}} thereof.
 #' @export
 #' @examples
-#' path <- file.path(dirname(tempdir()), "excerpts")
+#' path <- file.path(tempdir(), "excerpts")
 #' get_excerpts(directory = path, force = TRUE)
 #' \dontrun{print(set_excertps_path(path = path))}
 get_excerpts <- function(directory = get_excerpts_path(),

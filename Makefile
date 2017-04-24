@@ -25,12 +25,12 @@ dev_test:
 	rm ${temp_file} || TRUE; \
 	${Rscript} --vanilla -e 'devtools::test()' >  ${temp_file} 2>&1; \
 	sed -n -e '/^DONE.*/q;p' < ${temp_file} | \
-	sed -e "s# /.*\(${PKGNAME}\)# \1#" > ${LOG_DIR}/dev_test.Rout 
+	sed -e "s# /.*\(${PKGNAME}\)# \1#" > ${LOG_DIR}/dev_test.Rout; rm ${temp_file}
 
 dev_check: dev_test README.md
 	rm ${temp_file} || TRUE; \
 		${Rscript} --vanilla -e 'devtools::check(cran = TRUE, check_version = TRUE, args = "--no-tests")' > ${temp_file} 2>&1; \
-		grep -v ".*'/" ${temp_file} | grep -v ".*‘/" > ${LOG_DIR}/dev_check.Rout ;\
+		grep -v ".*'/" ${temp_file} | grep -v ".*‘/" > ${LOG_DIR}/dev_check.Rout; rm ${temp_file} ;\
 		grep "checking tests ... SKIPPED" ${LOG_DIR}/dev_check.Rout
 
 dev_vignettes:
