@@ -45,7 +45,8 @@ excerptr needs [python3](https://www.python.org/download/releases/3.0/).
 ### Unix
 Install [the rPython package](https://cran.r-project.org/package=rPython), see 
 file [INSTALL](https://cran.r-project.org/package=rPython/INSTALL) there,
-then install excerptr from [CRAN](https://cran.r-project.org/package=excerptr)
+<!-- then install excerptr from [CRAN](https://cran.r-project.org/package=excerptr) -->
+then install excerptr from [CRAN](https://cran.r-project.org/package)
 
 ```r
 install.packages("excerptr")

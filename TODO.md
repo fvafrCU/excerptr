@@ -1,1 +1,2 @@
 - give a better motivation
+- enable CRAN links in README
