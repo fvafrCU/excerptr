@@ -46,13 +46,13 @@ Then get the excerptr source
 from [github](https://github.com/fvafrCU/excerptr), edit the file DESCRIPTION and remove the line reading
     OS_type: unix
 and install the package manually:
-```{r, eval = TRUE, results = "hide", message = FALSE}
+```{r, eval = FALSE, results = "hide", message = FALSE}
 if (! require("git2r")) install.packages("git2r")
 local_path <- file.path(tempdir(), "excerptr")
 description <- file.path(local_path, "DESCRIPTION")
 git2r::clone("https://github.com/fvafrCU/excerptr", local_path = local_path)
 d <- readLines(description)
-d1 <- d[TRUE, grep("^OS_type:", d)]
+d1 <- d[grep("^OS_type:", d)]
 writeLines(d1, description)
 install.packages(local_path, repos = NULL, type = "source")
 ```

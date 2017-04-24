@@ -63,50 +63,12 @@ and install the package manually:
 
 ```r
 if (! require("git2r")) install.packages("git2r")
-local_path <- tempdir()
+local_path <- file.path(tempdir(), "excerptr")
 description <- file.path(local_path, "DESCRIPTION")
 git2r::clone("https://github.com/fvafrCU/excerptr", local_path = local_path)
-```
-
-```
-## Error in git2r::clone("https://github.com/fvafrCU/excerptr", local_path = local_path): Error in 'git2r_clone': '/tmp/Rtmpl7p0P1' exists and is not an empty directory
-```
-
-```r
 d <- readLines(description)
-```
-
-```
-## Warning in file(con, "r"): cannot open file '/tmp/Rtmpl7p0P1/DESCRIPTION':
-## No such file or directory
-```
-
-```
-## Error in file(con, "r"): cannot open the connection
-```
-
-```r
-d1 <- d[TRUE, grep("^OS_type:", d)]
-```
-
-```
-## Error in eval(expr, envir, enclos): object 'd' not found
-```
-
-```r
+d1 <- d[grep("^OS_type:", d)]
 writeLines(d1, description)
-```
-
-```
-## Error in writeLines(d1, description): object 'd1' not found
-```
-
-```r
 install.packages(local_path, repos = NULL, type = "source")
-```
-
-```
-## Warning in install.packages(local_path, repos = NULL, type = "source"):
-## installation of package '/tmp/Rtmpl7p0P1' had non-zero exit status
 ```
 
