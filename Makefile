@@ -22,13 +22,13 @@ dev_spell: roxy
 	${Rscript} --vanilla -e 'spell <- devtools::spell_check(ignore = c("github" , "https", "lintr", "pylint", "Kernighan", "jimhester", "Cullmann", "adc", "arcor", "de", "tryCatch", "org", "pandoc", "pypi", "rPython")); if (length(spell) > 0) {print(spell); stop("spell check failed")} '
 
 dev_test:
-	rm ${temp_file} || TRUE; \
+	rm ${temp_file} || true; \
 	${Rscript} --vanilla -e 'devtools::test()' >  ${temp_file} 2>&1; \
 	sed -n -e '/^DONE.*/q;p' < ${temp_file} | \
 	sed -e "s# /.*\(${PKGNAME}\)# \1#" > ${LOG_DIR}/dev_test.Rout; rm ${temp_file}
 
 dev_check: dev_test README.md
-	rm ${temp_file} || TRUE; \
+	rm ${temp_file} || true; \
 		${Rscript} --vanilla -e 'devtools::check(cran = TRUE, check_version = TRUE, args = "--no-tests")' > ${temp_file} 2>&1; \
 		grep -v ".*'/" ${temp_file} | grep -v ".*‘/" > ${LOG_DIR}/dev_check.Rout; rm ${temp_file} ;\
 		grep "checking tests ... SKIPPED" ${LOG_DIR}/dev_check.Rout
