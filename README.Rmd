@@ -52,7 +52,7 @@ local_path <- file.path(tempdir(), "excerptr")
 description <- file.path(local_path, "DESCRIPTION")
 git2r::clone("https://github.com/fvafrCU/excerptr", local_path = local_path)
 d <- readLines(description)
-d1 <- d[grep("^OS_type:", d)]
+d1 <- d[-grep("^OS_type:", d)]
 writeLines(d1, description)
 install.packages(local_path, repos = NULL, type = "source")
 ```
