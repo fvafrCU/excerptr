@@ -1,6 +1,7 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 [![Build Status](https://travis-ci.org/fvafrCU/excerptr.svg?branch=master)](https://travis-ci.org/fvafrCU/excerptr)
 [![Coverage Status](https://codecov.io/github/fvafrCU/excerptr/coverage.svg?branch=master)](https://codecov.io/github/fvafrCU/excerptr?branch=master)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/excerptr)](https://cran.r-project.org/package=excerptr)
 
 # excerptr
 This is an R interface to [excerpts](https://pypi.python.org/pypi/excerpts).
