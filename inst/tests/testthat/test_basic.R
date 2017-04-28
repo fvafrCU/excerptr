@@ -17,28 +17,12 @@ test_that("path, package option reset", {
           expect_equal(construct_path(temporary = TRUE),
                        file.path(tempdir(), "inst/excerpts"))
                  })
-test_that("path, installed version", {
-          wd <- setwd(tempdir())
-          if (grepl("\\.Rcheck", wd)) {
-              path  <- file.path(dirname(dirname(wd)), "excerptr")
-          } else {
-              if ("devtools" %in% loadedNamespaces()) {
-                  # devtools changes the path
-                  path <- dirname(dirname(dirname(wd)))
-              } else {
-                  path  <- dirname(dirname(wd))
-              }
-          }
-          expect_equal(construct_path(temporary = FALSE),
-                       file.path(path, "inst/excerpts"))
-          setwd(wd)
-                 })
 context("Markdown")
 test_that("md", {
           out_file <- file.path(tempdir(), "some_file.out")
           excerptr(file = file.path(root, "tests/files/some_file.R"),
                    output_path = out_file,
-                   pandoc_formats = "md")
+                   run_pandoc = FALSE)
           result <- readLines(out_file)
           expectation <- readLines(file.path(root, "tests/files/some_file.md"))
           expect_equal(result, expectation)

@@ -18,7 +18,7 @@ Warning: ‘inst/doc’ files
 * checking for empty or unneeded directories
 Removed empty directory ‘excerptr/inst/excerpts/log’
 Removed empty directory ‘excerptr/log’
-* building ‘excerptr_1.0.0.tar.gz’
+* building ‘excerptr_1.0.1.tar.gz’
 
 Setting env vars ---------------------------------------------------------------
 _R_CHECK_CRAN_INCOMING_USE_ASPELL_: TRUE
@@ -32,12 +32,12 @@ Checking excerptr --------------------------------------------------------------
 * using session charset: UTF-8
 * using options ‘--no-tests --no-manual --as-cran’
 * checking for file ‘excerptr/DESCRIPTION’ ... OK
-* this is package ‘excerptr’ version ‘1.0.0’
+* this is package ‘excerptr’ version ‘1.0.1’
 * package encoding: UTF-8
 * checking CRAN incoming feasibility ... NOTE
 Maintainer: ‘Andreas Dominik Cullmann <adc-r@arcor.de>’
 
-New submission
+Days since last update: 3
 * checking package namespace information ... OK
 * checking package dependencies ... OK
 * checking if this is a source package ... OK
@@ -97,4 +97,4 @@ R CMD check results
 checking CRAN incoming feasibility ... NOTE
 Maintainer: ‘Andreas Dominik Cullmann <adc-r@arcor.de>’
 
-New submission
+Days since last update: 3
