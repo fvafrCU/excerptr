@@ -1,30 +1,36 @@
-Dear CRAN team,
-this is a resubmission of package excerptr 1.0.0, accounting for the failure to
-build on win-builder and the creation of files in /tmp on unix.
+Dear CRAN Team,
+this is a resubmission of package excerptr dealing with some of the check
+results from https://cran.r-project.org/web/checks/check_results_excerptr.html:
+> Dear maintainer,
+> 
+> Pls see
+> <https://cran.r-project.org/web/checks/check_results_excerptr.html>:
+> 
+> Your test code incorrectly assumes that the package used for checking is
+> always the found on the library path, which clearly is not the case:
+> please fix as necessary, presumably by removing this test.
+> 
+> -k
 
-I have set the OS_type in file DESCRIPTION to unix and replace any examples
-writing to the system's tempdir with ones writing to the R processes tempdir.
+Following Kurt Hornik's advice, I have removed a test.
+I have also adjusted another test to not require pandoc installed, as it failed
+hoping to catch most of the other errors.
+There is one error on  r-release-osx-x86_64, r-oldrel-osx-x86_64 that I do not
+understand. Maybe python3 or the rPython package are missing.
+
+I did not fix the warnings, though, they refer to an outdated version of pandoc 
+being used building the vignettes.
 
 Best, 
 Dominik Cullmann
 
-> I have packaged an R interface to my python package 'excerpts' which extracts 
-> comments marked by some magic character and runs pandoc on the resulting files. 
-> I use it (well, the python version) quite frequently to set a table of contents
-> from a script file's structuring comments when I do not take the time to use
-> knitr or sweave or use a language that doesn't care about reproducible research.
-> 
-> Hope it could be of use to others.
-> Best,
-> Dominik
-
-# Package  excerptr 1.0.0 
+# Package  excerptr 1.0.1 
 
 ## Test  environments  
 - R Under development (unstable) (2017-04-25 r72618)
   Platform: x86_64-pc-linux-gnu (64-bit)
   Running under: Debian GNU/Linux 8 (jessie) 
-- R version 3.3.3 (2017-03-06)
+- R version 3.4.0 (2017-04-21)
   Platform: x86_64-pc-linux-gnu (64-bit)
   Running under: Ubuntu precise (12.04.5 LTS) 
 - win-builder (devel) 
@@ -34,6 +40,6 @@ Dominik Cullmann
 checking CRAN incoming feasibility ... NOTE
 Maintainer: ‘Andreas Dominik Cullmann <adc-r@arcor.de>’
 
-New submission
+Days since last update: 3
 
 
