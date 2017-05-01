@@ -16,8 +16,9 @@ Imports:
     rprojroot,
     git2r
 License: BSD_2_clause + file LICENSE
-SystemRequirements: python3, rPython (see file README). The vignette requires
-    'pandoc' (http://pandoc.org).
+SystemRequirements: python3, rPython (see file README). To make full use of the
+    vignette's examples you need 'pandoc' (http://pandoc.org) installed, 
+    although it's not a requirement.
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.0.1

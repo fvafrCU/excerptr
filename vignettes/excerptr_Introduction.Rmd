@@ -1,7 +1,7 @@
 ---
 title: "An Introduction to excerptr"
 author: "Andreas Dominik Cullmann"
-date: 2017-04-19, 19:18:50
+date: 2017-05-01, 21:59:20
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{An Introduction to excerptr}
@@ -25,22 +25,28 @@ excerptr::excerptr(file_name = path, run_pandoc = FALSE, output_path = tempdir()
 gives you
 
 ```{r, comment = ""}
-cat(readLines(file.path(tempdir(), sub("\\.R$", ".md", basename(path)))), sep = "\n")
+cat(readLines(file.path(tempdir(), sub("\\.R$", ".md", basename(path)))), 
+    sep = "\n")
 ```
 
 If you have pandoc installed, you can convert the markdown output into html:
 
 ```{r}
-excerptr::excerptr(file_name = path, pandoc_formats= "html", output_path = tempdir())
+if (length(Sys.which("pandoc") >= 0))
+    excerptr::excerptr(file_name = path, pandoc_formats= "html", 
+                       output_path = tempdir())
 ```
 This gives you
 ```{r, comment = ""}
-cat(readLines(file.path(tempdir(), sub("\\.R$", ".html", basename(path)))), sep = "\n")
+if (length(Sys.which("pandoc") >= 0))
+    cat(readLines(file.path(tempdir(), sub("\\.R$", ".html", basename(path)))), 
+        sep = "\n")
 ```
 ```{r, echo = FALSE, results = "hide"}
-excerptr::excerptr(file_name = path, pandoc_formats= "html", 
-                   output_path = file.path(rprojroot::find_root(rprojroot::is_r_package), 
-                                           "inst", "tests", "files")
-                   )
+if (length(Sys.which("pandoc") >= 0))
+    excerptr::excerptr(file_name = path, pandoc_formats= "html", 
+                       output_path = file.path(rprojroot::find_root(rprojroot::is_r_package), 
+                                               "inst", "tests", "files")
+                       )
 ```
 You can see this html file [here](http://htmlpreview.github.io/?https://github.com/fvafrCU/excerptr/blob/master/inst/tests/files/some_file.html).

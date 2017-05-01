@@ -51,7 +51,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 
 <h1 class="title toc-ignore">An Introduction to excerptr</h1>
 <h4 class="author"><em>Andreas Dominik Cullmann</em></h4>
-<h4 class="date"><em>2017-04-19, 19:18:50</em></h4>
+<h4 class="date"><em>2017-05-01, 21:59:20</em></h4>
 
 
 
@@ -82,7 +82,8 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <pre class="sourceCode r"><code class="sourceCode r">excerptr::<span class="kw">excerptr</span>(<span class="dt">file_name =</span> path, <span class="dt">run_pandoc =</span> <span class="ot">FALSE</span>, <span class="dt">output_path =</span> <span class="kw">tempdir</span>())</code></pre>
 <pre><code>## [1] 0</code></pre>
 <p>gives you</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cat</span>(<span class="kw">readLines</span>(<span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="kw">sub</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">.R$&quot;</span>, <span class="st">&quot;.md&quot;</span>, <span class="kw">basename</span>(path)))), <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cat</span>(<span class="kw">readLines</span>(<span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="kw">sub</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">.R$&quot;</span>, <span class="st">&quot;.md&quot;</span>, <span class="kw">basename</span>(path)))), 
+    <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</code></pre>
 <pre><code>% All About Me
 % Me
 **This** is an example of a markdown paragraph: markdown 
@@ -97,10 +98,14 @@ a paragraph.
 ## A subsection
 Another markdown paragraph.</code></pre>
 <p>If you have pandoc installed, you can convert the markdown output into html:</p>
-<pre class="sourceCode r"><code class="sourceCode r">excerptr::<span class="kw">excerptr</span>(<span class="dt">file_name =</span> path, <span class="dt">pandoc_formats=</span> <span class="st">&quot;html&quot;</span>, <span class="dt">output_path =</span> <span class="kw">tempdir</span>())</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">if (<span class="kw">length</span>(<span class="kw">Sys.which</span>(<span class="st">&quot;pandoc&quot;</span>) &gt;=<span class="st"> </span><span class="dv">0</span>))
+    excerptr::<span class="kw">excerptr</span>(<span class="dt">file_name =</span> path, <span class="dt">pandoc_formats=</span> <span class="st">&quot;html&quot;</span>, 
+                       <span class="dt">output_path =</span> <span class="kw">tempdir</span>())</code></pre>
 <pre><code>## [1] 0</code></pre>
 <p>This gives you</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cat</span>(<span class="kw">readLines</span>(<span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="kw">sub</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">.R$&quot;</span>, <span class="st">&quot;.html&quot;</span>, <span class="kw">basename</span>(path)))), <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">if (<span class="kw">length</span>(<span class="kw">Sys.which</span>(<span class="st">&quot;pandoc&quot;</span>) &gt;=<span class="st"> </span><span class="dv">0</span>))
+    <span class="kw">cat</span>(<span class="kw">readLines</span>(<span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="kw">sub</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">.R$&quot;</span>, <span class="st">&quot;.html&quot;</span>, <span class="kw">basename</span>(path)))), 
+        <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</code></pre>
 <pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
 &lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;
 &lt;head&gt;

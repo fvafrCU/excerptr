@@ -3,11 +3,12 @@ this is a resubmission of package excerptr dealing with the errors reported for
 version 1.0.1 on solaris and osx. I have change the example to not require
 pandoc (though using the package without pandoc is a bit pointless). 
 
-I have not dealt with the warnings. They originate from pandoc being not
-available on osx and solaris, but the package is meant to be used with pandoc.
-So I stated in the SystemRequirements field of file DESCRIPTION that the 
-vignette requires pandoc.
-
+I have change the vignette to not require pandoc as well. I hope this will take
+care of the warning I get on solaris and osx.
+Runnig R-devel --vanilla CMD check --as-cran --no-build-vignettes excerptr_1.0.2.tar.gz
+on x86_64-pc-linux-gnu (64-bit) with pandoc deinstalled I get two NOTEs (the
+first on the days since last update, the second on NEWS.md and README.md not
+being checked without pandoc installed) but no more warnings.
 Best, 
 Dominik Cullmann
 
