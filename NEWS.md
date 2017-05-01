@@ -1,6 +1,10 @@
+# excertpr 1.0.2
+
+* Change example to not require pandoc.
+
 # excertpr 1.0.1
 
-* remove test failing on CRAN
+* Remove test failing on CRAN.
 
 # excertpr 1.0.0
 
