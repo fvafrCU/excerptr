@@ -3,7 +3,7 @@
 #' @param temporary Use \code{\link{tempdir}()} as root for path construction?
 #' @return A character of length one naming the path constructed.
 construct_path <- function(temporary = FALSE) {
-    base <- c("inst", "excerpts")
+    base <- c("excerpts")
     if (isTRUE(temporary)) {
         root <- tempdir()
     } else {
@@ -12,7 +12,10 @@ construct_path <- function(temporary = FALSE) {
                          )
         if (root == FALSE) {
             root <- base::system.file(package = "excerptr")
+        } else {
+            base <- c("inst", base)
         }
+
         if (root == "") {
             warning("Don't know where you are, using a temporary directory.")
             root <- tempdir()
