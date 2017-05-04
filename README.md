@@ -64,13 +64,18 @@ from [github](https://github.com/fvafrCU/excerptr), edit the file DESCRIPTION an
 and install the package manually:
 
 ```r
-if (! require("git2r")) install.packages("git2r")
-local_path <- file.path(tempdir(), "excerptr")
-description <- file.path(local_path, "DESCRIPTION")
-git2r::clone("https://github.com/fvafrCU/excerptr", local_path = local_path)
+local_directory <- tempdir()
+local_path <- file.path(local_directory, "master.zip")
+url <- "https://github.com/fvafrCU/excerptr/archive/master.zip"
+download.file(url, local_path, method = "wininet", mode = "wb")
+unzip(local_path, exdir = local_directory)
+excerptr_path <- file.path(local_directory, "excerptr-master")
+description <- file.path(excerptr_path, "DESCRIPTION")
+my_r_version <- paste(R.Version()[["major"]], R.Version()[["minor"]], sep = ".")
 d <- readLines(description)
 d1 <- d[-grep("^OS_type:", d)]
+d1[grep("^ *R \\(", d1)] <- paste0("    R (>= ", my_r_version,")")
 writeLines(d1, description)
-install.packages(local_path, repos = NULL, type = "source")
+install.packages(excerptr_path, repos = NULL, type = "source")
 ```
 
