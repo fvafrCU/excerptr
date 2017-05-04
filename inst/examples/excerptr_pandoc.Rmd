@@ -13,7 +13,7 @@ html_file <- file.path(output_path, paste0(name, ".html"))
 system2(command = basename(Sys.which("pandoc")), 
         args = c(file.path(output_path, paste0(name, ".md")), "-o", 
                  html_file))                     
-if (interactive()) browseURL(paste0("file:", html_file))
+if (interactive()) browseURL(html_file)
 
 ```
 
