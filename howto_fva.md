@@ -3,7 +3,8 @@
 # Install rPython-win
 Install rPython-win following 
 [these instructions](https://github.com/cjgb/rPython-win)
-with the current (May 2017) python setup at fvafr:
+with the current (May 2017) python setup at fvafr. 
+Assuming you have installed R and Rtools from the software shop, you can run:
 
 
 ```
@@ -21,6 +22,11 @@ conf <- sub("(/[Pp]ython34)", "/python\\1", conf)
 writeLines(conf, configure)
 install.packages(rpython_path, repos = NULL, type = "source")
 ```
+To date you need to use R 3.2.5 for this to work since our Rtools version is out
+of date and does not work for our current R installation. 
+Run "C:\Program Files\R\R-3.2.5\bin\x64\Rgui.exe" from a command prompt, set the 
+R version used by RStudio to 3.2.5 or 
+navigate to "C:\Program Files\R\R-3.2.5\bin\x64" and start Rgui.exe.
 
 # Install excerptr
 
