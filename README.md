@@ -63,7 +63,7 @@ from [github](https://github.com/fvafrCU/excerptr), edit the file DESCRIPTION an
     OS_type: unix
 and install the package manually:
 
-```r
+```
 local_directory <- tempdir()
 local_path <- file.path(local_directory, "master.zip")
 url <- "https://github.com/fvafrCU/excerptr/archive/master.zip"
@@ -78,4 +78,3 @@ d1[grep("^ *R \\(", d1)] <- paste0("    R (>= ", my_r_version,")")
 writeLines(d1, description)
 install.packages(excerptr_path, repos = NULL, type = "source")
 ```
-
