@@ -1,3 +1,7 @@
+# excertpr devel
+
+* R/internals.R: construct path using inst/ only on developement.
+
 # excertpr 1.0.2
 
 * Change example to not require pandoc.
