@@ -26,4 +26,5 @@ inst/excerpts/.doxygen.conf
 inst/excerpts/.travis.yml
 log/
 codes/
-^howto_fva.Rmd$
+^howto_fva\.Rmd$
+^howto_fva\.md$
