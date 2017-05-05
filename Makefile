@@ -6,6 +6,7 @@ PKGSRC  := $(shell basename `pwd`)
 temp_file := $(shell tempfile)
 lintr_script := utils/lintr.R
 LOG_DIR := log
+CODES := $(shell find ./codes -type f -name "*.R")
 
 R := R-devel
 Rscript := Rscript-devel
@@ -118,10 +119,10 @@ remove:
 cran-comments.md: log/dev_check.Rout
 	${Rscript} --vanilla -e 'source("./utils/cran_comments.R"); provide_cran_comments()' > log/cran_comments.Rout 2>&1 
 
-README.md: README.Rmd install_bare
+README.md: README.Rmd install_bare ${CODES}
 	${Rscript} --vanilla -e 'knitr::knit("README.Rmd")'
 
-howto_fva.md: howto_fva.Rmd
+howto_fva.md: howto_fva.Rmd ${CODES}
 	${Rscript} --vanilla -e 'knitr::knit("howto_fva.Rmd")'
 
 
