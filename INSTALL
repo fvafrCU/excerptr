@@ -12,22 +12,17 @@ Then install excerptr from `CRAN <https://cran.r-project.org/package=excerptr>`_
 
 Windows
 -------
+excerptr is a unix-only package since one of it's dependencies, rPython, is.
+Since rPython has a non-CRAN work around - rPython-win -, and the excerptr code
+itself does not make any asumptions about your operating system, you can use
+excerptr on windows with rPython-win.
+So:
+
 Install `rPython-win <https://github.com/cjgb/rPython-win>`_
 (follow the instructions at 
 `https://cran.r-project.org/web/packages/rPython/INSTALL <https://cran.r-project.org/package=rPython/INSTALL>`_
 ).
 
-Then get the excerptr source
-from `github <https://github.com/fvafrCU/excerptr>`_, edit the file DESCRIPTION and remove the line reading
-    OS_type: unix
-and install the package manually:
-.. code::
-    if (! require("git2r")) install.packages("git2r")
-    local_path <- dirname(tempdir())
-    description <- file.path(local_path, "DESCRIPTION")
-    git2r::clone("https://github.com/fvafrCU/excerptr", local_path = local_path)
-    d <- readLines(description)
-    d1 <- d[-grep("^OS_type:", d)]
-    writeLines(d1, description)
-    install.packages(local_path, repos = NULL, type = "source")
-
+Then follow the instructions given at
+`excerptr on github <https://github.com/fvafrCU/excerptr>`_ (you basically
+remove the restriction to unix from excerptr's DESCRIPTION).
