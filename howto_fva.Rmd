@@ -1,19 +1,30 @@
-# Run excerptr and pandoc on a Windows machine at fvafr
-excerptr calls to pandoc fail. But we can run pandoc from within R:
+# Install rPython-win
+Install rPython-win following 
+[these instructions](https://github.com/cjgb/rPython-win)
+with the current (May 2017) python setup at fvafr:
 
-```r
-input_file <- system.file(package = "excerptr", "excerpts", "tests", "files", 
-                          "some_file.txt")
-output_path <- tempdir()
-
-name <-  strsplit(basename(input_file), split = "\\.")[[1]][1]
-excerptr::excerptr(file_name = input_file,
-                   output_path = output_path, run_pandoc = FALSE)
-html_file <- file.path(output_path, paste0(name, ".html"))
-system2(command = basename(Sys.which("pandoc")), 
-        args = c(file.path(output_path, paste0(name, ".md")), "-o", 
-                 html_file))                     
-if (interactive()) browseURL(html_file)
-
+```{r, eval = TRUE, echo = FALSE, comment = ""}
+cat(readLines(file.path("codes", "windows_install_rpython-win.R")), sep = "\n")
 ```
+
+# Install excerptr
+
+Get the excerptr source from 
+[github](https://github.com/fvafrCU/excerptr), 
+edit the file DESCRIPTION by removing the line reading
+    OS_type: unix
+and inserting your R version and install the package manually:
+```{r, eval = TRUE, echo = FALSE, comment = ""}
+cat(readLines(file.path("codes", "windows_install_excertpr.R")), sep = "\n")
+```
+
+# Run excerptr and pandoc on a Windows machine at fvafr
+
+excerptr calls to pandoc fail at fvafr. And since it's a windows installation 
+there's probably not [pdf]latex at hand. 
+But we can call pandoc from within R to produce html:
+```{r, eval = TRUE, echo = FALSE, comment = ""}
+cat(readLines(file.path("codes", "pandoc_at_fvafr.R")), sep = "\n")
+```
+
 
