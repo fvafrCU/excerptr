@@ -10,7 +10,7 @@ LOG_DIR := log
 R := R-devel
 Rscript := Rscript-devel
 
-all: install_bare dev_check dev_test dev_vignettes crancheck utils 
+all: install_bare dev_check dev_test dev_vignettes crancheck utils howto_fva.md
 
 # devtools
 dev_all: dev_test dev dev_vignettes
@@ -120,6 +120,10 @@ cran-comments.md: log/dev_check.Rout
 
 README.md: README.Rmd install_bare
 	${Rscript} --vanilla -e 'knitr::knit("README.Rmd")'
+
+howto_fva.md: howto_fva.Rmd
+	${Rscript} --vanilla -e 'knitr::knit("howto_fva.Rmd")'
+
 
 ##% git tag
 .PHONY: tag

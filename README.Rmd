@@ -51,3 +51,8 @@ and install the package manually:
 ```{r, eval = TRUE, echo = FALSE, comment = ""}
 cat(readLines(file.path("codes", "windows_install_excertpr.R")), sep = "\n")
 ```
+
+### Folks at [fvafr](http://www.fva-bw.de/)
+Should you happen to be one of my colleagues at  [fvafr](http://www.fva-bw.de/), please follow 
+[these instructions](howto_fva.md).
+

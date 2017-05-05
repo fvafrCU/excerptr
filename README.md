@@ -78,3 +78,8 @@ d1[grep("^ *R \\(", d1)] <- paste0("    R (>= ", my_r_version,")")
 writeLines(d1, description)
 install.packages(excerptr_path, repos = NULL, type = "source")
 ```
+
+### Folks at [fvafr](http://www.fva-bw.de/)
+Should you happen to be one of my colleagues at  [fvafr](http://www.fva-bw.de/), please follow 
+[these instructions](howto_fva.md).
+
