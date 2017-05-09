@@ -1,13 +1,9 @@
-input_file <- system.file(package = "excerptr", "excerpts", "tests", "files", 
+input_file <- system.file(package = "excerptr", "excerpts", "tests", "files",
                           "some_file.txt")
 output_path <- tempdir()
-
-name <-  strsplit(basename(input_file), split = "\\.")[[1]][1]
-excerptr::excerptr(file_name = input_file,
-                   output_path = output_path, run_pandoc = FALSE)
-html_file <- file.path(output_path, paste0(name, ".html"))
-system2(command = basename(Sys.which("pandoc")), 
-        args = c(file.path(output_path, paste0(name, ".md")), "-o", 
-                 html_file))                     
+excerptr::excerptr(file_name = input_file, output_path = output_path,
+                   run_pandoc = TRUE, pandoc_formats = "html")
+html_file <- file.path(output_path,
+                       paste0(strsplit(basename(input_file),
+                                       split = "\\.")[[1]][1], ".html"))
 if (interactive()) browseURL(html_file)
-

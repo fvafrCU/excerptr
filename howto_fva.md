@@ -54,22 +54,19 @@ install.packages(excerptr_path, repos = NULL, type = "source")
 
 # Run excerptr and pandoc on a Windows machine at fvafr
 
-excerptr calls to pandoc fail at fvafr. And since it's a windows installation 
-there's probably not [pdf]latex at hand. 
-But we can call pandoc from within R to produce html:
+At fvafr, pandoc is not configured to find [pdf]latex, for reasons beyond my 
+reach.
+So we have to set the pandoc output format to html:
 
 ```
-input_file <- system.file(package = "excerptr", "excerpts", "tests", "files", 
+input_file <- system.file(package = "excerptr", "excerpts", "tests", "files",
                           "some_file.txt")
 output_path <- tempdir()
-
-name <-  strsplit(basename(input_file), split = "\\.")[[1]][1]
-excerptr::excerptr(file_name = input_file,
-                   output_path = output_path, run_pandoc = FALSE)
-html_file <- file.path(output_path, paste0(name, ".html"))
-system2(command = basename(Sys.which("pandoc")), 
-        args = c(file.path(output_path, paste0(name, ".md")), "-o", 
-                 html_file))                     
+excerptr::excerptr(file_name = input_file, output_path = output_path,
+                   run_pandoc = TRUE, pandoc_formats = "html")
+html_file <- file.path(output_path,
+                       paste0(strsplit(basename(input_file),
+                                       split = "\\.")[[1]][1], ".html"))
 if (interactive()) browseURL(html_file)
 ```
 

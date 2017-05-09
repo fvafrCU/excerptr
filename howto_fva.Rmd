@@ -28,9 +28,9 @@ cat(readLines(file.path("codes", "windows_install_excertpr.R")), sep = "\n")
 
 # Run excerptr and pandoc on a Windows machine at fvafr
 
-excerptr calls to pandoc fail at fvafr. And since it's a windows installation 
-there's probably not [pdf]latex at hand. 
-But we can call pandoc from within R to produce html:
+At fvafr, pandoc is not configured to find [pdf]latex, for reasons beyond my 
+reach.
+So we have to set the pandoc output format to html:
 ```{r, eval = TRUE, echo = FALSE, comment = ""}
 cat(readLines(file.path("codes", "pandoc_at_fvafr.R")), sep = "\n")
 ```
