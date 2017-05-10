@@ -15,24 +15,3 @@ Run "C:\Program Files\R\R-3.2.5\bin\x64\Rgui.exe" from a command prompt, set the
 R version used by RStudio to 3.2.5 or 
 navigate to "C:\Program Files\R\R-3.2.5\bin\x64" and start Rgui.exe.
 
-# Install excerptr
-
-Get the excerptr source from 
-[github](https://github.com/fvafrCU/excerptr), 
-edit the file DESCRIPTION by removing the line reading
-    OS_type: unix
-and inserting your R version and install the package manually:
-```{r, eval = TRUE, echo = FALSE, comment = ""}
-cat(readLines(file.path("codes", "windows_install_excertpr.R")), sep = "\n")
-```
-
-# Run excerptr and pandoc on a Windows machine at fvafr
-
-At fvafr, pandoc is not configured to find [pdf]latex, for reasons beyond my 
-reach.
-So we have to set the pandoc output format to html:
-```{r, eval = TRUE, echo = FALSE, comment = ""}
-cat(readLines(file.path("codes", "pandoc_at_fvafr.R")), sep = "\n")
-```
-
-

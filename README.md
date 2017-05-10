@@ -39,25 +39,34 @@ help("excerptr-package", package = "excerptr")
 ```
 
 ## System Requirements
-excerptr needs [python3](https://www.python.org/download/releases/3.0/).
+excerptr needs [python3](https://www.python.org/download/releases/3.0/),
+You probably want to have [pandoc](https://www.pandoc.org/) and a TeX-System such as 
+[TeXLive](https://www.tug.org/texlive/) installed.
 
 ## Installation
 
 ### Unix
 Install [the rPython package](https://cran.r-project.org/package=rPython), see 
 file [INSTALL](https://cran.r-project.org/package=rPython/INSTALL) there,
-<!-- then install excerptr from [CRAN](https://cran.r-project.org/package=excerptr) -->
-then install excerptr from [CRAN](https://cran.r-project.org/)
+then install excerptr from [CRAN](https://cran.r-project.org/package=excerptr)
 
 ```r
 install.packages("excerptr")
 ```
 
 ### Windows
+
+#### rPython-win
 Install [rPython-win](https://github.com/cjgb/rPython-win)
 (follow the instructions at 
 [https://cran.r-project.org/package=rPython/INSTALL](https://cran.r-project.org/package=rPython/INSTALL)
 ).
+
+##### Folks at [fvafr](http://www.fva-bw.de/)
+Should you happen to be one of my colleagues at  [fvafr](http://www.fva-bw.de/), please follow 
+[these instructions](howto_fva.md).
+
+#### excerptr
 Then get the excerptr source
 from [github](https://github.com/fvafrCU/excerptr), edit the file DESCRIPTION and remove the line reading
     OS_type: unix
@@ -79,7 +88,4 @@ writeLines(d1, description)
 install.packages(excerptr_path, repos = NULL, type = "source")
 ```
 
-### Folks at [fvafr](http://www.fva-bw.de/)
-Should you happen to be one of my colleagues at  [fvafr](http://www.fva-bw.de/), please follow 
-[these instructions](howto_fva.md).
 
