@@ -20,7 +20,7 @@ Removed empty directory ‘excerptr/codes’
 Removed empty directory ‘excerptr/inst/examples’
 Removed empty directory ‘excerptr/inst/excerpts/log’
 Removed empty directory ‘excerptr/log’
-* building ‘excerptr_1.0.2.9000.tar.gz’
+* building ‘excerptr_1.1.0.tar.gz’
 
 Setting env vars ---------------------------------------------------------------
 _R_CHECK_CRAN_INCOMING_USE_ASPELL_: TRUE
@@ -29,17 +29,15 @@ _R_CHECK_FORCE_SUGGESTS_          : FALSE
 Checking excerptr --------------------------------------------------------------
   --as-cran --timings --no-tests --no-manual 
 
-* using R Under development (unstable) (2017-04-25 r72618)
+* using R Under development (unstable) (2017-05-12 r72670)
 * using platform: x86_64-pc-linux-gnu (64-bit)
 * using session charset: UTF-8
 * using options ‘--no-tests --no-manual --as-cran’
 * checking for file ‘excerptr/DESCRIPTION’ ... OK
-* this is package ‘excerptr’ version ‘1.0.2.9000’
+* this is package ‘excerptr’ version ‘1.1.0’
 * package encoding: UTF-8
-* checking CRAN incoming feasibility ... NOTE
+* checking CRAN incoming feasibility ... Note_to_CRAN_maintainers
 Maintainer: ‘Andreas Dominik Cullmann <adc-r@arcor.de>’
-
-Version contains large components (1.0.2.9000)
 * checking package namespace information ... OK
 * checking package dependencies ... OK
 * checking if this is a source package ... OK
@@ -89,14 +87,8 @@ Version contains large components (1.0.2.9000)
 * checking re-building of vignette outputs ... OK
 * DONE
 
-Status: 1 NOTE
-See
-for details.
-
+Status: OK
 
 R CMD check results
-0 errors | 0 warnings | 1 note 
-checking CRAN incoming feasibility ... NOTE
-Maintainer: ‘Andreas Dominik Cullmann <adc-r@arcor.de>’
+0 errors | 0 warnings | 0 notes
 
-Version contains large components (1.0.2.9000)

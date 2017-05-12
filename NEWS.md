@@ -1,5 +1,6 @@
-# excertpr devel
+# excertpr 1.1.0
 
+* vignettes/excerptr_Introduction.Rmd: cope with CRAN's check warnings.
 * R/internals.R: construct path using inst/ only on developement.
 
 # excertpr 1.0.2
