@@ -1,7 +1,7 @@
 ---
-title: "An Introduction to excerptr"
+title: "An Introduction to *excerptr*"
 author: "Andreas Dominik Cullmann"
-date: 2017-05-01, 21:59:20
+date: 2017-05-12, 22:24:12
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{An Introduction to excerptr}
@@ -32,19 +32,29 @@ cat(readLines(file.path(tempdir(), sub("\\.R$", ".md", basename(path)))),
 If you have pandoc installed, you can convert the markdown output into html:
 
 ```{r}
-if (length(Sys.which("pandoc") >= 0))
-    excerptr::excerptr(file_name = path, pandoc_formats= "html", 
+is_pandoc_installed <- length(Sys.which("pandoc") >= 0) &&
+                              length(Sys.which("pandoc-citeproc") >= 0)
+is_pandoc_version_sufficient <- FALSE
+if (is_pandoc_installed) {
+    reference <- "1.12.3"
+    version <- strsplit(system2(Sys.which("pandoc"), "--version", stdout = TRUE), 
+                        split = " ")[[1]][2]
+    if (utils::compareVersion(version, reference) >= 0)
+        is_pandoc_version_sufficient <- TRUE
+}
+if (is_pandoc_version_sufficient) 
+    excerptr::excerptr(file_name = path, pandoc_formats = "html", 
                        output_path = tempdir())
 ```
-This gives you
+This runs pandoc on your excerpted comments and generates an html file you can view via:
 ```{r, comment = ""}
-if (length(Sys.which("pandoc") >= 0))
+if (is_pandoc_version_sufficient) 
     cat(readLines(file.path(tempdir(), sub("\\.R$", ".html", basename(path)))), 
         sep = "\n")
 ```
 ```{r, echo = FALSE, results = "hide"}
-if (length(Sys.which("pandoc") >= 0))
-    excerptr::excerptr(file_name = path, pandoc_formats= "html", 
+if (is_pandoc_version_sufficient) 
+    excerptr::excerptr(file_name = path, pandoc_formats = "html", 
                        output_path = file.path(rprojroot::find_root(rprojroot::is_r_package), 
                                                "inst", "tests", "files")
                        )

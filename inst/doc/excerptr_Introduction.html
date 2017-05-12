@@ -67,9 +67,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 
-<h1 class="title toc-ignore">An Introduction to excerptr</h1>
+<h1 class="title toc-ignore">An Introduction to <em>excerptr</em></h1>
 <h4 class="author"><em>Andreas Dominik Cullmann</em></h4>
-<h4 class="date"><em>2017-05-01, 21:59:20</em></h4>
+<h4 class="date"><em>2017-05-12, 22:24:12</em></h4>
 
 
 
@@ -116,12 +116,22 @@ a paragraph.
 ## A subsection
 Another markdown paragraph.</code></pre>
 <p>If you have pandoc installed, you can convert the markdown output into html:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if (<span class="kw">length</span>(<span class="kw">Sys.which</span>(<span class="st">&quot;pandoc&quot;</span>) &gt;=<span class="st"> </span><span class="dv">0</span>))
-    excerptr::<span class="kw">excerptr</span>(<span class="dt">file_name =</span> path, <span class="dt">pandoc_formats=</span> <span class="st">&quot;html&quot;</span>, 
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">is_pandoc_installed &lt;-<span class="st"> </span><span class="kw">length</span>(<span class="kw">Sys.which</span>(<span class="st">&quot;pandoc&quot;</span>) &gt;=<span class="st"> </span><span class="dv">0</span>) &amp;&amp;
+<span class="st">                              </span><span class="kw">length</span>(<span class="kw">Sys.which</span>(<span class="st">&quot;pandoc-citeproc&quot;</span>) &gt;=<span class="st"> </span><span class="dv">0</span>)
+is_pandoc_version_sufficient &lt;-<span class="st"> </span><span class="ot">FALSE</span>
+if (is_pandoc_installed) {
+    reference &lt;-<span class="st"> &quot;1.12.3&quot;</span>
+    version &lt;-<span class="st"> </span><span class="kw">strsplit</span>(<span class="kw">system2</span>(<span class="kw">Sys.which</span>(<span class="st">&quot;pandoc&quot;</span>), <span class="st">&quot;--version&quot;</span>, <span class="dt">stdout =</span> <span class="ot">TRUE</span>), 
+                        <span class="dt">split =</span> <span class="st">&quot; &quot;</span>)[[<span class="dv">1</span>]][<span class="dv">2</span>]
+    if (utils::<span class="kw">compareVersion</span>(version, reference) &gt;=<span class="st"> </span><span class="dv">0</span>)
+        is_pandoc_version_sufficient &lt;-<span class="st"> </span><span class="ot">TRUE</span>
+}
+if (is_pandoc_version_sufficient) 
+    excerptr::<span class="kw">excerptr</span>(<span class="dt">file_name =</span> path, <span class="dt">pandoc_formats =</span> <span class="st">&quot;html&quot;</span>, 
                        <span class="dt">output_path =</span> <span class="kw">tempdir</span>())</code></pre></div>
 <pre><code>## [1] 0</code></pre>
-<p>This gives you</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if (<span class="kw">length</span>(<span class="kw">Sys.which</span>(<span class="st">&quot;pandoc&quot;</span>) &gt;=<span class="st"> </span><span class="dv">0</span>))
+<p>This runs pandoc on your excerpted comments and generates an html file you can view via:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if (is_pandoc_version_sufficient) 
     <span class="kw">cat</span>(<span class="kw">readLines</span>(<span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="kw">sub</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">.R$&quot;</span>, <span class="st">&quot;.html&quot;</span>, <span class="kw">basename</span>(path)))), 
         <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</code></pre></div>
 <pre><code>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot; &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;
