@@ -1,7 +1,7 @@
 ---
 title: "An Introduction to *excerptr*"
 author: "Andreas Dominik Cullmann"
-date: 2017-05-12, 22:24:12
+date: 2017-05-15, 20:39:56
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{An Introduction to excerptr}
@@ -32,8 +32,8 @@ cat(readLines(file.path(tempdir(), sub("\\.R$", ".md", basename(path)))),
 If you have pandoc installed, you can convert the markdown output into html:
 
 ```{r}
-is_pandoc_installed <- length(Sys.which("pandoc") >= 0) &&
-                              length(Sys.which("pandoc-citeproc") >= 0)
+is_pandoc_installed <- nchar(Sys.which("pandoc")) > 0 &&
+                              nchar(Sys.which("pandoc-citeproc")) > 0
 is_pandoc_version_sufficient <- FALSE
 if (is_pandoc_installed) {
     reference <- "1.12.3"
