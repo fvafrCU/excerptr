@@ -20,7 +20,9 @@ conf <- sub("([Pp]ython)27/", "\\134_x64/", conf)
 conf <- sub("([Pp]ython)27", "\\134", conf)
 conf <- sub("(/[Pp]ython34)", "/python\\1", conf)
 writeLines(conf, configure)
-install.packages(rpython_path, repos = NULL, type = "source")
+if (! require("RJSONIO")) install.packages("RJSONIO")
+if (! require("devtools")) install.packages("devtools")
+devtools::install(rpython_path)
 ```
 To date you need to use R 3.2.5 for this to work since our Rtools version is out
 of date and does not work for our current R installation. 

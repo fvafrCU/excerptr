@@ -10,5 +10,6 @@ d <- readLines(description)
 d1 <- d[-grep("^OS_type:", d)]
 d1[grep("^ *R \\(", d1)] <- paste0("    R (>= ", my_r_version,")")
 writeLines(d1, description)
+if (! require("rprojroot")) install.packages("rprojroot")
 install.packages(excerptr_path, repos = NULL, type = "source")
 

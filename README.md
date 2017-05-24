@@ -58,11 +58,11 @@ install.packages("excerptr")
 
 #### rPython-win
 Install [rPython-win](https://github.com/cjgb/rPython-win)
-(follow the instructions at 
+(following the instructions at 
 [https://cran.r-project.org/package=rPython/INSTALL](https://cran.r-project.org/package=rPython/INSTALL)
 ).
 
-##### Folks at [fvafr](http://www.fva-bw.de/)
+##### rPython-win for Folks at [fvafr](http://www.fva-bw.de/)
 Should you happen to be one of my colleagues at  [fvafr](http://www.fva-bw.de/), please follow 
 [these instructions](howto_fva.md).
 
@@ -85,6 +85,7 @@ d <- readLines(description)
 d1 <- d[-grep("^OS_type:", d)]
 d1[grep("^ *R \\(", d1)] <- paste0("    R (>= ", my_r_version,")")
 writeLines(d1, description)
+if (! require("rprojroot")) install.packages("rprojroot")
 install.packages(excerptr_path, repos = NULL, type = "source")
 ```
 
