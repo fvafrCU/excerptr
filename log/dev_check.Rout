@@ -1,9 +1,9 @@
 Updating excerptr documentation
 Loading excerptr
-Setting env vars ---------------------------------------------------------------
+Setting env vars --------------------------------------------------------------
 CFLAGS  : -Wall -pedantic
 CXXFLAGS: -Wall -pedantic
-Building excerptr --------------------------------------------------------------
+Building excerptr -------------------------------------------------------------
   --no-resave-data --no-manual 
 
 * preparing ‘excerptr’:
@@ -11,7 +11,7 @@ Building excerptr --------------------------------------------------------------
 * installing the package to build vignettes
 * creating vignettes ... OK
 Warning: ‘inst/doc’ files
-    ‘excerptr_Introduction.Rmd’, ‘excerptr_Introduction.html’,  ‘excerptr_Introduction.R’
+    ‘excerptr_Introduction.Rmd’, ‘excerptr_Introduction.html’
   ignored as vignettes have been rebuilt.
   Run R CMD build with --no-build-vignettes to prevent rebuilding.
 * checking for LF line-endings in source and make files
@@ -20,21 +20,21 @@ Removed empty directory ‘excerptr/codes’
 Removed empty directory ‘excerptr/inst/examples’
 Removed empty directory ‘excerptr/inst/excerpts/log’
 Removed empty directory ‘excerptr/log’
-* building ‘excerptr_1.1.0.tar.gz’
+* building ‘excerptr_1.2.0.tar.gz’
 
-Setting env vars ---------------------------------------------------------------
+Setting env vars --------------------------------------------------------------
 _R_CHECK_CRAN_INCOMING_USE_ASPELL_: TRUE
 _R_CHECK_CRAN_INCOMING_           : TRUE
 _R_CHECK_FORCE_SUGGESTS_          : FALSE
-Checking excerptr --------------------------------------------------------------
+Checking excerptr -------------------------------------------------------------
   --as-cran --timings --no-tests --no-manual 
 
-* using R Under development (unstable) (2017-05-12 r72670)
+* using R Under development (unstable) (2017-05-19 r72700)
 * using platform: x86_64-pc-linux-gnu (64-bit)
 * using session charset: UTF-8
 * using options ‘--no-tests --no-manual --as-cran’
 * checking for file ‘excerptr/DESCRIPTION’ ... OK
-* this is package ‘excerptr’ version ‘1.1.0’
+* this is package ‘excerptr’ version ‘1.2.0’
 * package encoding: UTF-8
 * checking CRAN incoming feasibility ... Note_to_CRAN_maintainers
 Maintainer: ‘Andreas Dominik Cullmann <adc-r@arcor.de>’

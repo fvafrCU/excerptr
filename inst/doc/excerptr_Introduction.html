@@ -69,7 +69,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">An Introduction to <em>excerptr</em></h1>
 <h4 class="author"><em>Andreas Dominik Cullmann</em></h4>
-<h4 class="date"><em>2017-05-12, 22:24:12</em></h4>
+<h4 class="date"><em>2017-05-15, 20:39:56</em></h4>
 
 
 
@@ -116,8 +116,8 @@ a paragraph.
 ## A subsection
 Another markdown paragraph.</code></pre>
 <p>If you have pandoc installed, you can convert the markdown output into html:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">is_pandoc_installed &lt;-<span class="st"> </span><span class="kw">length</span>(<span class="kw">Sys.which</span>(<span class="st">&quot;pandoc&quot;</span>) &gt;=<span class="st"> </span><span class="dv">0</span>) &amp;&amp;
-<span class="st">                              </span><span class="kw">length</span>(<span class="kw">Sys.which</span>(<span class="st">&quot;pandoc-citeproc&quot;</span>) &gt;=<span class="st"> </span><span class="dv">0</span>)
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">is_pandoc_installed &lt;-<span class="st"> </span><span class="kw">nchar</span>(<span class="kw">Sys.which</span>(<span class="st">&quot;pandoc&quot;</span>)) &gt;<span class="st"> </span><span class="dv">0</span> &amp;&amp;
+<span class="st">                              </span><span class="kw">nchar</span>(<span class="kw">Sys.which</span>(<span class="st">&quot;pandoc-citeproc&quot;</span>)) &gt;<span class="st"> </span><span class="dv">0</span>
 is_pandoc_version_sufficient &lt;-<span class="st"> </span><span class="ot">FALSE</span>
 if (is_pandoc_installed) {
     reference &lt;-<span class="st"> &quot;1.12.3&quot;</span>
