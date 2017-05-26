@@ -10,7 +10,7 @@ VERSION := $(shell grep version ./setup.py | cut -f2 -d"'")
 
 
 #% make targets
-all: install doc analyse package run test tests 
+all: install doc analyse package run test tests  tag
 
 ##% installation
 install: README.rst
@@ -21,14 +21,20 @@ cli: install
 	${CLI} ${TEST_FILE} -o _cli -O output \
 		-p --formats html
 
+##% pypi
+.PHONY: upload_pypi
+upload_pypi: package
+	twine upload dist/*${VERSION}* 
+
+
 ##% testpypi
 .PHONY: testpypi
 testpypi: package
-	# python3 setup.py register -r https://testpypi.python.org/pypi
+	#python3 setup.py register -r https://testpypi.python.org/pypi
 	twine upload dist/*${VERSION}* -r testpypi
 
 ##% packaging
-package: dist build README.rst
+package: dist build README.rst 
 
 dist: ${SOURCE} ./setup.py
 	python3 ./setup.py sdist
@@ -52,13 +58,17 @@ tests/files/glm.md: tests/files/glm.R
 tests/files/phy.md: tests/files/phy.c
 	${CLI} -c '///' -m '%' tests/files/phy.c
 ##%  analyse code
-analyse: log/pep8.log log/pylint.log
+analyse: log/pep8.log log/pylint.log log/cleanr.log
 
 log/pep8.log: ${SOURCE}
 	pep8 ./${modul}/ > ./log/pep8.log || true
 
 log/pylint.log: ${SOURCE}
 	pylint ./${modul}/ > ./log/pylint.log || true
+
+log/cleanr.log: ${SOURCE}
+	Rscript --vanilla -e 'codes <- list.files("excerpts", pattern = ".*\\.py", full.names = TRUE); for (code in codes) print(cleanr:::check_file_layout(code)) '> log/cleanr.log 2>&1
+
 
 ##% create documentation
 doc: ./docs/${modul}.html ./docs/doxygen doxygenize 
@@ -80,6 +90,7 @@ README.rst: README.rstw tests/files/some_file.txt
 tmp_README.html: README.rst
 	pandoc README.rst -o tmp_README.html
 
+# I want to keep a doxypypy'ed version of my codes
 .PHONY: doxygenize
 doxygenize: ${SOURCE}
 	./utils/doxygenize.cl 
@@ -88,7 +99,12 @@ doxygenize: ${SOURCE}
 requirements:
 	pip3 install --user -r requirements.txt
 
-##% utils
+##% git tag
+.PHONY: tag
+make tag: setup.py
+	./utils/tag.cl
+
+##% old utils
 run: install
 	python3 ./utils/run.py
 tests/files/some_code.py: tests/files/some_file.txt

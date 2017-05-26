@@ -4,6 +4,8 @@ Excerpt Lines from Files
     :target: https://travis-ci.org/fvafrCU/excerpts
 .. image:: https://codecov.io/github/fvafrCU/excerpts/coverage.svg?branch=master
     :target: https://codecov.io/github/fvafrCU/excerpts
+.. image:: https://img.shields.io/pypi/v/excerpts.svg
+    :target: https://pypi.python.org/pypi/excerpts
 
 Introduction
 ------------
@@ -51,7 +53,7 @@ that requires comments like
 
 )
 
-If these comments are markdown style section comments, we can extract them and
+If these comments are markdown style section comments, we can excerpt them and
 set a table of contents.
 
 A First Example
@@ -218,7 +220,7 @@ operating systems' command line instead of from python3:
     [--no-pep8]
                     file
     
-    
+    excerpt markdown-style comments from a file to markdown and
     
     
 

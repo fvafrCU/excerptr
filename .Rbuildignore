@@ -28,3 +28,4 @@ log/
 codes/
 ^howto_fva\.Rmd$
 ^howto_fva\.md$
+devel.R

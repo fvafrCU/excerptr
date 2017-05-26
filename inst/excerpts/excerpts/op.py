@@ -37,25 +37,25 @@ def pandoc(file_name, compile_latex=False, formats="tex"):
     """
     Run Pandoc on a File
 
-        file_name: The file from which the lines are to be extracted.
+        file_name: The file on which to run pandoc.
         formats: The pandoc output formats to be used.
         compile_latex: Compile the LaTeX file?
     Returns:
-        0 if parsing was successful.
+        0 if parsing was successful, 1 otherwise.
     """
     status = 1
     if is_tool("pandoc"):
         for form in formats.split(","):
-            subprocess.call(["pandoc", "-sN", file_name, "-o",
-                             main.modify_path(file_name=file_name,
-                                              extension=form)])
+            subprocess.check_call(["pandoc", "-sN", file_name, "-o",
+                                   main.modify_path(file_name=file_name,
+                                                    extension=form)])
             if compile_latex & (form == "tex"):
                 tex_file_name = main.modify_path(file_name=file_name,
                                                  extension="tex")
                 if os.name == "posix":
                     if is_tool("texi2pdf"):
-                        subprocess.call(["texi2pdf", "--batch", "--clean",
-                                         tex_file_name])
+                        subprocess.check_call(["texi2pdf", "--batch",
+                                               "--clean", tex_file_name])
                 else:
                     print("you are not running posix, see how to compile\n" +
                           tex_file_name +
