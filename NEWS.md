@@ -1,3 +1,8 @@
+# excertpr 1.2.0
+
+* add 'excerpts' version 1.1.0 from pypi.
+* vignettes/excerptr_Introduction.Rmd: cope with CRAN's check warnings.
+
 # excertpr 1.1.0
 
 * vignettes/excerptr_Introduction.Rmd: cope with CRAN's check warnings.
