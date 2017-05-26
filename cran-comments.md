@@ -1,14 +1,14 @@
 Dear CRAN Team,
-this is a resubmission of package excerptr. 
-I have changed
-* vignettes/excerptr_Introduction.Rmd trying to get rid of the last two CRAN
-  check warnings.
-* R/internals.R to construct path using inst/ only on developement.
+I have imported the lastest version of the python package 'excerpts' from pypi.
+And I have, again, tried to get rid of the last two warnings from 
+https://cran.r-project.org/web/checks/check_results_excerptr.html (it's a pity I
+don't have a sparc and a mac at hand). 
+Best, Dominik 
 
-# Package  excerptr 1.1.0 
+# Package  excerptr 1.2.0 
 
 ## Test  environments  
-- R Under development (unstable) (2017-05-12 r72670)
+- R Under development (unstable) (2017-05-19 r72700)
   Platform: x86_64-pc-linux-gnu (64-bit)
   Running under: Debian GNU/Linux 8 (jessie) 
 - R version 3.4.0 (2017-04-21)
@@ -18,4 +18,6 @@ I have changed
 
 ## R CMD check results
 0 errors | 0 warnings | 0 notes
+
+
 
