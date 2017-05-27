@@ -1,2 +1,2 @@
 - give a better motivation
-- enable CRAN links in README
+- use utils/check.R and make a package of package checks

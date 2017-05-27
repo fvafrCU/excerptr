@@ -50,7 +50,7 @@ dev_devel:
 craninstall: crancheck
 	${R} --vanilla CMD INSTALL  ${PKGNAME}_${PKGVERS}.tar.gz
 
-crancheck: build  
+crancheck: news build 
 	export _R_CHECK_FORCE_SUGGESTS_=TRUE && \
 		${R} --vanilla CMD check --as-cran ${PKGNAME}_${PKGVERS}.tar.gz && \
 		cp ${PKGNAME}.Rcheck/00check.log log/crancheck.log
@@ -88,6 +88,10 @@ direct_check:
 .PHONY: roxy
 roxy:
 	${R} --vanilla -e 'roxygen2::roxygenize(".")'
+
+.PHONY: news 
+news: DESCRIPTION NEWS.md
+	${Rscript} --vanilla -e 'source(file.path("utils", "checks.R")); check_news()'
 
 # utils
 .PHONY: utils
