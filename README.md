@@ -64,7 +64,7 @@ Install [rPython-win](https://github.com/cjgb/rPython-win)
 
 ##### rPython-win for Folks at [fvafr](http://www.fva-bw.de/)
 Should you happen to be one of my colleagues at  [fvafr](http://www.fva-bw.de/), please follow 
-[these instructions](howto_fva.md).
+[these instructions](https://github.com/fvafrCU/excerptr/blob/master/howto_fva.md).
 
 #### excerptr
 Then get the excerptr source
