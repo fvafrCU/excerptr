@@ -24,7 +24,7 @@ in \code{file_name}.}
 
 \item{postfix}{Give a postfix to use for output files.}
 
-\item{run_pandoc}{Try to run pandoc on the output file?}
+\item{run_pandoc}{Try to run pandoc on the output?}
 
 \item{compile_latex}{Try to compile LaTeX if pandoc has output LaTeX?}
 

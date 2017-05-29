@@ -1,3 +1,7 @@
+# excerptr 1.2.0.9000
+
+* enhance documentation
+
 # excerptr 1.2.0
 
 * add 'excerpts' version 1.1.0 from pypi.

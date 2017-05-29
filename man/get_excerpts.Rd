@@ -19,7 +19,8 @@ The status of \code{git2r::clone}, or, if remove_dot_git is
 TRUE, the \code{\link{capture.output}} thereof.
 }
 \description{
-Clone the Excerpts Code from Github
+Get excerpts' the latest commit to branch master on github. Meant for
+development only.
 }
 \examples{
 path <- file.path(tempdir(), "excerpts")

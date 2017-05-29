@@ -1,5 +1,8 @@
 #' Clone the Excerpts Code from Github
 #'
+#' Get excerpts' the latest commit to branch master on github. Meant for
+#' development only.
+#'
 #' @param directory Where to clone to.
 #' @param force Overwrite the directory?
 #' @param remove_dot_git Remove the .git/ from the clone?

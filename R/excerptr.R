@@ -14,7 +14,7 @@ NULL
 #' @param allow_pep8 Don't bother. See excerpts.excerpts for details.
 #' @param prefix Give a prefix to use for output files.
 #' @param postfix Give a postfix to use for output files.
-#' @param run_pandoc Try to run pandoc on the output file?
+#' @param run_pandoc Try to run pandoc on the output?
 #' @param compile_latex Try to compile LaTeX if pandoc has output LaTeX?
 #' @param pandoc_formats A character vector naming the output formats for
 #' pandoc.

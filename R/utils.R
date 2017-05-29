@@ -3,7 +3,8 @@ NULL
 
 #' Concatenate Code Files into one File
 #'
-#' To easily remove local imports and imports from __future__.
+#' Concatenate python codes and remove local imports and imports from
+#' __future__.
 #'
 #' @param codes a character vector of file names.
 #' @return The concatenated code.
@@ -28,7 +29,7 @@ concatenate_python_codes <- function(codes) {
 
 #' Load Excerpts
 #'
-#' Just a wrapper.
+#' Load excerpts' python codes.
 #'
 #' @return The status of the rPython::python.exec().
 load_excerpts <- function() {

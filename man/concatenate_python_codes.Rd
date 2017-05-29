@@ -13,5 +13,6 @@ concatenate_python_codes(codes)
 The concatenated code.
 }
 \description{
-To easily remove local imports and imports from __future__.
+Concatenate python codes and remove local imports and imports from
+__future__.
 }

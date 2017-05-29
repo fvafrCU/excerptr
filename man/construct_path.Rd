@@ -13,5 +13,10 @@ construct_path(temporary = FALSE)
 A character of length one naming the path constructed.
 }
 \description{
-Construct a (temporary) Path Where to Look for the Inst Files
+Construct a (temporary) path where to look for the files installed with the
+package.
+}
+\details{
+We need to load python codes that are located under the root with
+the installation and under 'inst/' while developing.
 }

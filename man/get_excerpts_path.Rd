@@ -13,11 +13,14 @@ get_excerpts_path(...)
 The status of the rPython::python.call() call to excerpts.
 }
 \description{
-Get the "excerpts_path", and set it, if unset.
+Get the option "excerpts_path", and set it, if unset.
 }
 \examples{
 options("excerpts_path" = NULL)
 getOption("excertps_path")
 excerptr:::get_excerpts_path() # internally calls set_excertps_path()
 getOption("excertps_path")
+}
+\seealso{
+\code{\link{set_excertps_path}}.
 }

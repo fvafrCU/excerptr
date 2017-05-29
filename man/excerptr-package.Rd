@@ -10,7 +10,8 @@ python package excerpts (\url{https://pypi.python.org/pypi/excerpts}).
 }
 \details{
 You will probably only want to use \code{\link{excerptr}}, see there for a
-usage example.
+usage example. All other functions documented are rather meant for internal
+use.
 }
 \author{
 Andreas Dominik Cullmann, <adc-r@arcor.de>
