@@ -1,9 +1,9 @@
 * using log directory ‘/home/qwer/git/cyclops/fvafrcu/excerptr/excerptr.Rcheck’
-* using R Under development (unstable) (2017-04-20 r72572)
+* using R Under development (unstable) (2017-05-31 r72750)
 * using platform: x86_64-pc-linux-gnu (64-bit)
 * using session charset: UTF-8
 * checking for file ‘excerptr/DESCRIPTION’ ... OK
-* this is package ‘excerptr’ version ‘1.0.0’
+* this is package ‘excerptr’ version ‘1.2.1’
 * package encoding: UTF-8
 * checking package namespace information ... OK
 * checking package dependencies ... OK
