@@ -20,7 +20,7 @@ Removed empty directory ‘excerptr/codes’
 Removed empty directory ‘excerptr/inst/examples’
 Removed empty directory ‘excerptr/inst/excerpts/log’
 Removed empty directory ‘excerptr/log’
-* building ‘excerptr_1.2.0.tar.gz’
+* building ‘excerptr_1.2.0.9000.tar.gz’
 
 Setting env vars --------------------------------------------------------------
 _R_CHECK_CRAN_INCOMING_USE_ASPELL_: TRUE
@@ -34,10 +34,14 @@ Checking excerptr -------------------------------------------------------------
 * using session charset: UTF-8
 * using options ‘--no-tests --no-manual --as-cran’
 * checking for file ‘excerptr/DESCRIPTION’ ... OK
-* this is package ‘excerptr’ version ‘1.2.0’
+* this is package ‘excerptr’ version ‘1.2.0.9000’
 * package encoding: UTF-8
-* checking CRAN incoming feasibility ... Note_to_CRAN_maintainers
+* checking CRAN incoming feasibility ... NOTE
 Maintainer: ‘Andreas Dominik Cullmann <adc-r@arcor.de>’
+
+Version contains large components (1.2.0.9000)
+
+Days since last update: 4
 * checking package namespace information ... OK
 * checking package dependencies ... OK
 * checking if this is a source package ... OK
@@ -87,8 +91,16 @@ Maintainer: ‘Andreas Dominik Cullmann <adc-r@arcor.de>’
 * checking re-building of vignette outputs ... OK
 * DONE
 
-Status: OK
+Status: 1 NOTE
+See
+for details.
+
 
 R CMD check results
-0 errors | 0 warnings | 0 notes
+0 errors | 0 warnings | 1 note 
+checking CRAN incoming feasibility ... NOTE
+Maintainer: ‘Andreas Dominik Cullmann <adc-r@arcor.de>’
 
+Version contains large components (1.2.0.9000)
+
+Days since last update: 4
