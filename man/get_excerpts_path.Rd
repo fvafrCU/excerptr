@@ -10,7 +10,8 @@ get_excerpts_path(...)
 \item{...}{arguments passed to \code{\link{set_excertps_path}()}.}
 }
 \value{
-The status of the rPython::python.call() call to excerpts.
+The status of the \pkg{rPython}\code{::\link[rPython]{python.call}}
+call to excerpts.
 }
 \description{
 Get the option "excerpts_path", and set it, if unset.

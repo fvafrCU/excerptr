@@ -31,7 +31,7 @@ concatenate_python_codes <- function(codes) {
 #'
 #' Load excerpts' python codes.
 #'
-#' @return The status of the rPython::python.exec().
+#' @return The status of \pkg{rPython}\code{::\link[rPython]{python.exec}}.
 load_excerpts <- function() {
     python_directory <- get_excerpts_path()
     python_codes <- file.path(python_directory, "excerpts")

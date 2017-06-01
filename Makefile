@@ -20,8 +20,7 @@ dev_all: dev_test dev dev_vignettes
 dev: dev_check dev_spell
 
 dev_spell: roxy 
-	${Rscript} --vanilla -e 'spell <- devtools::spell_check(ignore = c("github" , "https", "lintr", "pylint", "Kernighan", "jimhester", "Cullmann", "adc", "arcor", "de", "tryCatch", "org", "pandoc", "pypi", "rPython")); if (length(spell) > 0) {print(spell); stop("spell check failed")} '
-
+	${Rscript} --vanilla -e 'spell <- devtools::spell_check(); if (length(spell) > 0) {print(spell); warning("spell check failed")} ' > log/spell.log 2>&1 
 dev_test:
 	rm ${temp_file} || true; \
 	${Rscript} --vanilla -e 'devtools::test()' >  ${temp_file} 2>&1; \

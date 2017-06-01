@@ -1,7 +1,8 @@
-#' Clone the Excerpts Code from Github
+#' Clone the Excerpts Code from \url{github.com}
 #'
-#' Get excerpts' the latest commit to branch master on github. Meant for
-#' development only.
+#' Get excerpts' the latest commit to branch master on 
+#' \url{https://github.com/fvafrCU/excerpts/}.
+#' Meant for development only.
 #'
 #' @param directory Where to clone to.
 #' @param force Overwrite the directory?

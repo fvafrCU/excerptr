@@ -24,7 +24,8 @@ set_excertps_path <- function(path = NULL, temporary = FALSE) {
 #'
 #' @param ... arguments passed to \code{\link{set_excertps_path}()}.
 #' @seealso  \code{\link{set_excertps_path}}.
-#' @return The status of the rPython::python.call() call to excerpts.
+#' @return The status of the \pkg{rPython}\code{::\link[rPython]{python.call}}
+#' call to excerpts.
 #' @examples
 #' options("excerpts_path" = NULL)
 #' getOption("excertps_path")

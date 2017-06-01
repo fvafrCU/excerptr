@@ -7,7 +7,7 @@
 load_excerpts()
 }
 \value{
-The status of the rPython::python.exec().
+The status of \pkg{rPython}\code{::\link[rPython]{python.exec}}.
 }
 \description{
 Load excerpts' python codes.

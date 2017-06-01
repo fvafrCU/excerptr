@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_excerpts.R
 \name{get_excerpts}
 \alias{get_excerpts}
-\title{Clone the Excerpts Code from Github}
+\title{Clone the Excerpts Code from \url{github.com}}
 \usage{
 get_excerpts(directory = get_excerpts_path(), force = FALSE,
   remove_dot_git = TRUE)
@@ -19,8 +19,9 @@ The status of \code{git2r::clone}, or, if remove_dot_git is
 TRUE, the \code{\link{capture.output}} thereof.
 }
 \description{
-Get excerpts' the latest commit to branch master on github. Meant for
-development only.
+Get excerpts' the latest commit to branch master on 
+\url{https://github.com/fvafrCU/excerpts/}.
+Meant for development only.
 }
 \examples{
 path <- file.path(tempdir(), "excerpts")

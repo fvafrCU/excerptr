@@ -24,15 +24,17 @@ in \code{file_name}.}
 
 \item{postfix}{Give a postfix to use for output files.}
 
-\item{run_pandoc}{Try to run pandoc on the output?}
+\item{run_pandoc}{Try to run \command{pandoc} on the output?}
 
-\item{compile_latex}{Try to compile LaTeX if pandoc has output LaTeX?}
+\item{compile_latex}{Try to compile LaTeX if \command{pandoc} has output
+LaTeX?}
 
 \item{pandoc_formats}{A character vector naming the output formats for
-pandoc.}
+\command{pandoc}.}
 }
 \value{
-The status of the rPython::python.call() call to excerpts.
+The status of the \pkg{rPython}\code{::\link[rPython]{python.call}}
+call to excerpts.
 }
 \description{
 Just a wrapper to the python function excerpts.excerpts.
