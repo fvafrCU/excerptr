@@ -33,10 +33,6 @@ help("excerptr-package", package = "excerptr")
 ##      You will probably only want to use 'excerptr', see there for a
 ##      usage example. All other functions documented are rather meant for
 ##      internal use.
-## 
-## Author(s):
-## 
-##      Andreas Dominik Cullmann, <adc-r@arcor.de>
 ```
 
 ## System Requirements

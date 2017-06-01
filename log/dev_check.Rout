@@ -11,7 +11,7 @@ Building excerptr -------------------------------------------------------------
 * installing the package to build vignettes
 * creating vignettes ... OK
 Warning: ‘inst/doc’ files
-    ‘excerptr_Introduction.Rmd’, ‘excerptr_Introduction.html’,  ‘excerptr_Introduction.R’
+    ‘excerptr_Introduction.Rmd’, ‘excerptr_Introduction.html’
   ignored as vignettes have been rebuilt.
   Run R CMD build with --no-build-vignettes to prevent rebuilding.
 * checking for LF line-endings in source and make files
