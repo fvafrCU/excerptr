@@ -1,4 +1,4 @@
-# excerptr 1.2.0.9000
+# excerptr 1.2.1
 
 * enhance documentation
 

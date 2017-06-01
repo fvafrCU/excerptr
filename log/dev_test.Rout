@@ -1,17 +1,17 @@
 Loading excerptr
 Loading required package: testthat
 Testing excerptr
-excerpts: cloning into '/tmp/RtmpE0y5LE'...
-Receiving objects:   1% (13/1300),    9 kb
-Receiving objects:  11% (143/1300),   25 kb
-Receiving objects:  21% (273/1300),   49 kb
-Receiving objects:  31% (403/1300),   99 kb
-Receiving objects:  41% (533/1300),  123 kb
-Receiving objects:  51% (663/1300),  137 kb
-Receiving objects:  61% (793/1300),  161 kb
-Receiving objects:  71% (923/1300),  177 kb
-Receiving objects:  81% (1053/1300),  193 kb
-Receiving objects:  91% (1183/1300),  299 kb
+excerpts: cloning into '/tmp/RtmpEOA59h'...
+Receiving objects:   1% (13/1300),   10 kb
+Receiving objects:  11% (143/1300),   26 kb
+Receiving objects:  21% (273/1300),   50 kb
+Receiving objects:  31% (403/1300),   98 kb
+Receiving objects:  41% (533/1300),  122 kb
+Receiving objects:  51% (663/1300),  138 kb
+Receiving objects:  61% (793/1300),  162 kb
+Receiving objects:  71% (923/1300),  178 kb
+Receiving objects:  81% (1053/1300),  194 kb
+Receiving objects:  91% (1183/1300),  298 kb
 Receiving objects: 100% (1300/1300),  344 kb, done.
 ..
 Paths: ..
