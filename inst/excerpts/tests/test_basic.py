@@ -168,5 +168,39 @@ class PathModificationSuite(unittest.TestCase):
         self.assertEqual(expectation, result)
 
 
+class pandocSuite(unittest.TestCase):
+    """pandoc test cases."""
+
+
+    def test_pandoc_string(self): 
+        result = excerpts.excerpts(file_name="tests/files/some_file.txt", 
+                                   comment_character='#', 
+                                   magic_character='%', 
+                                   pandoc_formats = "html,rst")
+        #result = excerpts.op.pandoc(file_name="files/some_file.md", 
+        #                          compile_latex=False,
+        #                          formats = "html")
+        expectation = 0
+        self.assertEqual(expectation, result)
+
+
+    def test_pandoc_list(self): 
+        result = excerpts.excerpts(file_name="tests/files/some_file.txt", 
+                                   comment_character='#', 
+                                   magic_character='%', 
+                                   pandoc_formats = ["html", "rst"])
+        expectation = 0
+        self.assertEqual(expectation, result)
+
+
+    def test_pandoc_tuple(self): 
+        result = excerpts.excerpts(file_name="tests/files/some_file.txt", 
+                                   comment_character='#', 
+                                   magic_character='%', 
+                                   pandoc_formats = ("html", "rst"))
+        expectation = 0
+        self.assertEqual(expectation, result)
+
+
 if __name__ == '__main__':
     unittest.main()

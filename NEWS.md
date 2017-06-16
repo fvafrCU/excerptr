@@ -1,10 +1,11 @@
-# excerptr 1.2.0.9000
+# excerptr 1.3.0
 
+* add 'excerpts' version 2.0.0 from github.
 * enhance documentation
 
 # excerptr 1.2.0
 
-* add 'excerpts' version 1.1.0 from pypi.
+* add 'excerpts' version 1.1.0 from github.
 * vignettes/excerptr_Introduction.Rmd: cope with CRAN's check warnings.
 
 # excerptr 1.1.0

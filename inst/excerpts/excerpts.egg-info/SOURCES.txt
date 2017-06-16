@@ -185,7 +185,9 @@ tests/files/hello.py
 tests/files/phy.c
 tests/files/phy.md
 tests/files/some_code.py
+tests/files/some_file.html
 tests/files/some_file.md
+tests/files/some_file.rst
 tests/files/some_file.tex
 tests/files/some_file.txt
 tests/files/some_file_o.html

@@ -7,7 +7,7 @@ if (interactive()) {
 context("excerpts")
 test_that("get", {
               current <- get_excerpts(directory = tempdir())[2]
-              reference <- paste0("Remote:   master @ origin ",
+              reference <- paste0("Remote:   devel @ origin ",
                                   "(https://github.com/fvafrCU/excerpts/)")
               expect_equal(current, reference)
 })

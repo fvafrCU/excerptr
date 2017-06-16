@@ -11,16 +11,15 @@ Building excerptr -------------------------------------------------------------
 * installing the package to build vignettes
 * creating vignettes ... OK
 Warning: ‘inst/doc’ files
-    ‘excerptr_Introduction.Rmd’, ‘excerptr_Introduction.html’
+    ‘excerptr_Introduction.Rmd’, ‘excerptr_Introduction.html’,  ‘excerptr_Introduction.R’
   ignored as vignettes have been rebuilt.
   Run R CMD build with --no-build-vignettes to prevent rebuilding.
 * checking for LF line-endings in source and make files
 * checking for empty or unneeded directories
 Removed empty directory ‘excerptr/codes’
-Removed empty directory ‘excerptr/inst/examples’
 Removed empty directory ‘excerptr/inst/excerpts/log’
 Removed empty directory ‘excerptr/log’
-* building ‘excerptr_1.2.1.tar.gz’
+* building ‘excerptr_1.3.0.tar.gz’
 
 Setting env vars --------------------------------------------------------------
 _R_CHECK_CRAN_INCOMING_USE_ASPELL_: TRUE
@@ -34,12 +33,10 @@ Checking excerptr -------------------------------------------------------------
 * using session charset: UTF-8
 * using options ‘--no-tests --no-manual --as-cran’
 * checking for file ‘excerptr/DESCRIPTION’ ... OK
-* this is package ‘excerptr’ version ‘1.2.1’
+* this is package ‘excerptr’ version ‘1.3.0’
 * package encoding: UTF-8
-* checking CRAN incoming feasibility ... NOTE
+* checking CRAN incoming feasibility ... Note_to_CRAN_maintainers
 Maintainer: ‘Andreas Dominik Cullmann <adc-r@arcor.de>’
-
-Days since last update: 4
 * checking package namespace information ... OK
 * checking package dependencies ... OK
 * checking if this is a source package ... OK
@@ -89,14 +86,8 @@ Days since last update: 4
 * checking re-building of vignette outputs ... OK
 * DONE
 
-Status: 1 NOTE
-See
-for details.
-
+Status: OK
 
 R CMD check results
-0 errors | 0 warnings | 1 note 
-checking CRAN incoming feasibility ... NOTE
-Maintainer: ‘Andreas Dominik Cullmann <adc-r@arcor.de>’
+0 errors | 0 warnings | 0 notes
 
-Days since last update: 4
