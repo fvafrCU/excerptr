@@ -1,19 +1,20 @@
 Loading excerptr
 Loading required package: testthat
 Testing excerptr
-excerpts: cloning into '/tmp/Rtmppqhp9F'...
+excerpts: cloning into '/tmp/RtmpSuy3rQ'...
 Receiving objects:   1% (14/1367),    9 kb
 Receiving objects:  11% (151/1367),   25 kb
-Receiving objects:  21% (288/1367),   49 kb
-Receiving objects:  31% (424/1367),   65 kb
-Receiving objects:  41% (561/1367),  121 kb
-Receiving objects:  51% (698/1367),  145 kb
-Receiving objects:  61% (834/1367),  169 kb
-Receiving objects:  71% (971/1367),  185 kb
-Receiving objects:  81% (1108/1367),  201 kb
-Receiving objects:  91% (1244/1367),  225 kb
+Receiving objects:  21% (288/1367),   50 kb
+Receiving objects:  31% (424/1367),   66 kb
+Receiving objects:  41% (561/1367),  122 kb
+Receiving objects:  51% (698/1367),  146 kb
+Receiving objects:  61% (834/1367),  170 kb
+Receiving objects:  71% (971/1367),  186 kb
+Receiving objects:  81% (1108/1367),  202 kb
+Receiving objects:  91% (1244/1367),  226 kb
 Receiving objects: 100% (1367/1367),  350 kb, done.
 ..
 Paths: ..
-Markdown: ...
+Markdown: .
+pandoc: ..
 

@@ -44,8 +44,9 @@ test_that("md", {
           expect_equal(result, expectation)
                  })
 
-runs_solaris <- any(grepl("solaris", R.version)) 
-if (! runs_solaris) {
+context("pandoc")
+is_pandoc_installed <- nchar(Sys.which("pandoc")) > 0
+if (is_pandoc_installed) {
     test_that("pandoc_formats", {
               out_file <- file.path(tempdir(), "some_file.md")
               excerptr(file = file.path(root, "tests/files/some_file.R"),

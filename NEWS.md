@@ -1,6 +1,6 @@
 # excerptr 1.3.0.9000
 
-* Skip tests requiring pandoc on solaris machines.
+* Run tests requiring pandoc only if pandoc is installed.
 
 # excerptr 1.3.0
 
