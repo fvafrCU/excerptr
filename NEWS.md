@@ -1,12 +1,16 @@
+# excerptr 1.3.0.9000
+
+* Skip tests requiring pandoc on solaris machines.
+
 # excerptr 1.3.0
 
-* add 'excerpts' version 2.0.0 from github and adjust the internal interface in
+* Add 'excerpts' version 2.0.0 from github and adjust the internal interface in
   excerptr().
-* enhance documentation
+* Enhance documentation
 
 # excerptr 1.2.0
 
-* add 'excerpts' version 1.1.0 from github.
+* Add 'excerpts' version 1.1.0 from github.
 * vignettes/excerptr_Introduction.Rmd: cope with CRAN's check warnings.
 
 # excerptr 1.1.0
