@@ -1,6 +1,7 @@
 # excerptr 1.3.0
 
-* add 'excerpts' version 2.0.0 from github.
+* add 'excerpts' version 2.0.0 from github and adjust the internal interface in
+  excerptr().
 * enhance documentation
 
 # excerptr 1.2.0
