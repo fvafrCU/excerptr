@@ -43,3 +43,26 @@ test_that("md", {
                                                  "tests/files/some_file.md"))
               expect_equal(result, expectation)
                  })
+test_that("pandoc_formats", {
+              out_file <- file.path(tempdir(), "some_file.md")
+              excerptr(file = file.path(root, "tests/files/some_file.R"),
+                       pandoc_formats = c("tex", "html"),
+                       output_path = tempdir(),
+                       run_pandoc = TRUE)
+              result <- readLines(out_file)
+              expectation <- readLines(file.path(root,
+                                                 "tests/files/some_file.md"))
+              expect_equal(result, expectation)
+                 })
+
+test_that("pandoc_formats_list", {
+              out_file <- file.path(tempdir(), "some_file.md")
+              excerptr(file = file.path(root, "tests/files/some_file.R"),
+                       pandoc_formats = list("tex", "html"),
+                       output_path = tempdir(),
+                       run_pandoc = TRUE)
+              result <- readLines(out_file)
+              expectation <- readLines(file.path(root,
+                                                 "tests/files/some_file.md"))
+              expect_equal(result, expectation)
+                 })

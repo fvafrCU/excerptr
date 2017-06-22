@@ -48,7 +48,7 @@ def pandoc(file_name, compile_latex=False, formats="tex"):
     """
     status = 1
     if is_tool("pandoc"):
-        if isinstance(formats, (str, unicode)):
+        if isinstance(formats, str):
             formats = formats.split(",")
         for form in formats:
             subprocess.check_call(["pandoc", "-sN", file_name, "-o",

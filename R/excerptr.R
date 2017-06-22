@@ -42,7 +42,6 @@ excerptr <- function(file_name, comment_character = "#", magic_character = "%",
                                    prefix = prefix, postfix = postfix,
                                    run_pandoc = run_pandoc,
                                    compile_latex = compile_latex,
-                                   pandoc_formats = paste(pandoc_formats,
-                                                          collapse = ","))
+                                   pandoc_formats = as.list(pandoc_formats))
     return(status)
 }
