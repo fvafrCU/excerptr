@@ -1,4 +1,4 @@
-# excerptr 1.3.0.9000
+# excerptr 1.3.1
 
 * Run tests requiring pandoc only if pandoc is installed.
 

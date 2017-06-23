@@ -1,14 +1,12 @@
 Dear CRAN Team,
-this is a resubmission of package excerptr. 
-- I have enhanced the documentation
-- I am now using the version 2.0.0. of the python package 'excertps' and have
-  updated an internal interface.
+this is a bugfix for package excerptr. I have fixed the errors from
+https://cran.r-project.org/web/checks/check_results_excerptr.html
 Please upload to CRAN.
 Best, Dominik
 
-# Package  excerptr 1.3.0
+# Package  excerptr 1.3.1
 ## Test  environments  
-- R Under development (unstable) (2017-06-21 r72825)
+- R Under development (unstable) (2017-06-23 r72845)
   Platform: x86_64-pc-linux-gnu (64-bit)
   Running under: Debian GNU/Linux 8 (jessie) 
 - R version 3.4.0 (2017-04-21)
@@ -17,7 +15,10 @@ Best, Dominik
 - win-builder (devel) 
 
 ## R CMD check results
-0 errors | 0 warnings | 0 notes
+0 errors | 0 warnings | 1 note 
+checking CRAN incoming feasibility ... NOTE
+Maintainer: ‘Andreas Dominik Cullmann <adc-r@arcor.de>’
 
+Days since last update: 1
 
 

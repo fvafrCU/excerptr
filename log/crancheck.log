@@ -4,12 +4,10 @@
 * using session charset: UTF-8
 * using option ‘--as-cran’
 * checking for file ‘excerptr/DESCRIPTION’ ... OK
-* this is package ‘excerptr’ version ‘1.3.0.9000’
+* this is package ‘excerptr’ version ‘1.3.1’
 * package encoding: UTF-8
 * checking CRAN incoming feasibility ... NOTE
 Maintainer: ‘Andreas Dominik Cullmann <adc-r@arcor.de>’
-
-Version contains large components (1.3.0.9000)
 
 Days since last update: 1
 * checking package namespace information ... OK
