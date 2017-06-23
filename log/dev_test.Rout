@@ -1,10 +1,10 @@
 Loading excerptr
 Loading required package: testthat
 Testing excerptr
-excerpts: cloning into '/tmp/RtmpSuy3rQ'...
-Receiving objects:   1% (14/1367),    9 kb
+excerpts: cloning into '/tmp/RtmpcsgO7H'...
+Receiving objects:   1% (14/1367),   10 kb
 Receiving objects:  11% (151/1367),   25 kb
-Receiving objects:  21% (288/1367),   50 kb
+Receiving objects:  21% (288/1367),   49 kb
 Receiving objects:  31% (424/1367),   66 kb
 Receiving objects:  41% (561/1367),  122 kb
 Receiving objects:  51% (698/1367),  146 kb
