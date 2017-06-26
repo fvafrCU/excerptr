@@ -2,6 +2,9 @@
 [![Build Status](https://travis-ci.org/fvafrCU/excerptr.svg?branch=master)](https://travis-ci.org/fvafrCU/excerptr)
 [![Coverage Status](https://codecov.io/github/fvafrCU/excerptr/coverage.svg?branch=master)](https://codecov.io/github/fvafrCU/excerptr?branch=master)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/excerptr)](https://cran.r-project.org/package=excerptr)
+[![RStudio_downloads_monthly](http://cranlogs.r-pkg.org/badges/excerptr)](http://cran.rstudio.com/web/packages/excerptr/index.html)
+[![RStudio_downloads_total](http://cranlogs.r-pkg.org/badges/grand-total/excerptr)](http://cran.rstudio.com/web/packages/excerptr/index.html)
+
 
 # excerptr
 This is an R interface to [excerpts](https://pypi.python.org/pypi/excerpts).
