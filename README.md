@@ -2,8 +2,8 @@
 [![Build Status](https://travis-ci.org/fvafrCU/excerptr.svg?branch=master)](https://travis-ci.org/fvafrCU/excerptr)
 [![Coverage Status](https://codecov.io/github/fvafrCU/excerptr/coverage.svg?branch=master)](https://codecov.io/github/fvafrCU/excerptr?branch=master)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/excerptr)](https://cran.r-project.org/package=excerptr)
-[![RStudio_downloads_monthly](https://cranlogs.r-pkg.org/badges/excerptr)](https://cran.rstudio.com/web/packages/excerptr/index.html)
-[![RStudio_downloads_total](https://cranlogs.r-pkg.org/badges/grand-total/excerptr)](https://cran.rstudio.com/web/packages/excerptr/index.html)
+[![RStudio_downloads_monthly](https://cranlogs.r-pkg.org/badges/excerptr)](https://cran.r-project.org/package=index.html)
+[![RStudio_downloads_total](https://cranlogs.r-pkg.org/badges/grand-total/excerptr)](https://cran.r-project.org/package=index.html)
 
 
 # excerptr
