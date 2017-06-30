@@ -1,5 +1,5 @@
 Dear CRAN Team,
-this is a bugfix for package excerptr. I have fixed the errors from
+this is a patch for package excerptr. I have fixed the errors from
 https://cran.r-project.org/web/checks/check_results_excerptr.html
 Please upload to CRAN.
 Best, Dominik
