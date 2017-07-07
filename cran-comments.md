@@ -6,7 +6,7 @@ Best, Dominik
 
 # Package  excerptr 1.3.1
 ## Test  environments  
-- R Under development (unstable) (2017-06-23 r72845)
+- R Under development (unstable) (2017-07-07 r72896)
   Platform: x86_64-pc-linux-gnu (64-bit)
   Running under: Debian GNU/Linux 8 (jessie) 
 - R version 3.4.0 (2017-04-21)
@@ -15,10 +15,7 @@ Best, Dominik
 - win-builder (devel) 
 
 ## R CMD check results
-0 errors | 0 warnings | 1 note 
-checking CRAN incoming feasibility ... NOTE
-Maintainer: ‘Andreas Dominik Cullmann <adc-r@arcor.de>’
+0 errors | 0 warnings | 0 notes
 
-Days since last update: 1
 
 

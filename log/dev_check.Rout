@@ -28,17 +28,15 @@ _R_CHECK_FORCE_SUGGESTS_          : FALSE
 Checking excerptr -------------------------------------------------------------
   --as-cran --timings --no-tests --no-manual 
 
-* using R Under development (unstable) (2017-06-23 r72845)
+* using R Under development (unstable) (2017-07-07 r72896)
 * using platform: x86_64-pc-linux-gnu (64-bit)
 * using session charset: UTF-8
 * using options ‘--no-tests --no-manual --as-cran’
 * checking for file ‘excerptr/DESCRIPTION’ ... OK
 * this is package ‘excerptr’ version ‘1.3.1’
 * package encoding: UTF-8
-* checking CRAN incoming feasibility ... NOTE
+* checking CRAN incoming feasibility ... Note_to_CRAN_maintainers
 Maintainer: ‘Andreas Dominik Cullmann <adc-r@arcor.de>’
-
-Days since last update: 1
 * checking package namespace information ... OK
 * checking package dependencies ... OK
 * checking if this is a source package ... OK
@@ -88,14 +86,8 @@ Days since last update: 1
 * checking re-building of vignette outputs ... OK
 * DONE
 
-Status: 1 NOTE
-See
-for details.
-
+Status: OK
 
 R CMD check results
-0 errors | 0 warnings | 1 note 
-checking CRAN incoming feasibility ... NOTE
-Maintainer: ‘Andreas Dominik Cullmann <adc-r@arcor.de>’
+0 errors | 0 warnings | 0 notes
 
-Days since last update: 1
