@@ -34,14 +34,55 @@ excerptr <- function(file_name, comment_character = "#", magic_character = "%",
              prefix = "", postfix = "", run_pandoc = TRUE,
              compile_latex = FALSE, pandoc_formats = "tex") {
     load_excerpts()
-    status <- rPython::python.call("excerpts", file_name = file_name,
-                                   comment_character = comment_character,
-                                   magic_character = magic_character,
-                                   output_path = output_path,
-                                   allow_pep8 = allow_pep8,
-                                   prefix = prefix, postfix = postfix,
-                                   run_pandoc = run_pandoc,
-                                   compile_latex = compile_latex,
-                                   pandoc_formats = as.list(pandoc_formats))
-    return(status)
+    st <- NA
+    tryCatch(st <- rPython::python.call("excerpts", file_name = file_name,
+                                        comment_character = comment_character,
+                                        magic_character = magic_character,
+                                        output_path = output_path,
+                                        allow_pep8 = allow_pep8,
+                                        prefix = prefix, postfix = postfix,
+                                        run_pandoc = run_pandoc,
+                                        compile_latex = compile_latex,
+                                        pandoc_formats = 
+                                            as.list(pandoc_formats)),
+             error = function(e) {warning(e); return(e)})
+    if (is.na(st)) {
+        is_pandoc_installed <- nchar(Sys.which("pandoc")) > 0 &&
+            nchar(Sys.which("pandoc-citeproc")) > 0
+        if (is_pandoc_installed) {
+            reference <- "1.12.3"
+            version <- strsplit(system2(Sys.which("pandoc"), "--version", 
+                                        stdout = TRUE), split = " ")[[1]][2]
+            is_uptodate <- utils::compareVersion(version, reference) >= 0
+            if (is_uptodate) {
+                if (isTRUE(compile_latex)) warning("Skipping LaTeX compilation")
+                st <- excerptr(file_name = file_name,
+                               comment_character = comment_character,
+                               magic_character = magic_character,
+                               output_path = output_path,
+                               allow_pep8 = allow_pep8,
+                               prefix = prefix, postfix = postfix,
+                               run_pandoc = FALSE,
+                               compile_latex = FALSE,
+                               pandoc_formats = as.list(pandoc_formats))
+                md_file <- file.path(output_path, sub("\\.[rRsS]$", ".md", 
+                                                      basename(file_name)))
+                out_file <- sub("\\.md$", paste0(".", format), md_file)
+                system2(command = basename(Sys.which("pandoc")),
+                        args = c(md_file, "-o",
+                                 out_file))
+                if (! file.exists(out_file)) {
+                    stop("Could not compile ", file_name, ".")
+                } else {
+                    message("Output file is", out_file, ".")
+                }
+
+            } else {
+                stop("pandoc version is less than required version ", reference, ".")
+            }
+        } else {
+            stop("Can not find a pandoc installation.")
+        }
+    }
+    return(st)
 }
