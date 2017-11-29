@@ -4,7 +4,8 @@
 Install rPython-win following 
 [these instructions](https://github.com/cjgb/rPython-win)
 with the current (May 2017) python setup at fvafr. 
-Assuming you have installed R and Rtools from the software shop, you can run:
+Assuming you have installed R, python 3.4 and Rtools from the software shop, 
+you can run:
 
 
 ```
@@ -28,9 +29,11 @@ if (! require("RJSONIO")) install.packages("RJSONIO")
 if (! require("devtools")) install.packages("devtools")
 devtools::install(rpython_path)
 ```
-To date you need to use R 3.2.5 for this to work since our Rtools version is out
-of date and does not work for our current R installation. 
-Run "C:\Program Files\R\R-3.2.5\bin\x64\Rgui.exe" from a command prompt, set the 
-R version used by RStudio to 3.2.5 or 
-navigate to "C:\Program Files\R\R-3.2.5\bin\x64" and start Rgui.exe.
+
+If our Rtools version is out of date (which happens frequently) and does not 
+work for our current R installation, you need to use an old one.
+To use - for example - R Version 3.2.5, 
+ - run "C:\Program Files\R\R-3.2.5\bin\x64\Rgui.exe" from a command prompt, 
+ - set the R version used by RStudio to 3.2.5 or 
+ - navigate to "C:\Program Files\R\R-3.2.5\bin\x64" and start Rgui.exe.
 
