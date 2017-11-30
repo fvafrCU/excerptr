@@ -43,9 +43,9 @@ excerptr <- function(file_name, comment_character = "#", magic_character = "%",
                                         prefix = prefix, postfix = postfix,
                                         run_pandoc = run_pandoc,
                                         compile_latex = compile_latex,
-                                        pandoc_formats = 
+                                        pandoc_formats =
                                             as.list(pandoc_formats)),
-             error = function(e) {warning(e); return(e)})
+             error = function(e) return(e))
     # Usually, the above should do. But I had unreproducible errors reported.
     # Maybe due to stale python installations. However, in these cases
     # excerpts worked, but the pandoc call via python.call failed. So I try to
@@ -55,7 +55,7 @@ excerptr <- function(file_name, comment_character = "#", magic_character = "%",
             nchar(Sys.which("pandoc-citeproc")) > 0
         if (is_pandoc_installed) {
             reference <- "1.12.3"
-            version <- strsplit(system2(Sys.which("pandoc"), "--version", 
+            version <- strsplit(system2(Sys.which("pandoc"), "--version",
                                         stdout = TRUE), split = " ")[[1]][2]
             is_uptodate <- utils::compareVersion(version, reference) >= 0
             if (is_uptodate) {
@@ -69,7 +69,7 @@ excerptr <- function(file_name, comment_character = "#", magic_character = "%",
                                run_pandoc = FALSE,
                                compile_latex = FALSE,
                                pandoc_formats = as.list(pandoc_formats))
-                md_file <- file.path(output_path, sub("\\.[rRsS]$", ".md", 
+                md_file <- file.path(output_path, sub("\\.[rRsS]$", ".md",
                                                       basename(file_name)))
                 out_file <- sub("\\.md$", paste0(".", format), md_file)
                 system2(command = basename(Sys.which("pandoc")),

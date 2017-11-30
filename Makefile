@@ -1,43 +1,35 @@
-# inspired by https://raw.githubusercontent.com/yihui/knitr/master/Makefile
-PKGNAME := $(shell sed -n "s/Package: *\([^ ]*\)/\1/p" DESCRIPTION)
-PKGVERS := $(shell sed -n "s/Version: *\([^ ]*\)/\1/p" DESCRIPTION)
-PKGSRC  := $(shell basename `pwd`)
+# Force posix:
+.POSIX:
 
-temp_file := $(shell tempfile)
-lintr_script := utils/lintr.R
-LOG_DIR := log
-CODES := $(shell find ./codes -type f -name "*.R")
+R = R-devel
+Rscript = Rscript-devel
 
-R := R-devel
-Rscript := Rscript-devel
+PKGNAME = $(shell sed -n "s/Package: *\([^ ]*\)/\1/p" DESCRIPTION)
+PKGVERS = $(shell sed -n "s/Version: *\([^ ]*\)/\1/p" DESCRIPTION)
+PKGSRC  = $(shell pwd)
+R_FILES = $(shell find R/ -type f -name "*.[rR]" -print)
+MAN_FILES = $(shell find man/ -type f -print)
+TESTTHAT_FILES = $(shell find tests/ -type f  -print | grep  'testthat')
+VIGNETTES_FILES = $(shell find vignettes/ -type f -print)
+INST_FILES = $(shell if [ -d inst/ ] ; then find inst/ -type f -print; fi)
+DEPS = $(shell sed -n "s/.*\(\<.*\>\)::.*/\1/p" < Makefile | sort | uniq)
+TEMP_FILE = $(shell tempfile)
+LOG_DIR = log
 
-all: install_bare dev_check dev_test dev_vignettes crancheck utils howto_fva.md
+.PHONY: all
+all: $(LOG_DIR)/install.Rout
 
-# devtools
-dev_all: dev_test dev dev_vignettes
+# devel stuff
+.PHONY: devel
+devel: vignettes build_win release use_dev_version tag_release
 
+.PHONY: tag_release
+tag_release:
+	$(R) --vanilla -e 'packager::git_tag()'
 
-dev: dev_check dev_spell
-
-dev_spell: roxy 
-	${Rscript} --vanilla -e 'spell <- devtools::spell_check(); if (length(spell) > 0) {print(spell); warning("spell check failed")} ' > log/spell.log 2>&1 
-dev_test:
-	rm ${temp_file} || true; \
-	${Rscript} --vanilla -e 'devtools::test()' >  ${temp_file} 2>&1; \
-	sed -n -e '/^DONE.*/q;p' < ${temp_file} | \
-	sed -e "s# /.*\(${PKGNAME}\)# \1#" > ${LOG_DIR}/dev_test.Rout; rm ${temp_file}
-
-dev_check: dev_test README.md
-	rm ${temp_file} || true; \
-		${Rscript} --vanilla -e 'devtools::check(cran = TRUE, check_version = TRUE, args = "--no-tests")' > ${temp_file} 2>&1; \
-		grep -v ".*'/" ${temp_file} | grep -v ".*‘/" > ${LOG_DIR}/dev_check.Rout; rm ${temp_file} ;\
-		grep "checking tests ... SKIPPED" ${LOG_DIR}/dev_check.Rout
-
-dev_vignettes:
-	${Rscript} --vanilla -e 'devtools::build_vignettes()'
-
-dev_win:
-	${Rscript} --vanilla -e 'devtools::build_win()'
+.PHONY: use_dev_version
+use_dev_version:
+	$(Rscript) --vanilla -e 'devtools::use_dev_version()'
 
 .PHONY: release
 release: 
@@ -46,107 +38,103 @@ release:
 	$(R)
 	rm /tmp/rel.R ./.Rprofile
 
+.PHONY: build_win
+build_win:
+	$(Rscript) --vanilla -e 'devtools::build_win()'
 
-dev_release: dev_win
-	echo "${Rscript} --vanilla -e 'devtools::release(check = FALSE)'"
+.PHONY: vignettes
+vignettes: $(R_FILES) $(MAN_FILES) $(VIGNETTES_FILES)
+	$(Rscript) --vanilla -e 'devtools::build_vignettes(); lapply(tools::pkgVignettes(dir = ".")[["docs"]], function(x) knitr::purl(x, output = file.path(".", "inst", "doc", sub("\\.Rmd$$", ".R", basename(x))), documentation = 0))'
 
-dev_devel:
-	${Rscript} --vanilla -e 'devtools::use_dev_version()'
+# install
+.PHONY: install
+install: $(LOG_DIR)/install.Rout
+$(LOG_DIR)/install.Rout: cran-comments.md
+	$(R) --vanilla CMD INSTALL  $(PKGNAME)_$(PKGVERS).tar.gz > $(LOG_DIR)/install.Rout 2>&1 
 
-# R CMD 
-craninstall: crancheck
-	${R} --vanilla CMD INSTALL  ${PKGNAME}_${PKGVERS}.tar.gz
+cran-comments.md: $(LOG_DIR)/check.Rout
+	$(Rscript) --vanilla -e 'packager::provide_cran_comments(check_log = "log/check.Rout", travis_session_info = "travis-cli")' > $(LOG_DIR)/cran_comments.Rout 2>&1 
 
-crancheck: news build 
+.PHONY: check
+check: $(LOG_DIR)/check.Rout
+$(LOG_DIR)/check.Rout: $(PKGNAME)_$(PKGVERS).tar.gz 
 	export _R_CHECK_FORCE_SUGGESTS_=TRUE && \
-		${R} --vanilla CMD check --as-cran ${PKGNAME}_${PKGVERS}.tar.gz && \
-		cp ${PKGNAME}.Rcheck/00check.log log/crancheck.log
+		$(R) --vanilla CMD check --as-cran --run-donttest $(PKGNAME)_$(PKGVERS).tar.gz; \
+		cp $(PKGNAME).Rcheck/00check.log $(LOG_DIR)/check.Rout
 
-install: check 
-	${R} --vanilla CMD INSTALL  ${PKGNAME}_${PKGVERS}.tar.gz && \
-        printf '===== have you run\n\tmake demo && ' && \
-        printf 'make utils\n?!\n' 
+.PHONY: build
+build: $(PKGNAME)_$(PKGVERS).tar.gz 
+$(PKGNAME)_$(PKGVERS).tar.gz: NEWS.md README.md DESCRIPTION LICENSE \
+	$(LOG_DIR)/roxygen2.Rout $(R_FILES) $(MAN_FILES) $(TESTTHAT_FILES) \
+	$(RUNIT_FILES) $(VIGNETTES_FILES) $(INST_FILES) $(LOG_DIR)/spell.Rout \
+	$(LOG_DIR)/check_codetags.Rout $(LOG_DIR)/news.Rout \
+	$(LOG_DIR)/testthat.Rout $(LOG_DIR)/covr.Rout $(LOG_DIR)/cleanr.Rout \
+	$(LOG_DIR)/lintr.Rout
+	$(R) --vanilla CMD build $(PKGSRC)
 
-install_bare: build_bare 
-	${R} --vanilla CMD INSTALL  ${PKGNAME}_${PKGVERS}.tar.gz 
+README.md: README.Rmd R/$(PKGNAME)-package.R
+	$(Rscript) --vanilla -e 'knitr::knit("README.Rmd")'
 
-check_bare: build_bare 
-	export _R_CHECK_FORCE_SUGGESTS_=TRUE && \
-		_R_CHECK_CRAN_INCOMING_USE_ASPELL_=TRUE && \
-        ${R} --vanilla CMD check --no-examples ${PKGNAME}_${PKGVERS}.tar.gz && \
-        printf '===== run\n\tmake install\n!!\n'
+$(LOG_DIR)/roxygen2.Rout: $(LOG_DIR) $(R_FILES)
+	$(R) --vanilla -e 'roxygen2::roxygenize(".")' > $(LOG_DIR)/roxygen2.Rout 2>&1 
 
-check: build 
-	export _R_CHECK_FORCE_SUGGESTS_=TRUE && \
-        ${R} --vanilla CMD check ${PKGNAME}_${PKGVERS}.tar.gz && \
-		cp ${PKGNAME}.Rcheck/00check.log log/check.log && \
-        printf '===== run\n\tmake install\n!!\n'
+$(LOG_DIR): 
+	$(Rscript) --vanilla -e 'packager::use_directory("log", ignore = TRUE)'
 
-build_bare:
-	${R} --vanilla CMD build ../${PKGSRC}
-
-build: roxy README.md
-	${R} --vanilla CMD build ../${PKGSRC}
-
-direct_check:  
-	${R} --vanilla CMD check ../${PKGSRC} ## check without build -- not recommended
-
-
-.PHONY: roxy
-roxy:
-	${R} --vanilla -e 'roxygen2::roxygenize(".")'
-
-.PHONY: news 
-news: DESCRIPTION NEWS.md
-	${Rscript} --vanilla -e 'source(file.path("utils", "checks.R")); check_news()'
+.PHONY: dependencies
+dependencies: $(LOG_DIR)/dependencies.Rout
+$(LOG_DIR)/dependencies.Rout: Makefile $(LOG_DIR)
+	$(Rscript) --vanilla -e 'deps <- unlist(strsplit("$(DEPS)", split = " ")); for (dep in deps) if (! require(dep, character.only = TRUE)) install.packages(dep, repos = "https://cran.uni-muenster.de/")' > $(LOG_DIR)/dependencies.Rout 2>&1 
 
 # utils
-.PHONY: utils
-utils: cleanr lintr coverage
-
-.PHONY: coverage
-coverage:
-	${Rscript} --vanilla -e 'co <- covr::package_coverage(path = ".", function_exclusions = "\\.onLoad"); covr::zero_coverage(co); print(co)' > ${LOG_DIR}/covr.Rout 2>&1 
-
-
-.PHONY: cleanr
-cleanr:
-	$(Rscript) --vanilla -e 'tryCatch(cleanr::check_directory("R/", check_return = FALSE), cleanr = function(e) print(e))' > $(LOG_DIR)/cleanr.Rout 2>&1 
-
-.PHONY: lintr
-lintr:
-	rm inst/doc/*.R || true
-	${Rscript} --vanilla ${lintr_script} > ${LOG_DIR}/lintr.Rout 2>&1 
-
+utils: clean remove viz
 .PHONY: clean
 clean:
-	rm -rf ${PKGNAME}.Rcheck
+	rm -rf $(PKGNAME).Rcheck
 
 .PHONY: remove
 remove:
-	 ${R} --vanilla CMD REMOVE  ${PKGNAME}
+	 $(R) --vanilla CMD REMOVE  $(PKGNAME)
 
-# specifics
-cran-comments.md: log/dev_check.Rout utils/cran_comments.R
-	${Rscript} --vanilla -e 'source("./utils/cran_comments.R"); provide_cran_comments()' > log/cran_comments.Rout 2>&1 
+.PHONY: viz
+viz: $(LOG_DIR)/make.png 
+$(LOG_DIR)/make.png: $(LOG_DIR) Makefile $(R_FILES) $(MAN_FILES) \
+	$(TESTTHAT_FILES) $(RUNIT_FILES) $(VIGNETTES_FILES) $(INST_FILES)
+	make -Bnd all devel utils| make2graph | dot -Tpng -o $(LOG_DIR)/make.png
 
-README.md: README.Rmd install_bare ${CODES}
-	${Rscript} --vanilla -e 'knitr::knit("README.Rmd")'
+# checks
+.PHONY: cleanr
+cleanr: $(LOG_DIR)/cleanr.Rout 
+$(LOG_DIR)/cleanr.Rout: $(LOG_DIR) $(R_FILES) $(LOG_DIR)/dependencies.Rout
+	$(Rscript) --vanilla -e 'tryCatch(cleanr::check_directory("R/", check_return = FALSE), cleanr = function(e) print(e))' > $(LOG_DIR)/cleanr.Rout 2>&1 
 
-howto_fva.md: howto_fva.Rmd ${CODES}
-	${Rscript} --vanilla -e 'knitr::knit("howto_fva.Rmd")'
+.PHONY: lintr
+lintr: $(LOG_DIR)/lintr.Rout 
+$(LOG_DIR)/lintr.Rout: $(LOG_DIR) $(R_FILES) $(VIGNETTES_FILES) $(LOG_DIR)/dependencies.Rout
+	$(Rscript) --vanilla -e 'lintr::lint_package(path = ".")' > $(LOG_DIR)/lintr.Rout 2>&1 
 
+.PHONY: coverage
+coverage: $(LOG_DIR)/covr.Rout 
+$(LOG_DIR)/covr.Rout: $(LOG_DIR) $(R_FILES) $(TESTTHAT_FILES) $(RUNIT_FILES) $(INST_FILES) $(LOG_DIR)/dependencies.Rout
+	$(Rscript) --vanilla -e 'co <- covr::package_coverage(path = ".", function_exclusions = "\\.onLoad"); covr::zero_coverage(co); print(co)' > $(LOG_DIR)/covr.Rout 2>&1 
 
-##% git tag
-.PHONY: tag
-make tag:
-	./utils/tag.cl
+.PHONY: testthat
+testthat: $(LOG_DIR)/testthat.Rout 
+$(LOG_DIR)/testthat.Rout: $(LOG_DIR) $(R_FILES) $(TESTTHAT_FILES) $(INST_FILES) $(LOG_DIR)/dependencies.Rout
+	$(Rscript) --vanilla -e 'devtools::test()' >  $(LOG_DIR)/testthat.Rout 2>&1
 
-.PHONY: dependencies
-dependencies:
-	${Rscript} --vanilla -e 'deps <-c("rprojroot", "covr", "knitr", "devtools", "rmarkdown", "RUnit", "checkmate", "roxygen2", "lintr", "hunspell"); for (dep in deps) {if (! require(dep, character.only = TRUE)) install.packages(dep, repos = "https://cran.uni-muenster.de/")}'
+.PHONY: news
+news: $(LOG_DIR)/news.Rout
+$(LOG_DIR)/news.Rout: $(LOG_DIR) DESCRIPTION NEWS.md $(LOG_DIR)/dependencies.Rout
+	$(Rscript) --vanilla -e 'packager::check_news()' > $(LOG_DIR)/news.Rout 2>&1 
 
-.PHONY: dependencies_forced
-dependencies_forced:
-	${Rscript} --vanilla -e 'deps <-c("rprojroot", "covr", "knitr", "devtools", "rmarkdown", "RUnit", "checkmate", "roxygen2", "lintr", "hunspell"); for (dep in deps) install.packages(dep, repos = "https://cran.uni-muenster.de/")'
+.PHONY: codetags
+codetags: $(LOG_DIR)/check_codetags.Rout 
+$(LOG_DIR)/check_codetags.Rout: $(LOG_DIR) $(LOG_DIR)/dependencies.Rout
+	$(Rscript) --vanilla -e 'packager::check_codetags()' > $(LOG_DIR)/check_codetags.Rout 2>&1 
+
+.PHONY: spell
+spell: $(LOG_DIR)/spell.Rout
+$(LOG_DIR)/spell.Rout: $(LOG_DIR) DESCRIPTION $(LOG_DIR)/roxygen2.Rout $(MAN_FILES) $(LOG_DIR)/dependencies.Rout
+	$(Rscript) --vanilla -e 'spell <- devtools::spell_check(); if (length(spell) > 0) {print(spell); warning("spell check failed")} ' > $(LOG_DIR)/spell.Rout 2>&1 
 
