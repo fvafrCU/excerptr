@@ -51,7 +51,7 @@ code > span.er { color: #ff0000; font-weight: bold; }
 
 <h1 class="title toc-ignore">An Introduction to <em>excerptr</em></h1>
 <h4 class="author"><em>Andreas Dominik Cullmann</em></h4>
-<h4 class="date"><em>2017-06-21, 11:56:51</em></h4>
+<h4 class="date"><em>2017-11-30, 11:19:09</em></h4>
 
 
 
@@ -137,7 +137,8 @@ if (is_pandoc_version_sufficient)
 &lt;p&gt;Another markdown paragraph.&lt;/p&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
-<p>You can see this html file <a href="http://htmlpreview.github.io/?https://github.com/fvafrCU/excerptr/blob/master/inst/tests/files/some_file.html">here</a>.</p>
+<p>You can see this html file <a href="http://htmlpreview.github.io/?https://github.com/fvafrCU/excerptr/blob/master/inst/tests/files/some_file.html">here</a> or browse it via</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">browseURL</span>(<span class="kw">file.path</span>(<span class="kw">tempdir</span>(), <span class="kw">sub</span>(<span class="st">&quot;</span><span class="ch">\\</span><span class="st">.R$&quot;</span>, <span class="st">&quot;.html&quot;</span>, <span class="kw">basename</span>(path))))</code></pre>
 
 
 
