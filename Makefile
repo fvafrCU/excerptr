@@ -39,6 +39,14 @@ dev_vignettes:
 dev_win:
 	${Rscript} --vanilla -e 'devtools::build_win()'
 
+.PHONY: release
+release: 
+	echo "library('utils'); devtools::release(check = FALSE)" > /tmp/rel.R
+	echo "source('/tmp/rel.R')" > ./.Rprofile
+	$(R)
+	rm /tmp/rel.R ./.Rprofile
+
+
 dev_release: dev_win
 	echo "${Rscript} --vanilla -e 'devtools::release(check = FALSE)'"
 
