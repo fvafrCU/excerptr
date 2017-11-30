@@ -103,7 +103,7 @@ coverage:
 
 .PHONY: cleanr
 cleanr:
-	${Rscript} --vanilla -e 'cleanr::check_directory("R/", max_num_arguments = 10, check_return = FALSE)'
+	$(Rscript) --vanilla -e 'tryCatch(cleanr::check_directory("R/", check_return = FALSE), cleanr = function(e) print(e))' > $(LOG_DIR)/cleanr.Rout 2>&1 
 
 .PHONY: lintr
 lintr:

@@ -1,4 +1,4 @@
-# excerptr 1.3.1.9000
+# excerptr 1.4.0
 
 * Handle exception from pandoc call via python using an R system call to pandoc.
 

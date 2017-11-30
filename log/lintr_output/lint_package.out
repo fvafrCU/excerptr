@@ -1,1 +1,5 @@
-Congratulations: no lints found.
+R/excerptr.R 46 57 style Trailing whitespace is superfluous.                                         pandoc_formats =  list(c(57, 57)) trailing_whitespace_linter
+R/excerptr.R 48 34 style Opening curly braces should never go on their own line and should always be followed by a new line.              error = function(e) {warning(e); return(e)}) NULL open_curly_linter
+R/excerptr.R 48 56 style Closing curly-braces should always be on their own line, unless it's followed by an else.              error = function(e) {warning(e); return(e)}) NULL closed_curly_linter
+R/excerptr.R 58 74 style Trailing whitespace is superfluous.             version <- strsplit(system2(Sys.which("pandoc"), "--version",  list(c(74, 74)) trailing_whitespace_linter
+R/excerptr.R 72 75 style Trailing whitespace is superfluous.                 md_file <- file.path(output_path, sub("\\.[rRsS]$", ".md",  list(c(75, 75)) trailing_whitespace_linter

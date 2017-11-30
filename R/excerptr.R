@@ -46,6 +46,10 @@ excerptr <- function(file_name, comment_character = "#", magic_character = "%",
                                         pandoc_formats = 
                                             as.list(pandoc_formats)),
              error = function(e) {warning(e); return(e)})
+    # Usually, the above should do. But I had unreproducible errors reported.
+    # Maybe due to stale python installations. However, in these cases
+    # excerpts worked, but the pandoc call via python.call failed. So I try to
+    # handle exceptions:
     if (is.na(st)) {
         is_pandoc_installed <- nchar(Sys.which("pandoc")) > 0 &&
             nchar(Sys.which("pandoc-citeproc")) > 0
@@ -78,7 +82,8 @@ excerptr <- function(file_name, comment_character = "#", magic_character = "%",
                 }
 
             } else {
-                stop("pandoc version is less than required version ", reference, ".")
+                stop("pandoc version ", version,
+                     " is less than required version ", reference, ".")
             }
         } else {
             stop("Can not find a pandoc installation.")

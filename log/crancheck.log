@@ -1,10 +1,10 @@
-* using log directory ‘/home/nik/git/cyclops/fvafrcu/excerptr/excerptr.Rcheck’
-* using R Under development (unstable) (2017-07-07 r72896)
+* using log directory ‘/home/qwer/git/cyclops/fvafrcu/excerptr/excerptr.Rcheck’
+* using R Under development (unstable) (2017-11-07 r73685)
 * using platform: x86_64-pc-linux-gnu (64-bit)
 * using session charset: UTF-8
 * using option ‘--as-cran’
 * checking for file ‘excerptr/DESCRIPTION’ ... OK
-* this is package ‘excerptr’ version ‘1.3.1’
+* this is package ‘excerptr’ version ‘1.4.0’
 * package encoding: UTF-8
 * checking CRAN incoming feasibility ... Note_to_CRAN_maintainers
 Maintainer: ‘Andreas Dominik Cullmann <adc-r@arcor.de>’
