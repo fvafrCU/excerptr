@@ -47,7 +47,14 @@ You probably want to have [pandoc](https://www.pandoc.org/) and a TeX-System suc
 
 ### Unix
 Install [the rPython package](https://cran.r-project.org/package=rPython), see 
-file [INSTALL](https://cran.r-project.org/package=rPython/INSTALL) there,
+file [INSTALL](https://cran.r-project.org/package=rPython/INSTALL) there, or use the following code:
+
+```r
+download.file("https://raw.githubusercontent.com/fvafrCU/cuutils/master/R/install_cran.R", 
+              tmpf <- tempfile())
+source(tmpf)
+install_cran("rPython")
+```
 then install excerptr from [CRAN](https://cran.r-project.org/package=excerptr)
 
 ```r
@@ -55,38 +62,23 @@ install.packages("excerptr")
 ```
 
 ### Windows
-
-#### rPython-win
 Install [rPython-win](https://github.com/cjgb/rPython-win)
 (following the instructions at 
 [https://cran.r-project.org/package=rPython/INSTALL](https://cran.r-project.org/package=rPython/INSTALL)
-).
-
-##### rPython-win for Folks at [fvafr](http://www.fva-bw.de/)
-Should you happen to be one of my colleagues at  [fvafr](http://www.fva-bw.de/), please follow 
-[these instructions](https://github.com/fvafrCU/excerptr/blob/master/howto_fva.md).
-
-#### excerptr
-Then get the excerptr source
-from [github](https://github.com/fvafrCU/excerptr), edit the file DESCRIPTION and remove the line reading
-    OS_type: unix
-and install the package manually:
-
+), or use the following code:
+V```{r, eval = FALSE, results = "hide"}
+download.file("https://raw.githubusercontent.com/fvafrCU/cuutils/master/R/install_cran.R", 
+              tmpf <- tempfile())
+source(tmpf)
+install_cran("rPython")
 ```
-local_directory <- tempdir()
-local_path <- file.path(local_directory, "master.zip")
-url <- "https://github.com/fvafrCU/excerptr/archive/master.zip"
-download.file(url, local_path, method = "wininet", mode = "wb")
-unzip(local_path, exdir = local_directory)
-excerptr_path <- file.path(local_directory, "excerptr-master")
-description <- file.path(excerptr_path, "DESCRIPTION")
-my_r_version <- paste(R.Version()[["major"]], R.Version()[["minor"]], sep = ".")
-d <- readLines(description)
-d1 <- d[-grep("^OS_type:", d)]
-d1[grep("^ *R \\(", d1)] <- paste0("    R (>= ", my_r_version,")")
-writeLines(d1, description)
-if (! require("rprojroot")) install.packages("rprojroot")
-install.packages(excerptr_path, repos = NULL, type = "source")
+Then install excerptr:
+V```{r, eval = FALSE, results = "hide"}
+download.file("https://raw.githubusercontent.com/fvafrCU/cuutils/master/R/install_cran.R", 
+              tmpf <- tempfile())
+source(tmpf)
+install_cran("excerptr")
 ```
+
 
 
