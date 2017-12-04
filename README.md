@@ -66,7 +66,8 @@ Install [rPython-win](https://github.com/cjgb/rPython-win)
 (following the instructions at 
 [https://cran.r-project.org/package=rPython/INSTALL](https://cran.r-project.org/package=rPython/INSTALL)
 ), or use the following code:
-V```{r, eval = FALSE, results = "hide"}
+
+```r
 download.file("https://raw.githubusercontent.com/fvafrCU/cuutils/master/R/install_cran.R", 
               tmpf <- tempfile())
 source(tmpf)
