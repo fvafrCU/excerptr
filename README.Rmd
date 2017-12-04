@@ -30,7 +30,7 @@ help("excerptr-package", package = "excerptr")
 
 ## System Requirements
 excerptr needs [python3](https://www.python.org/download/releases/3.0/),
-You probably want to have [pandoc](https://www.pandoc.org/) and a TeX-System such as 
+you probably want to have [pandoc](https://www.pandoc.org/) and a TeX-System such as 
 [TeXLive](https://www.tug.org/texlive/) installed.
 
 ## Installation
@@ -61,7 +61,7 @@ source(tmpf)
 install_cran("rPython")
 ```
 Then install excerptr:
-V```{r, eval = FALSE, results = "hide"}
+```{r, eval = FALSE, results = "hide"}
 download.file("https://raw.githubusercontent.com/fvafrCU/cuutils/master/R/install_cran.R", 
               tmpf <- tempfile())
 source(tmpf)
