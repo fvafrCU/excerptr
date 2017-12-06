@@ -3,26 +3,29 @@ Installation
 
 Unix
 ----
-Install `the rPython package <https://cran.r-project.org/package=rPython>`_, see 
-file `INSTALL <https://cran.r-project.org/package=rPython/INSTALL>`_ there.
+Install `the rPython package <https://cran.r-project.org/package=rPython>`_, 
+see file `INSTALL <https://cran.r-project.org/package=rPython/INSTALL>`_ there.
 
-Then install excerptr from `CRAN <https://cran.r-project.org/package=excerptr>`_
-.. code::
+Then install *excerptr* from 
+`CRAN <https://cran.r-project.org/package=excerptr>`_:
+
+.. code:: R
+
     install.packages("excerptr")
 
 Windows
 -------
-excerptr is a unix-only package since one of it's dependencies, rPython, is.
-Since rPython has a non-CRAN work around - rPython-win -, and the excerptr code
+*excerptr* is a unix-only package since one of it's dependencies, *rPython*, is.
+Since *rPython* has a non-CRAN work around - *rPython-win* -, and the *excerptr* code
 itself does not make any asumptions about your operating system, you can use
-excerptr on windows with rPython-win.
+*excerptr* on windows with *rPython-win*.
 So:
 
 Install `rPython-win <https://github.com/cjgb/rPython-win>`_
 (follow the instructions at 
-`https://cran.r-project.org/web/packages/rPython/INSTALL <https://cran.r-project.org/package=rPython/INSTALL>`_
+`https://cran.r-project.org/package=rPython/INSTALL <https://cran.r-project.org/package=rPython/INSTALL>`_
 ).
 
 Then follow the instructions given at
 `excerptr on github <https://github.com/fvafrCU/excerptr>`_ (you basically
-remove the restriction to unix from excerptr's DESCRIPTION).
+remove the restriction to unix from *excerptr*'s DESCRIPTION).
