@@ -9,7 +9,7 @@ Description: This is an R interface to the
     python package 'excerpts' (<https://pypi.python.org/pypi/excerpts>).
 URL: https://github.com/fvafrCU/excerptr
 Depends:
-    R (>= 3.3.2)
+    R (>= 3.3.0)
 Imports:
     utils,
     rPython,
