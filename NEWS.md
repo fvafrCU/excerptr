@@ -1,3 +1,7 @@
+# excerptr 1.4.1
+
+* Declared imports from devtools in tests as requested by CRAN on Thu, 17 May 2018 10:28:07 +0200.
+
 # excerptr 1.4.0
 
 * Handle exception from pandoc call via rPython using an R system call to pandoc.
