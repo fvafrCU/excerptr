@@ -1,2 +1,2 @@
-<cleanr in cleanr::check_directory("R/", check_return = FALSE): R/   /home/qwer/git/cyclops/fvafrcu/excerptr/R/excerptr.R  excerptr  found 10 arguments, max_num_arguments was 5
+<cleanr in cleanr::check_directory("R/", check_return = FALSE): R/   /home/nik/git/cs/fvafrcu/excerptr/R/excerptr.R  excerptr  found 10 arguments, max_num_arguments was 5
 excerptr  found 53 lines of code, max_lines_of_code was 50>
