@@ -1,1 +1,0 @@
-exclusions: list("inst/tests/files/some_file.R", "inst/excerpts/tests/files/glm.R")
